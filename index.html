@@ -3,125 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ADSVERO | Dashboard</title>
+<title>Dashboard | ADSVERO</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
 body{
   background:#f2f2f2;
   padding-bottom:80px;
 }
 
-/* 🔐 LOGIN CHECK */
-.hidden{display:none}
+/* 🔐 LOGIN CHECK FIX */
+.hidden{display:none;}
 
 /* HEADER */
 .header{
   background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
   color:#fff;
-  padding:14px;
-  border-bottom-left-radius:24px;
-  border-bottom-right-radius:24px;
+  padding:16px;
+  border-bottom-left-radius:22px;
+  border-bottom-right-radius:22px;
 }
+
 .header-top{
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
-.header-top img{
-  height:28px;
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-weight:700;
 }
+
+.logo img{width:28px;}
+
 .balance{
   background:rgba(255,255,255,.25);
-  padding:6px 12px;
-  border-radius:18px;
+  padding:6px 14px;
+  border-radius:20px;
   font-weight:700;
 }
 
 /* BANNER */
 .banner{
-  margin-top:14px;
-  background:linear-gradient(135deg,#ff4b4b,#ff8a6a);
-  border-radius:20px;
+  background:#ff4a4a;
+  margin:16px;
+  border-radius:18px;
   padding:16px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-}
-.banner-text h2{
-  font-size:20px;
-  margin-bottom:6px;
-}
-.banner-text p{
-  font-size:13px;
-  opacity:.9;
-}
-.banner img{
-  width:110px;
+  align-items:center;
+  color:#fff;
 }
 
-/* ICON GRID */
-.icon-grid{
+.banner img{
+  width:120px;
+  border-radius:12px;
+}
+
+/* ICON MENU */
+.menu{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:12px;
-  padding:16px;
+  margin:0 16px;
 }
-.icon-card{
+
+.menu-item{
   background:#fff;
   border-radius:16px;
   padding:12px;
   text-align:center;
   box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-.icon-card img{
-  width:40px;
-  margin-bottom:6px;
-}
-.icon-card p{
-  font-size:12px;
-  font-weight:700;
+  font-size:13px;
+  font-weight:600;
 }
 
-/* TASK SECTION */
+.menu-item img{
+  width:36px;
+  margin-bottom:6px;
+}
+
+/* TASKS */
 .section{
-  padding:0 16px;
+  margin:16px;
 }
+
 .section h3{
-  font-size:18px;
-}
-.section span{
-  color:#777;
-  font-size:13px;
+  margin-bottom:6px;
 }
 
 .task{
   background:#fff;
   border-radius:16px;
   padding:14px;
-  margin-top:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,.1);
-}
-.task-row{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  margin-bottom:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
-.task small{
-  color:#777;
-}
-.start-btn{
+
+.task small{color:#777;}
+
+.start{
   background:#ffc107;
   border:none;
-  padding:10px 16px;
+  padding:8px 18px;
   border-radius:12px;
   font-weight:700;
 }
-.done-btn{
+
+.done{
   background:#28a745;
   color:#fff;
   border:none;
-  padding:10px 16px;
+  padding:8px 18px;
   border-radius:12px;
   font-weight:700;
 }
@@ -134,120 +139,120 @@ body{
   width:100%;
   height:70px;
   background:#fff;
+  border-top:1px solid #ddd;
   display:flex;
   justify-content:space-around;
   align-items:center;
-  border-top:1px solid #ddd;
 }
+
 .nav-item{
   text-align:center;
   font-size:12px;
   color:#999;
-  font-weight:700;
 }
-.nav-item.active{
-  color:#ff3b3b;
-}
+
 .nav-item img{
   width:26px;
   display:block;
   margin:0 auto 4px;
+}
+
+.active{
+  color:#ff3b3b;
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🔐 LOGIN CHECK -->
 <script>
-/* 🔐 LOGIN GUARD */
-if(localStorage.getItem("isLoggedIn")!=="true"){
-  window.location.href="login.html";
+if(localStorage.getItem("loggedIn") !== "true"){
+  window.location.href = "login.html";
 }
 </script>
 
 <!-- HEADER -->
 <div class="header">
   <div class="header-top">
-    <img src="Image/logo.png">
-    <div class="balance">₹ <span id="wallet">0.00</span></div>
-  </div>
-
-  <div class="banner">
-    <div class="banner-text">
-      <h2>Watch Ads & Earn Rewards!</h2>
-      <p>Complete Daily Tasks & Get Paid</p>
+    <div class="logo">
+      <img src="Image/logo.png">
+      ADSVERO
     </div>
-    <img src="Image/Banner.png">
+    <div class="balance">₹ 0.00</div>
   </div>
 </div>
 
-<!-- ICON GRID -->
-<div class="icon-grid">
-  <div class="icon-card">
+<!-- BANNER -->
+<div class="banner">
+  <div>
+    <h2>Watch Ads & Earn Rewards!</h2>
+    <p>Complete daily tasks & get paid</p>
+  </div>
+  <img src="Image/Banner.png">
+</div>
+
+<!-- MENU -->
+<div class="menu">
+  <div class="menu-item">
     <img src="Image/Watch.png">
-    <p>Watch Ads</p>
+    Watch Ads
   </div>
-  <div class="icon-card">
+  <div class="menu-item">
     <img src="Image/Tasks.png">
-    <p>Daily Tasks</p>
+    Daily Tasks
   </div>
-  <div class="icon-card">
+  <div class="menu-item">
     <img src="Image/Rewards.png">
-    <p>Rewards</p>
+    Rewards
   </div>
-  <div class="icon-card">
+  <div class="menu-item">
     <img src="Image/Withdraw.png">
-    <p>Withdraw</p>
+    Withdraw
   </div>
 </div>
 
 <!-- TASKS -->
 <div class="section">
   <h3>Today's Tasks</h3>
-  <span>Complete the ads & earn rewards</span>
+  <p>Complete the ads & earn rewards</p>
 
   <div class="task">
-    <div class="task-row">
-      <div>
-        <b>Ad Task 1</b><br>
-        <small>Watch Video (30 sec)</small>
-      </div>
-      <button class="start-btn">START</button>
+    <div>
+      <b>Ad Task 1</b><br>
+      <small>Watch Video (30 sec)</small>
     </div>
+    <button class="start">START</button>
   </div>
 
   <div class="task">
-    <div class="task-row">
-      <div>
-        <b>Ad Task 2</b><br>
-        <small>Completed</small>
-      </div>
-      <button class="done-btn">DONE</button>
+    <div>
+      <b>Ad Task 2</b><br>
+      <small>Completed</small>
     </div>
+    <button class="done">DONE</button>
   </div>
 </div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <div class="nav-item active">
-    <img src="Image/Home.png">Home
+    <img src="Image/Home.png">
+    Home
   </div>
   <div class="nav-item">
-    <img src="Image/Tasks.png">Tasks
+    <img src="Image/Tasks.png">
+    Tasks
   </div>
   <div class="nav-item">
-    <img src="Image/Wallet.png">Wallet
+    <img src="Image/Wallet.png">
+    Wallet
   </div>
   <div class="nav-item">
-    <img src="Image/Name.png">Account
+    <img src="Image/Name.png">
+    Account
   </div>
 </div>
 
-<script>
-/* 💰 DEMO WALLET */
-document.getElementById("wallet").innerText =
-  localStorage.getItem("wallet") || "0.00";
-</script>
-
 </body>
-</html>
+    </html>
