@@ -28,7 +28,7 @@ body{
 /* ===== HEADER ===== */
 .header{
   background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
-  padding:18px 0 18px;
+  padding:18px 0 10px;   /* नीचे space कम किया */
   color:#fff;
   border-bottom-left-radius:32px;
   border-bottom-right-radius:32px;
@@ -49,8 +49,8 @@ body{
   font-size:20px;
 }
 
-/* 👉 LOGO SIZE BADA KIYA 👇 */
-.brand img{ height:36px; }  /* pehle 26px tha */
+/* Logo size (same जैसा तुम चाहते हो) */
+.brand img{ height:36px; }
 
 .wallet-badge{
   background:rgba(255,255,255,.25);
@@ -59,11 +59,12 @@ body{
   font-weight:700;
 }
 
-/* ===== FULL WIDTH BANNER ===== */
+/* ===== BANNER (RED BACKGROUND REMOVED) ===== */
 .banner{
-  margin-top:10px;
+  margin-top:8px;
   width:100%;
   height:160px;
+  background:transparent;   /* 👉 RED हटाया */
 }
 
 .banner img{
@@ -73,22 +74,22 @@ body{
   border-radius:0;
 }
 
-/* ===== 4 SQUARE BUTTONS (SMALLER + PERFECT SQUARE) ===== */
+/* ===== 4 BUTTONS (SMALLER + SQUARE) ===== */
 .menu{
-  margin:12px 10px;
+  margin:10px 8px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:10px;
+  gap:8px;      /* gap कम किया */
 }
 
-/* 👉 BUTTON SIZE HALKA CHHOTA + SQUARE FIX 👇 */
+/* Buttons अब और छोटे + square */
 .menu-item{
-  border-radius:16px;
-  padding:10px 6px;        /* padding thodi kam */
+  border-radius:14px;
+  padding:8px 6px;        /* padding कम */
   text-align:center;
-  box-shadow:0 10px 22px rgba(0,0,0,.12);
+  box-shadow:0 8px 18px rgba(0,0,0,.12);
   color:white;
-  aspect-ratio: 1 / 1;     /* PERFECT SQUARE */
+  aspect-ratio: 1 / 1;     /* perfect square */
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -102,19 +103,19 @@ body{
 .menu-item.withdraw{ background:#f2a60c; }
 
 .menu-item img{
-  width:36px;   /* halka chhota */
-  height:36px;
-  margin-bottom:6px;
+  width:32px;   /* और छोटा */
+  height:32px;
+  margin-bottom:4px;
 }
 
 .menu-item span{
-  font-size:13px;
+  font-size:12px;
   font-weight:700;
 }
 
 /* ===== TASK SECTION ===== */
 .section{
-  padding:16px;
+  padding:14px;
 }
 
 .section h3{
@@ -127,35 +128,7 @@ body{
   margin-bottom:12px;
 }
 
-.card{
-  background:#fff;
-  border-radius:18px;
-  padding:14px;
-  margin-bottom:12px;
-  box-shadow:0 10px 22px rgba(0,0,0,.12);
-}
-
-.task-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.task-title{ font-weight:700; }
-
-.task-sub{
-  color:#777;
-  font-size:14px;
-  margin-top:4px;
-}
-
-.btn-start{
-  background:#ffc107;
-  border:none;
-  border-radius:14px;
-  padding:10px 18px;
-  font-weight:700;
-}
+/* 👉 AD TASK 1 COMPLETELY REMOVED — कोई card नहीं रखा */
 
 /* ===== BOTTOM NAV ===== */
 .bottom-nav{
@@ -204,12 +177,13 @@ body{
     </div>
   </div>
 
+  <!-- Banner without red background -->
   <div class="banner">
     <img src="Image/Banner.png">
   </div>
 </div>
 
-<!-- 4 PERFECT SQUARE BUTTONS -->
+<!-- 4 SMALL SQUARE BUTTONS -->
 <div class="menu">
   <div class="menu-item watch">
     <img src="Image/Watch.png">
@@ -232,21 +206,10 @@ body{
   </div>
 </div>
 
-<!-- TASK SECTION (ONLY TASK 1 LEFT) -->
+<!-- TASK TITLE ONLY (NO CARDS) -->
 <div class="section">
   <h3>Today’s Tasks</h3>
   <p>Complete the ads & earn rewards</p>
-
-  <div class="card">
-    <div class="task-row">
-      <div>
-        <div class="task-title">Ad Task 1</div>
-        <div class="task-sub">Watch Video (30 sec)</div>
-      </div>
-      <button class="btn-start">START</button>
-    </div>
-  </div>
-
 </div>
 
 </div>
