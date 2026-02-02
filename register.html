@@ -6,234 +6,104 @@
 <title>Register | ADSVERO</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 body{
   min-height:100vh;
   background:#f2f2f2;
   display:flex;
-  flex-direction:column;
+  justify-content:center;
   align-items:center;
-  padding-bottom:80px;
-  position:relative;
+  padding-bottom:90px;
 }
-
-/* 🔥 FIXED BACKGROUND */
 body::before{
   content:"";
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:260px;
+  top:0;left:0;
+  width:100%;height:260px;
   background:url("Image/Background.png") no-repeat center top;
   background-size:cover;
   z-index:-1;
 }
+.logo{position:fixed;top:22px;left:20px;}
+.logo img{height:45px;}
 
-/* LOGO */
-/* LOGO FIX */
-.logo{
-  width:100%;
-  padding:20px 20px 0 20px;
-  display:flex;
-  justify-content:flex-start; /* LEFT */
-}
-
-.logo img{
-  width:180px;   /* BIG LOGO */
-}
-/* CARD */
 .card{
-  margin-top:26px;
   width:90%;
   max-width:420px;
   background:#fff;
-  border-radius:22px;
+  border-radius:24px;
   padding:26px 18px;
   box-shadow:0 18px 40px rgba(0,0,0,.15);
-  position:relative;
 }
-
-/* TITLE */
-.card h2{
-  text-align:center;
-  font-size:22px;
-  margin-bottom:6px;
-}
-.card p{
-  text-align:center;
-  font-size:13px;
-  color:#777;
-  margin-bottom:18px;
-}
-
-/* INPUT */
 .input-box{
   display:flex;
   align-items:center;
   background:#f5f5f5;
-  border-radius:14px;
+  border-radius:16px;
   padding:14px;
   margin-bottom:14px;
 }
-.input-box img{
-  width:22px;
-  margin-right:10px;
-  opacity:.7;
-}
-.input-box input{
-  border:none;
-  outline:none;
-  background:transparent;
-  width:100%;
-  font-size:14px;
-}
-
-/* REGISTER BUTTON */
+.input-box img{width:22px;margin-right:10px;opacity:.7;}
+.input-box input{border:none;outline:none;background:transparent;width:100%;}
 .btn{
-  margin-top:10px;
   width:100%;
-  height:52px;
   border:none;
   border-radius:30px;
+  padding:16px;
   background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
   color:#fff;
   font-size:18px;
   font-weight:700;
-  box-shadow:0 10px 22px rgba(255,60,60,.45);
 }
-
-/* LOGIN TEXT */
-.login-text{
-  margin-top:14px;
-  text-align:center;
-  font-size:14px;
-}
-.login-text span{
-  color:#ff3b3b;
-  font-weight:700;
-}
-
-/* 🔥 BOTTOM NAV FIX */
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:70px;
-  background:#fff;
-  border-top:1px solid #ddd;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-}
-
-.nav-item{
-  text-align:center;
-  font-size:12px;
-  color:#999 !important;   /* 🔥 FORCE GRAY */
-  text-decoration:none;
-  font-weight:700;
-}
-.nav-item img{
-  width:26px;
-  display:block;
-  margin:0 auto 4px;
-}
+.login-text{text-align:center;margin-top:16px;font-size:14px;}
+.login-text span{color:#ff3b3b;font-weight:700;cursor:pointer;}
 </style>
 </head>
 
 <body>
 
-<!-- LOGO -->
-<div class="logo">
-  <img src="Image/logo.png" alt="ADSVERO">
-</div>
+<div class="logo"><img src="Image/logo.png"></div>
 
-<!-- CARD -->
 <div class="card">
-  <h2>Register</h2>
-  <p>Create your account to start earning</p>
-
-  <div class="input-box">
-    <img src="Image/Name.png">
-    <input type="text" placeholder="Full Name">
-  </div>
+  <h2 style="text-align:center">Register</h2>
+  <p style="text-align:center;color:#777;margin-bottom:20px">Create your account</p>
 
   <div class="input-box">
     <img src="Image/Phone.png">
-    <input type="text" id="phone" placeholder="Phone Number">
+    <input type="text" id="regPhone" placeholder="Phone Number">
   </div>
 
   <div class="input-box">
     <img src="Image/Password.png">
-    <input type="password" id="password" placeholder="Password">
+    <input type="password" id="regPassword" placeholder="Password">
   </div>
 
-  <div class="input-box">
-    <img src="Image/Password.png">
-    <input type="password" placeholder="Confirm Password">
-  </div>
-
-  <div class="input-box">
-    <img src="Image/Invite.png">
-    <input type="text" id="invite" placeholder="Invite Code (Optional)">
-  </div>
-
-<button class="btn" id="registerBtn">Register</button>
+  <button class="btn" id="registerBtn">Register</button>
 
   <div class="login-text">
     Already have an account?
-<span onclick="window.location.href='login.html'">Login</span>
+    <span onclick="location.href='login.html'">Login</span>
+  </div>
 </div>
 
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-  <a href="index.html" class="nav-item">
-    <img src="Image/Home.png">Home
-  </a>
-  <a href="#" class="nav-item">
-    <img src="Image/Task.png">Tasks
-  </a>
-  <a href="#" class="nav-item">
-    <img src="Image/Wallet.png">Wallet
-  </a>
-  <a href="#" class="nav-item">
-    <img src="Image/Name.png">Account
-  </a>
-</div>
 <script>
-document.querySelector(".btn").addEventListener("click", function () {
+document.getElementById("registerBtn").onclick = function () {
+  const phone = document.getElementById("regPhone").value.trim();
+  const pass = document.getElementById("regPassword").value.trim();
 
-  const name = document.querySelector('input[placeholder="Full Name"]').value.trim();
-  const phone = document.querySelector('input[placeholder="Phone Number"]').value.trim();
-  const password = document.querySelector('input[placeholder="Password"]').value.trim();
-  const confirm = document.querySelector('input[placeholder="Confirm Password"]').value.trim();
-
-  if (!name || !phone || !password || !confirm) {
-    alert("All fields required");
+  if(phone === "" || pass === ""){
+    alert("Fill all fields");
     return;
   }
 
-  if (password !== confirm) {
-    alert("Password not match");
-    return;
-  }
-
-  // ✅ SAVE DATA
-  localStorage.setItem("userName", name);
   localStorage.setItem("userPhone", phone);
-  localStorage.setItem("userPassword", password);
+  localStorage.setItem("userPassword", pass);
+  localStorage.setItem("isLoggedIn", "false");
 
-  alert("Registration successful ✅");
+  alert("Registration Successful ✅");
   window.location.href = "login.html";
-});
-                                                </script>
+};
+</script>
+
 </body>
 </html>
