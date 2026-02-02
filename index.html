@@ -10,23 +10,21 @@
 
 body{
   background:#f2f2f2;
+}
+
+/* ===== MOBILE WRAPPER (IMPORTANT FIX) ===== */
+#page{
+  max-width: 480px;      /* PHONE WIDTH */
+  margin: 0 auto;        /* CENTER LOCK */
+  background:#f2f2f2;
+  min-height:100vh;
   padding-bottom:80px;
 }
 
-/* ======= LOGIN PROTECTION (IMPORTANT FIX) ======= */
-</style>
-
-<script>
-if(localStorage.getItem("isLoggedIn") !== "true"){
-  window.location.href = "login.html";
-}
-</script>
-
-<style>
 /* ===== HEADER ===== */
 .header{
   background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
-  padding:18px 0 34px;
+  padding:18px 0 14px;
   color:white;
   border-bottom-left-radius:32px;
   border-bottom-right-radius:32px;
@@ -36,7 +34,7 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:0 16px;
+  padding:0 14px;
 }
 
 .brand{
@@ -58,7 +56,7 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
 
 /* ===== FULL SIZE BANNER ===== */
 .banner{
-  margin-top:14px;
+  margin-top:12px;
   width:100%;
   height:160px;
 }
@@ -67,69 +65,67 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
   width:100%;
   height:100%;
   object-fit:cover;
-  border-radius:0;
 }
 
-/* ===== MENU BUTTONS (SQUARE FIX) ===== */
+/* ===== MENU BUTTONS (SQUARE MOBILE) ===== */
 .menu{
-  margin:16px;
+  margin:14px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:14px;
+  gap:12px;
 }
 
-/* 🔥 EXACT SQUARE BUTTONS */
 .menu-item{
-  border-radius:18px;
-  padding:18px 10px;
+  border-radius:16px;
+  padding:14px 6px;
   text-align:center;
   box-shadow:0 10px 22px rgba(0,0,0,.12);
   color:white;
-  aspect-ratio: 1 / 1;  /* PERFECT SQUARE */
+  aspect-ratio: 1 / 1;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
 }
 
-/* Individual colors */
+/* EXACT COLORS LIKE YOUR IMAGE */
 .menu-item.watch{background:#ff3b3b;}
 .menu-item.tasks{background:#2f80ff;}
 .menu-item.rewards{background:#2ea44f;}
 .menu-item.withdraw{background:#f2a60c;}
 
 .menu-item img{
-  width:56px;
-  height:56px;
+  width:52px;
+  height:52px;
   display:block;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
 .menu-item span{
-  font-size:14px;
+  font-size:13px;
   font-weight:700;
 }
 
 /* ===== TASK SECTION ===== */
 .section{
-  margin:16px;
+  margin:14px;
 }
 
 .section h3{
   font-size:20px;
-  margin-bottom:6px;
+  margin-bottom:4px;
 }
 
 .section p{
   color:#777;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .card{
   background:#fff;
   border-radius:18px;
-  padding:14px;
-  margin-bottom:12px;
+  padding:12px;
+  margin-bottom:10px;
   box-shadow:0 10px 22px rgba(0,0,0,.12);
 }
 
@@ -143,7 +139,7 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
   background:#ffc107;
   border:none;
   border-radius:14px;
-  padding:10px 18px;
+  padding:8px 16px;
   font-weight:700;
 }
 
@@ -152,7 +148,7 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
   color:white;
   border:none;
   border-radius:14px;
-  padding:10px 18px;
+  padding:8px 16px;
   font-weight:700;
 }
 
@@ -187,13 +183,19 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
   color:#ff3b3b;
 }
 </style>
+
+<script>
+if(localStorage.getItem("isLoggedIn") !== "true"){
+  window.location.href = "login.html";
+}
+</script>
+
 </head>
 
 <body>
 
 <div id="page">
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-top">
     <div class="brand">
@@ -205,13 +207,11 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
     </div>
   </div>
 
-  <!-- FULL SIZE BANNER -->
   <div class="banner">
     <img src="Image/Banner.png" alt="Earn Rewards">
   </div>
 </div>
 
-<!-- COLORED SQUARE BUTTONS -->
 <div class="menu">
   <div class="menu-item watch">
     <img src="Image/Watch.png">
@@ -234,7 +234,6 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
   </div>
 </div>
 
-<!-- TASKS -->
 <div class="section">
   <h3>Today’s Tasks</h3>
   <p>Complete the ads & earn rewards</p>
@@ -242,8 +241,8 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
   <div class="card">
     <div class="task-row">
       <div>
-        <div class="task-title">Ad Task 1</div>
-        <div class="task-sub">Watch Video (30 sec)</div>
+        <div>Ad Task 1</div>
+        <div>Watch Video (30 sec)</div>
       </div>
       <button class="btn-start">START</button>
     </div>
@@ -252,15 +251,14 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
   <div class="card">
     <div class="task-row">
       <div>
-        <div class="task-title">Ad Task 2</div>
-        <div class="task-sub">Completed</div>
+        <div>Ad Task 2</div>
+        <div>Completed</div>
       </div>
       <button class="btn-done">DONE</button>
     </div>
   </div>
 </div>
 
-<!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <div class="nav-item active">
     <img src="Image/Home.png">Home
@@ -281,5 +279,6 @@ document.getElementById("walletAmt").innerText =
   localStorage.getItem("walletAmount") || "0.00";
 </script>
 
+</div>
 </body>
 </html>
