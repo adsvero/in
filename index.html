@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ADSVERO</title>
 
 <style>
@@ -14,30 +13,32 @@
   font-family:Arial, sans-serif;
 }
 
-/* ======= MOBILE CONTAINER (MOST IMPORTANT FIX) ======= */
 body{
   background:#f2f2f2;
-  display:flex;
-  justify-content:center;
+  overflow-x:hidden;
 }
 
-#app{
+/* ===== MOBILE CONTAINER ===== */
+#page{
+  max-width:430px;
   width:100%;
-  max-width:420px;      /* 🔥 MOBILE SIZE LOCK */
-  min-height:100vh;
-  background:#fff;
-  box-shadow:0 0 20px rgba(0,0,0,.15);
-  position:relative;
+  margin:0 auto;
 }
 
 /* ===== HEADER ===== */
 .header{
   background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
-  padding:18px 16px;
-  color:white;
+  padding:18px 0 18px;
+  color:#fff;
+  border-bottom-left-radius:32px;
+  border-bottom-right-radius:32px;
+}
+
+.header-top{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
 }
 
 .brand{
@@ -45,11 +46,11 @@ body{
   align-items:center;
   gap:8px;
   font-weight:700;
+  font-size:20px;
 }
 
-.brand img{
-  height:26px;
-}
+/* 👉 LOGO SIZE BADA KIYA 👇 */
+.brand img{ height:36px; }  /* pehle 26px tha */
 
 .wallet-badge{
   background:rgba(255,255,255,.25);
@@ -58,8 +59,9 @@ body{
   font-weight:700;
 }
 
-/* ===== FULL BANNER ===== */
+/* ===== FULL WIDTH BANNER ===== */
 .banner{
+  margin-top:10px;
   width:100%;
   height:160px;
 }
@@ -71,34 +73,38 @@ body{
   border-radius:0;
 }
 
-/* ===== MENU BUTTONS (BOX SIZE FIX) ===== */
+/* ===== 4 SQUARE BUTTONS (SMALLER + PERFECT SQUARE) ===== */
 .menu{
-  margin:16px;
+  margin:12px 10px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:12px;
+  gap:10px;
 }
 
-/* BOX BUTTON */
+/* 👉 BUTTON SIZE HALKA CHHOTA + SQUARE FIX 👇 */
 .menu-item{
   border-radius:16px;
-  padding:14px 8px;
+  padding:10px 6px;        /* padding thodi kam */
   text-align:center;
-  color:white;
   box-shadow:0 10px 22px rgba(0,0,0,.12);
+  color:white;
+  aspect-ratio: 1 / 1;     /* PERFECT SQUARE */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 
-/* EXACT COLORS LIKE YOUR IMAGE */
-.menu-item.watch{background:#ff3b3b;}
-.menu-item.tasks{background:#2f80ff;}
-.menu-item.rewards{background:#2ea44f;}
-.menu-item.withdraw{background:#f2a60c;}
+/* exact colors */
+.menu-item.watch{ background:#ff3b3b; }
+.menu-item.tasks{ background:#2f80ff; }
+.menu-item.rewards{ background:#2ea44f; }
+.menu-item.withdraw{ background:#f2a60c; }
 
 .menu-item img{
-  width:42px;
-  height:42px;
-  display:block;
-  margin:0 auto 6px;
+  width:36px;   /* halka chhota */
+  height:36px;
+  margin-bottom:6px;
 }
 
 .menu-item span{
@@ -108,7 +114,7 @@ body{
 
 /* ===== TASK SECTION ===== */
 .section{
-  margin:16px;
+  padding:16px;
 }
 
 .section h3{
@@ -121,7 +127,6 @@ body{
   margin-bottom:12px;
 }
 
-/* TASK CARD */
 .card{
   background:#fff;
   border-radius:18px;
@@ -136,20 +141,16 @@ body{
   justify-content:space-between;
 }
 
-.task-title{font-weight:700;}
-.task-sub{color:#777;font-size:14px;margin-top:4px;}
+.task-title{ font-weight:700; }
+
+.task-sub{
+  color:#777;
+  font-size:14px;
+  margin-top:4px;
+}
 
 .btn-start{
   background:#ffc107;
-  border:none;
-  border-radius:14px;
-  padding:10px 18px;
-  font-weight:700;
-}
-
-.btn-done{
-  background:#2ea44f;
-  color:white;
   border:none;
   border-radius:14px;
   padding:10px 18px;
@@ -160,10 +161,8 @@ body{
 .bottom-nav{
   position:fixed;
   bottom:0;
-  left:50%;
-  transform:translateX(-50%);
+  left:0;
   width:100%;
-  max-width:420px;
   height:70px;
   background:#fff;
   border-top:1px solid #ddd;
@@ -185,31 +184,32 @@ body{
   margin:0 auto 4px;
 }
 
-.nav-active{
-  color:#ff3b3b;
-}
+.nav-item.active{ color:#ff3b3b; }
 </style>
 </head>
 
 <body>
 
-<div id="app">
+<div id="page">
 
 <!-- HEADER -->
 <div class="header">
-  <div class="brand">
-    <img src="Image/logo.png">
-    <span></span>
+  <div class="header-top">
+    <div class="brand">
+      <img src="Image/logo.png">
+      <span>ADSVERO</span>
+    </div>
+    <div class="wallet-badge">
+      ₹ <span id="walletAmt">0.00</span>
+    </div>
   </div>
-  <div class="wallet-badge">₹ 0.00</div>
+
+  <div class="banner">
+    <img src="Image/Banner.png">
+  </div>
 </div>
 
-<!-- FULL SIZE BANNER -->
-<div class="banner">
-  <img src="Image/Banner.png">
-</div>
-
-<!-- 4 COLOR BOX BUTTONS -->
+<!-- 4 PERFECT SQUARE BUTTONS -->
 <div class="menu">
   <div class="menu-item watch">
     <img src="Image/Watch.png">
@@ -232,7 +232,7 @@ body{
   </div>
 </div>
 
-<!-- TODAY TASKS -->
+<!-- TASK SECTION (ONLY TASK 1 LEFT) -->
 <div class="section">
   <h3>Today’s Tasks</h3>
   <p>Complete the ads & earn rewards</p>
@@ -247,20 +247,13 @@ body{
     </div>
   </div>
 
-  <div class="card">
-    <div class="task-row">
-      <div>
-        <div class="task-title">Ad Task 2</div>
-        <div class="task-sub">Completed</div>
-      </div>
-      <button class="btn-done">✓ DONE</button>
-    </div>
-  </div>
+</div>
+
 </div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
-  <div class="nav-item nav-active">
+  <div class="nav-item active">
     <img src="Image/Home.png">Home
   </div>
   <div class="nav-item">
@@ -274,7 +267,5 @@ body{
   </div>
 </div>
 
-</div>
-
 </body>
-  </html>
+</html>
