@@ -23,6 +23,7 @@ body{
   max-width:430px;
   width:100%;
   margin:0 auto;
+  background:white;
 }
 
 /* ===== HEADER ===== */
@@ -52,7 +53,6 @@ body{
   font-size:20px;
 }
 
-/* Logo size (same जैसा तुम चाहते हो) */
 .brand img{ height:36px; }
 
 .wallet-badge{
@@ -62,7 +62,7 @@ body{
   font-weight:700;
 }
 
-/* ===== BANNER (RED BACKGROUND REMOVED) ===== */
+/* ===== BANNER ===== */
 .banner{
   margin-top:9px;
   width:100%;
@@ -70,9 +70,6 @@ body{
   background:none;
 }
 
-#page{
-  background:white;
-}
 .banner img{
   width:100%;
   height:260%;
@@ -80,36 +77,34 @@ body{
   border-radius:0;
 }
 
-/* ===== 4 BUTTONS (SMALLER + SQUARE) ===== */
+/* ===== 4 BUTTONS ===== */
 .menu{
   margin:10px 8px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:8px;      /* gap कम किया */
+  gap:8px;
 }
 
-/* Buttons अब और छोटे + square */
 .menu-item{
   border-radius:14px;
-  padding:8px 6px;        /* padding कम */
+  padding:8px 6px;
   text-align:center;
   box-shadow:0 8px 18px rgba(0,0,0,.12);
   color:white;
-  aspect-ratio: 1 / 1;     /* perfect square */
+  aspect-ratio: 1 / 1;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
 }
 
-/* exact colors */
 .menu-item.watch{ background:#ff3b3b; }
 .menu-item.tasks{ background:#2f80ff; }
 .menu-item.rewards{ background:#2ea44f; }
 .menu-item.withdraw{ background:#f2a60c; }
 
 .menu-item img{
-  width:32px;   /* और छोटा */
+  width:32px;
   height:32px;
   margin-bottom:4px;
 }
@@ -119,7 +114,7 @@ body{
   font-weight:700;
 }
 
-/* ===== TASK SECTION ===== */
+/* ===== SECTION TITLE ===== */
 .section{
   padding:14px;
 }
@@ -134,7 +129,46 @@ body{
   margin-bottom:12px;
 }
 
-/* 👉 AD TASK 1 COMPLETELY REMOVED — कोई card नहीं रखा */
+/* ===== PLAN PURCHASE CHART (NEW) ===== */
+.plan-list{
+  padding:0 14px 90px;
+}
+
+.plan-card{
+  background:white;
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.plan-left h4{
+  font-size:18px;
+  margin-bottom:4px;
+}
+
+.plan-left p{
+  color:#666;
+  font-size:14px;
+}
+
+.plan-right{
+  text-align:right;
+}
+
+.price{
+  font-size:20px;
+  font-weight:700;
+  color:#ff3b3b;
+}
+
+.validity{
+  font-size:13px;
+  color:#666;
+}
 
 /* ===== BOTTOM NAV ===== */
 .bottom-nav{
@@ -183,13 +217,12 @@ body{
     </div>
   </div>
 
-  <!-- Banner without red background -->
   <div class="banner">
     <img src="Image/Banner.png">
   </div>
 </div>
 
-<!-- 4 SMALL SQUARE BUTTONS -->
+<!-- 4 BUTTONS -->
 <div class="menu">
   <div class="menu-item watch">
     <img src="Image/Watch.png">
@@ -212,10 +245,59 @@ body{
   </div>
 </div>
 
-<!-- TASK TITLE ONLY (NO CARDS) -->
+<!-- TITLE -->
 <div class="section">
   <h3>Plan Purchase Now</h3>
   <p>Complete the ads & earn rewards</p>
+</div>
+
+<!-- ===== PLAN CHART ADDED HERE ===== -->
+<div class="plan-list">
+
+  <div class="plan-card">
+    <div class="plan-left">
+      <h4>₹99 Plan</h4>
+      <p>Watch 10 ads/day • Earn daily</p>
+    </div>
+    <div class="plan-right">
+      <div class="price">₹99</div>
+      <div class="validity">7 Days</div>
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-left">
+      <h4>₹199 Plan</h4>
+      <p>Watch 15 ads/day • Higher earning</p>
+    </div>
+    <div class="plan-right">
+      <div class="price">₹199</div>
+      <div class="validity">14 Days</div>
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-left">
+      <h4>₹299 Plan</h4>
+      <p>Watch 20 ads/day • Best value</p>
+    </div>
+    <div class="plan-right">
+      <div class="price">₹299</div>
+      <div class="validity">28 Days</div>
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-left">
+      <h4>₹499 Plan</h4>
+      <p>Unlimited ads • Premium earnings</p>
+    </div>
+    <div class="plan-right">
+      <div class="price">₹499</div>
+      <div class="validity">30 Days</div>
+    </div>
+  </div>
+
 </div>
 
 </div>
@@ -237,4 +319,4 @@ body{
 </div>
 
 </body>
-</html>
+  </html>
