@@ -60,17 +60,23 @@ body{
   box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
 
-/* Input box */
-.input-box{
+/* REAL INPUT BOX (editable) */
+.input-box input{
+  width:100%;
+  padding:10px;
   border:1px solid #ddd;
   border-radius:10px;
-  padding:10px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  font-size:16px;
 }
 
-/* Button */
+/* clickable change upi */
+.change-upi{
+  color:#ff3b3b;
+  cursor:pointer;
+  margin-top:6px;
+}
+
+/* Withdraw Button */
 .withdraw-btn{
   width:100%;
   padding:14px;
@@ -79,6 +85,7 @@ body{
   background:#f2a60c;
   font-size:16px;
   font-weight:bold;
+  cursor:pointer;
 }
 
 /* ===== BOTTOM NAV ===== */
@@ -120,10 +127,10 @@ body{
 <div class="wallet-header">
   <div class="left">
     <img src="Image/logo.png">
-    <span></span>
+    <span>ADSVERO</span>
   </div>
   <div>
-     ₹00.0
+    ₹ <span id="walletBalance">0.00</span>
   </div>
 </div>
 
@@ -131,44 +138,58 @@ body{
 
 <h3>Withdraw Funds</h3>
 
+<!-- AMOUNT CARD -->
 <div class="card">
   <p><b>Excisee Amount (₹)</b></p>
+
   <div class="input-box">
-    <span>₹</span>
-    <span></span>
+    <input type="number" id="withdrawAmount" placeholder="Enter amount">
   </div>
-  <p style="margin-top:6px;color:#777;">Minimum ₹500 → ₹1000000</p>
+
+  <p style="margin-top:6px;color:#777;">
+    Minimum ₹500 → ₹1000000
+  </p>
 </div>
 
+<!-- BANK CARD -->
 <div class="card">
   <p><b>Bank Transfer</b></p>
+
   <div class="input-box">
-    <span>himanshu kumar</span>
-    <span>></span>
+    <input type="text" id="bankName" value="himanshu kumar">
   </div>
-  <p style="margin-top:6px;color:#777;">Change UPI ></p>
+
+  <p class="change-upi" onclick="alert('Bank details change page coming soon')">
+    Change Bank >
+  </p>
 </div>
 
+<!-- UPI CARD -->
 <div class="card">
   <p><b>UPI</b></p>
+
   <div class="input-box">
-    <span>himanshu@upi</span>
-    <span>></span>
+    <input type="text" id="upiId" value="himanshu@upi">
   </div>
-  <p style="margin-top:6px;color:#777;">Change UPI ></p>
+
+  <p class="change-upi" onclick="alert('UPI change page coming soon')">
+    Change UPI >
+  </p>
 </div>
 
-<button class="withdraw-btn">Request Withdraw</button>
+<!-- WORKING BUTTON -->
+<button class="withdraw-btn" onclick="requestWithdraw()">
+  Request Withdraw
+</button>
 
 <p style="margin-top:8px;color:#777;">
 Withdrawals are processed within 24–72 hours.
 </p>
 
 </div>
-
 </div>
 
-<!-- BOTTOM NAV -->
+<!-- BOTTOM NAV (REDIRECT WORKING) -->
 <div class="bottom-nav">
   <div class="nav-item">
     <a href="index.html" style="text-decoration:none;color:inherit;">
@@ -195,5 +216,18 @@ Withdrawals are processed within 24–72 hours.
   </div>
 </div>
 
+<script>
+function requestWithdraw(){
+  let amt = document.getElementById("withdrawAmount").value;
+
+  if(amt == "" || amt < 500){
+    alert("Minimum withdraw ₹500 required ❌");
+    return;
+  }
+
+  alert("Withdraw Request Submitted ✅");
+}
+</script>
+
 </body>
-  </html>
+</html>
