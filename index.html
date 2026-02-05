@@ -28,7 +28,7 @@ body{
 
 /* ===== HEADER ===== */
 .header{
-  background:linear-gradient(90deg,#ff3b3b,#ff7a6a) !important;
+  background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
   padding:18px 0 0px;
   color:#fff;
   border-bottom-left-radius:32px;
@@ -53,6 +53,7 @@ body{
   font-size:20px;
 }
 
+/* Logo size */
 .brand img{ height:36px; }
 
 .wallet-badge{
@@ -67,12 +68,11 @@ body{
   margin-top:9px;
   width:100%;
   height:auto;
-  background:none;
 }
 
 .banner img{
   width:100%;
-  height:260%;
+  height:260px;
   object-fit:cover;
   border-radius:0;
 }
@@ -98,6 +98,7 @@ body{
   align-items:center;
 }
 
+/* exact colors */
 .menu-item.watch{ background:#ff3b3b; }
 .menu-item.tasks{ background:#2f80ff; }
 .menu-item.rewards{ background:#2ea44f; }
@@ -114,60 +115,72 @@ body{
   font-weight:700;
 }
 
-/* ===== SECTION TITLE ===== */
-.section{
+/* ===== PLAN SECTION ===== */
+.plan-section{
   padding:14px;
 }
 
-.section h3{
+.plan-section h3{
   font-size:20px;
-  margin-bottom:6px;
-}
-
-.section p{
-  color:#777;
-  margin-bottom:12px;
-}
-
-/* ===== PLAN PURCHASE CHART (NEW) ===== */
-.plan-list{
-  padding:0 14px 90px;
-}
-
-.plan-card{
-  background:white;
-  border-radius:14px;
-  padding:14px;
-  margin-bottom:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.plan-left h4{
-  font-size:18px;
   margin-bottom:4px;
 }
 
-.plan-left p{
-  color:#666;
-  font-size:14px;
+.plan-section p{
+  color:#777;
+  margin-bottom:10px;
 }
 
-.plan-right{
-  text-align:right;
+/* PLAN CARD DESIGN */
+.plan-card{
+  background:white;
+  border-radius:16px;
+  padding:12px;
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+  position:relative;
 }
 
-.price{
-  font-size:20px;
+.plan-card .price{
+  font-size:22px;
   font-weight:700;
-  color:#ff3b3b;
+  width:60px;
 }
 
-.validity{
-  font-size:13px;
-  color:#666;
+.plan-card .details{
+  flex:1;
+  font-size:12px;
+}
+
+.plan-card .details p{
+  margin:2px 0;
+}
+
+.buy-btn{
+  background:#f2a60c;
+  color:black;
+  border:none;
+  padding:8px 12px;
+  border-radius:10px;
+  font-weight:700;
+}
+
+/* MOST POPULAR TAG */
+.popular{
+  border:2px solid #6a1b9a;
+}
+
+.tag{
+  position:absolute;
+  top:-8px;
+  right:10px;
+  background:#6a1b9a;
+  color:white;
+  padding:4px 8px;
+  border-radius:8px;
+  font-size:10px;
 }
 
 /* ===== BOTTOM NAV ===== */
@@ -198,6 +211,7 @@ body{
 }
 
 .nav-item.active{ color:#ff3b3b; }
+
 </style>
 </head>
 
@@ -245,61 +259,68 @@ body{
   </div>
 </div>
 
-<!-- TITLE -->
-<div class="section">
+<!-- ===== PLAN PURCHASE CHART ===== -->
+<div class="plan-section">
   <h3>Plan Purchase Now</h3>
   <p>Complete the ads & earn rewards</p>
+
+  <div class="plan-card">
+    <div class="price">₹49</div>
+    <div class="details">
+      <b>Validity : 3 Days</b>
+      <p>Watch 5 ads daily</p>
+      <p>Earn up to ₹100 Daily</p>
+      <p>🪙 50 Bonus Points</p>
+    </div>
+    <button class="buy-btn">Purchase</button>
+  </div>
+
+  <div class="plan-card">
+    <div class="price">₹99</div>
+    <div class="details">
+      <b>Validity : 7 Days</b>
+      <p>Watch 10 ads daily</p>
+      <p>Earn up to ₹250 Daily</p>
+      <p>🪙 100 Bonus Points</p>
+    </div>
+    <button class="buy-btn">Purchase</button>
+  </div>
+
+  <div class="plan-card">
+    <div class="price">₹149</div>
+    <div class="details">
+      <b>Validity : 14 Days</b>
+      <p>Watch 15 ads daily</p>
+      <p>Earn up to ₹350 Daily</p>
+      <p>🪙 150 Bonus Points</p>
+    </div>
+    <button class="buy-btn">Purchase</button>
+  </div>
+
+  <div class="plan-card popular">
+    <div class="price">₹199</div>
+    <div class="details">
+      <b>Validity : 21 Days</b>
+      <p>Watch 20 ads daily</p>
+      <p>Earn up to ₹450 Daily</p>
+      <p>🪙 200 Bonus Points</p>
+    </div>
+    <button class="buy-btn">Purchase</button>
+    <span class="tag">Most Popular</span>
+  </div>
+
+  <div class="plan-card">
+    <div class="price">₹249</div>
+    <div class="details">
+      <b>Validity : 28 Days</b>
+      <p>Watch 25 ads daily</p>
+      <p>Earn up to ₹600 Daily</p>
+      <p>🪙 250 Bonus Points</p>
+    </div>
+    <button class="buy-btn">Purchase</button>
+  </div>
+
 </div>
-
-<!-- ===== PLAN CHART ADDED HERE ===== -->
-<div class="plan-list">
-
-  <div class="plan-card">
-    <div class="plan-left">
-      <h4>₹99 Plan</h4>
-      <p>Watch 10 ads/day • Earn daily</p>
-    </div>
-    <div class="plan-right">
-      <div class="price">₹99</div>
-      <div class="validity">7 Days</div>
-    </div>
-  </div>
-
-  <div class="plan-card">
-    <div class="plan-left">
-      <h4>₹199 Plan</h4>
-      <p>Watch 15 ads/day • Higher earning</p>
-    </div>
-    <div class="plan-right">
-      <div class="price">₹199</div>
-      <div class="validity">14 Days</div>
-    </div>
-  </div>
-
-  <div class="plan-card">
-    <div class="plan-left">
-      <h4>₹299 Plan</h4>
-      <p>Watch 20 ads/day • Best value</p>
-    </div>
-    <div class="plan-right">
-      <div class="price">₹299</div>
-      <div class="validity">28 Days</div>
-    </div>
-  </div>
-
-  <div class="plan-card">
-    <div class="plan-left">
-      <h4>₹499 Plan</h4>
-      <p>Unlimited ads • Premium earnings</p>
-    </div>
-    <div class="plan-right">
-      <div class="price">₹499</div>
-      <div class="validity">30 Days</div>
-    </div>
-  </div>
-
-</div>
-
 </div>
 
 <!-- BOTTOM NAV -->
@@ -319,4 +340,4 @@ body{
 </div>
 
 </body>
-  </html>
+</html>
