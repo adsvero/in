@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallet | ADSVERO</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f2f2f2;
+}
+
+/* ===== MOBILE CONTAINER ===== */
+#page{
+  max-width:430px;
+  width:100%;
+  margin:0 auto;
+  background:white;
+  min-height:100vh;
+}
+
+/* ===== RED HEADER ===== */
+.wallet-header{
+  background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
+  color:white;
+  padding:18px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:bold;
+}
+
+.wallet-header .left{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.wallet-header img{
+  height:28px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.section{
+  padding:16px;
+}
+
+.card{
+  background:white;
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:12px;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
+
+/* Input box */
+.input-box{
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* Button */
+.withdraw-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:#f2a60c;
+  font-size:16px;
+  font-weight:bold;
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:#fff;
+  border-top:1px solid #ddd;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.nav-item{
+  text-align:center;
+  font-size:12px;
+  color:#999;
+  font-weight:700;
+}
+
+.nav-item img{
+  width:26px;
+  display:block;
+  margin:0 auto 4px;
+}
+
+.nav-item.active{ color:#ff3b3b; }
+</style>
+</head>
+
+<body>
+
+<div id="page">
+
+<!-- HEADER -->
+<div class="wallet-header">
+  <div class="left">
+    <img src="Image/logo.png">
+    <span></span>
+  </div>
+  <div>
+     ₹00.0
+  </div>
+</div>
+
+<div class="section">
+
+<h3>Withdraw Funds</h3>
+
+<div class="card">
+  <p><b>Excisee Amount (₹)</b></p>
+  <div class="input-box">
+    <span>₹</span>
+    <span></span>
+  </div>
+  <p style="margin-top:6px;color:#777;">Minimum ₹500 → ₹1000000</p>
+</div>
+
+<div class="card">
+  <p><b>Bank Transfer</b></p>
+  <div class="input-box">
+    <span>himanshu kumar</span>
+    <span>></span>
+  </div>
+  <p style="margin-top:6px;color:#777;">Change UPI ></p>
+</div>
+
+<div class="card">
+  <p><b>UPI</b></p>
+  <div class="input-box">
+    <span>himanshu@upi</span>
+    <span>></span>
+  </div>
+  <p style="margin-top:6px;color:#777;">Change UPI ></p>
+</div>
+
+<button class="withdraw-btn">Request Withdraw</button>
+
+<p style="margin-top:8px;color:#777;">
+Withdrawals are processed within 24–72 hours.
+</p>
+
+</div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <div class="nav-item">
+    <a href="index.html" style="text-decoration:none;color:inherit;">
+      <img src="Image/Home.png">Home
+    </a>
+  </div>
+
+  <div class="nav-item">
+    <a href="tasks.html" style="text-decoration:none;color:inherit;">
+      <img src="Image/Task.png">Tasks
+    </a>
+  </div>
+
+  <div class="nav-item active">
+    <a href="wallet.html" style="text-decoration:none;color:inherit;">
+      <img src="Image/Wallet.png">Wallet
+    </a>
+  </div>
+
+  <div class="nav-item">
+    <a href="account.html" style="text-decoration:none;color:inherit;">
+      <img src="Image/Name.png">Account
+    </a>
+  </div>
+</div>
+
+</body>
+  </html>
