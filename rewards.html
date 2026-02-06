@@ -10,13 +10,14 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial, sans-serif;
 }
 
 body{
 background:#f2f2f2;
 }
 
+/* Mobile Container */
 #page{
 max-width:430px;
 margin:0 auto;
@@ -25,7 +26,7 @@ min-height:100vh;
 padding-bottom:80px;
 }
 
-/* HEADER */
+/* HEADER SAME AS YOUR SITE */
 .header{
 background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
 color:white;
@@ -38,52 +39,54 @@ font-weight:bold;
 
 .balance{
 background:rgba(255,255,255,.25);
-padding:6px 10px;
+padding:6px 12px;
 border-radius:20px;
 }
 
-/* BANNER (YOUR IMAGE) */
+/* ===== YOUR BANNER FIX ===== */
 .banner{
-padding:12px;
+padding:10px 12px;
 }
 
 .banner img{
 width:100%;
 border-radius:16px;
-box-shadow:0 4px 16px rgba(0,0,0,.12);
+box-shadow:0 4px 14px rgba(0,0,0,.15);
+display:block;
 }
 
-/* REFERRAL CARD */
+/* INVITE CARD */
 .card{
 background:white;
 margin:12px;
 padding:16px;
 border-radius:18px;
-box-shadow:0 6px 18px rgba(0,0,0,.10);
+box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
 
-/* REF CODE BOX */
+/* REFERRAL CODE BOX */
 .code-box{
 display:flex;
 justify-content:space-between;
 align-items:center;
-border:1px dashed #f2a60c;
+border:2px dashed #f2a60c;
 padding:12px;
-border-radius:12px;
+border-radius:14px;
 margin-top:10px;
+background:#fff8e6;
 }
 
 .copy-btn{
 background:#f2a60c;
 color:white;
 border:none;
-padding:10px 14px;
-border-radius:10px;
+padding:10px 16px;
+border-radius:12px;
 font-weight:bold;
 }
 
 /* SHARE LINK */
-.share-box{
+.share-row{
 display:flex;
 gap:8px;
 margin:12px;
@@ -105,32 +108,33 @@ border-radius:12px;
 font-weight:bold;
 }
 
-/* INVITE LIST */
+/* INVITE TARGET LIST */
 .invite-list{
 margin:12px;
 }
 
 .invite-item{
 background:white;
-padding:12px;
-border-radius:14px;
+padding:14px;
+border-radius:16px;
 margin-bottom:10px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,.08);
+box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
+/* GOLD BUTTON STYLE */
 .invite-now{
-background:#f2a60c;
+background:linear-gradient(90deg,#f2a60c,#f5b642);
 color:white;
 border:none;
 padding:8px 14px;
-border-radius:10px;
+border-radius:12px;
 font-weight:bold;
 }
 
-/* BOTTOM NAV */
+/* BOTTOM NAV - SAME AS YOUR SITE */
 .bottom-nav{
 position:fixed;
 bottom:0;
@@ -166,12 +170,12 @@ margin:0 auto 4px;
 <div class="balance">₹ <span id="bal">00.0</span></div>
 </div>
 
-<!-- YOUR BANNER -->
+<!-- YOUR BANNER (FIXED NAME) -->
 <div class="banner">
 <img src="invitebannar.png">
 </div>
 
-<!-- REFERRAL SECTION -->
+<!-- INVITE CARD -->
 <div class="card">
 <h2>Invite Friends</h2>
 <p style="color:#ff3b3b;">Refer & Earn Rewards!</p>
@@ -186,7 +190,7 @@ margin:0 auto 4px;
 </div>
 
 <!-- SHARE LINK -->
-<div class="share-box">
+<div class="share-row">
 <input class="share-input" id="shareLink"
 value="https://adsvero.github.io/XYZ1234">
 <button class="share-btn" onclick="shareNow()">Share</button>
@@ -196,27 +200,27 @@ value="https://adsvero.github.io/XYZ1234">
 <div class="invite-list">
 
 <div class="invite-item">
-<div>Invite 0/1 users<br>+58 INR</div>
+<div><b>Invite 0/1 users</b><br>+58 INR</div>
 <button class="invite-now" onclick="shareNow()">Invite Now</button>
 </div>
 
 <div class="invite-item">
-<div>Invite 0/3 users<br>+128 INR</div>
+<div><b>Invite 0/3 users</b><br>+128 INR</div>
 <button class="invite-now" onclick="shareNow()">Invite Now</button>
 </div>
 
 <div class="invite-item">
-<div>Invite 0/5 users<br>+138 INR</div>
+<div><b>Invite 0/5 users</b><br>+138 INR</div>
 <button class="invite-now" onclick="shareNow()">Invite Now</button>
 </div>
 
 <div class="invite-item">
-<div>Invite 0/10 users<br>+348 INR</div>
+<div><b>Invite 0/10 users</b><br>+348 INR</div>
 <button class="invite-now" onclick="shareNow()">Invite Now</button>
 </div>
 
 <div class="invite-item">
-<div>Invite 0/20 users<br>+728 INR</div>
+<div><b>Invite 0/20 users</b><br>+728 INR</div>
 <button class="invite-now" onclick="shareNow()">Invite Now</button>
 </div>
 
@@ -257,4 +261,4 @@ alert("Invite Link Copied ✅ Share anywhere!");
 </script>
 
 </body>
- </html>
+</html>
