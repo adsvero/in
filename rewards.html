@@ -3,153 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invite Friends | ADSVERO</title>
+<title>Rewards | ADSVERO</title>
 
 <style>
-*{
- margin:0;
- padding:0;
- box-sizing:border-box;
- font-family:Arial, sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
 body{
- background:#f2f2f2;
+background:#f2f2f2;
 }
 
-/* ===== MOBILE CONTAINER ===== */
 #page{
- max-width:430px;
- width:100%;
- margin:0 auto;
- background:white;
- min-height:100vh;
- padding-bottom:80px;
+max-width:430px;
+margin:0 auto;
+background:white;
+min-height:100vh;
+padding-bottom:80px;
 }
 
-/* ===== RED HEADER ===== */
+/* HEADER */
 .header{
- background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
- color:white;
- padding:18px 16px;
- display:flex;
- justify-content:space-between;
- align-items:center;
- font-weight:bold;
+background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
+color:white;
+padding:16px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:bold;
 }
 
-.balance-badge{
- background:rgba(255,255,255,0.25);
- padding:6px 12px;
- border-radius:20px;
+.balance{
+background:rgba(255,255,255,.25);
+padding:6px 10px;
+border-radius:20px;
 }
 
-/* ===== MAIN CONTENT ===== */
-.section{
- padding:16px;
+/* BANNER */
+.banner img{
+width:100%;
+border-radius:12px;
 }
 
-/* BIG CARD */
+/* REFERRAL CARD */
 .card{
- background:white;
- border-radius:18px;
- padding:16px;
- margin-bottom:16px;
- box-shadow:0 8px 22px rgba(0,0,0,0.12);
- border:1px solid rgba(0,0,0,0.05);
+background:white;
+margin:12px;
+padding:14px;
+border-radius:16px;
+box-shadow:0 4px 16px rgba(0,0,0,.08);
 }
 
-/* REFERRAL BOX */
-.ref-box{
- display:flex;
- justify-content:space-between;
- align-items:center;
- background:#fff6e8;
- padding:10px;
- border-radius:10px;
- margin-top:10px;
- border:1px dashed #f2a60c;
+.code-box{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border:1px dashed orange;
+padding:10px;
+border-radius:12px;
+margin-top:8px;
 }
 
 .copy-btn{
- background:#f2a60c;
- color:black;
- border:none;
- padding:10px 14px;
- border-radius:10px;
- font-weight:bold;
- cursor:pointer;
+background:#f2a60c;
+color:white;
+border:none;
+padding:10px 14px;
+border-radius:10px;
 }
 
 /* SHARE LINK */
-.share-row{
- display:flex;
- gap:10px;
- margin-top:10px;
+.share-box{
+display:flex;
+gap:8px;
+margin:12px;
 }
 
 .share-input{
- flex:1;
- padding:10px;
- border:1px solid #ddd;
- border-radius:10px;
+flex:1;
+padding:10px;
+border-radius:10px;
+border:1px solid #ddd;
 }
 
 .share-btn{
- background:#f2a60c;
- color:black;
- border:none;
- padding:10px 14px;
- border-radius:10px;
- font-weight:bold;
- cursor:pointer;
+background:#f2a60c;
+color:white;
+border:none;
+padding:10px 14px;
+border-radius:10px;
 }
 
-/* SOCIAL ICONS */
-.social-box{
- display:flex;
- justify-content:space-around;
- align-items:center;
- margin-top:16px;
- padding:12px;
- background:white;
- border-radius:12px;
- box-shadow:0 6px 16px rgba(0,0,0,0.08);
+/* INVITE LIST */
+.invite-list{
+margin:12px;
 }
 
-.social-item{
- text-align:center;
- font-size:12px;
+.invite-item{
+background:white;
+padding:12px;
+border-radius:12px;
+margin-bottom:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
-/* ===== BOTTOM NAV ===== */
+.invite-now{
+background:#f2a60c;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:10px;
+}
+
+/* BOTTOM NAV */
 .bottom-nav{
- position:fixed;
- bottom:0;
- left:0;
- width:100%;
- height:70px;
- background:#fff;
- border-top:1px solid #ddd;
- display:flex;
- justify-content:space-around;
- align-items:center;
+position:fixed;
+bottom:0;
+width:100%;
+max-width:430px;
+display:flex;
+justify-content:space-around;
+background:white;
+padding:10px 0;
+border-top:1px solid #ddd;
 }
 
 .nav-item{
- text-align:center;
- font-size:12px;
- color:#999;
-}
-
-.nav-item.active{
- color:#ff3b3b;
+text-align:center;
+font-size:12px;
 }
 
 .nav-item img{
- width:26px;
- display:block;
- margin:0 auto 4px;
+width:24px;
+display:block;
+margin:0 auto 4px;
 }
 </style>
 </head>
@@ -160,103 +148,109 @@ body{
 
 <!-- HEADER -->
 <div class="header">
-  <span>ADSVERO</span>
-  <div class="balance-badge">₹ 00.0</div>
+<div>ADSVERO</div>
+<div class="balance">₹ <span id="bal">00.0</span></div>
 </div>
 
-<div class="section">
+<!-- BANNER -->
+<div class="banner">
+<img src="invitebannar.png">
+</div>
 
+<!-- REFERRAL SECTION -->
+<div class="card">
 <h2>Invite Friends</h2>
 <p style="color:#ff3b3b;">Refer & Earn Rewards!</p>
 
-<!-- BIG INVITE CARD -->
-<div class="card">
-  <h2>Earn ₹100</h2>
-  <p>For each friend that joins!</p>
+<h3 style="margin-top:8px;">Earn ₹100</h3>
+<p>For each friend that joins!</p>
 
-  <div class="ref-box">
-    <span id="refCode">XYZ1234</span>
-    <button class="copy-btn" onclick="copyCode()">Copy Code</button>
-  </div>
+<div class="code-box">
+<span id="refCode">XYZ1234</span>
+<button class="copy-btn" onclick="copyCode()">Copy Code</button>
+</div>
 </div>
 
-<h3>Share your invite link</h3>
-<p>Invite friends through your favorite apps</p>
-
-<div class="share-row">
-  <input type="text" class="share-input" id="shareLink"
-   value="https://adsvero.github.io/XYZ1234">
-  <button class="share-btn" onclick="shareNow()">Share</button>
+<!-- SHARE LINK -->
+<div class="share-box">
+<input class="share-input" id="shareLink"
+value="https://adsvero.github.io/XYZ1234">
+<button class="share-btn" onclick="shareNow()">Share</button>
 </div>
 
-<!-- SOCIAL SHARE -->
-<div class="social-box">
-  <div class="social-item" onclick="shareWhatsApp()">WhatsApp</div>
-  <div class="social-item" onclick="shareFacebook()">Facebook</div>
-  <div class="social-item" onclick="shareSMS()">SMS</div>
+<!-- INVITE LIST -->
+<div class="invite-list">
+
+<div class="invite-item">
+<div>Invite 0/1 users<br>+58 INR</div>
+<button class="invite-now" onclick="shareNow()">Invite Now</button>
+</div>
+
+<div class="invite-item">
+<div>Invite 0/3 users<br>+128 INR</div>
+<button class="invite-now" onclick="shareNow()">Invite Now</button>
+</div>
+
+<div class="invite-item">
+<div>Invite 0/5 users<br>+138 INR</div>
+<button class="invite-now" onclick="shareNow()">Invite Now</button>
+</div>
+
+<div class="invite-item">
+<div>Invite 0/10 users<br>+348 INR</div>
+<button class="invite-now" onclick="shareNow()">Invite Now</button>
+</div>
+
+<div class="invite-item">
+<div>Invite 0/20 users<br>+728 INR</div>
+<button class="invite-now" onclick="shareNow()">Invite Now</button>
+</div>
+
+ <div class="invite-item">
+<div>Invite 0/50 users<br>+2238 INR</div>
+<button class="invite-now" onclick="shareNow()">Invite Now</button>
+</div>
+
+<div class="invite-item">
+<div>Invite 0/100 users<br>+3948 INR</div>
+<button class="invite-now" onclick="shareNow()">Invite Now</button>
 </div>
 
 </div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
-  <div class="nav-item">
-    <a href="index.html" style="text-decoration:none;color:inherit;">
-      <img src="Image/Home.png">Home
-    </a>
-  </div>
+<div class="nav-item">
+<a href="index.html"><img src="Image/Home.png">Home</a>
+</div>
 
-  <div class="nav-item">
-    <a href="tasks.html" style="text-decoration:none;color:inherit;">
-      <img src="Image/Task.png">Tasks
-    </a>
-  </div>
+<div class="nav-item">
+<a href="tasks.html"><img src="Image/Task.png">Tasks</a>
+</div>
 
-  <div class="nav-item">
-    <a href="wallet.html" style="text-decoration:none;color:inherit;">
-      <img src="Image/Wallet.png">Wallet
-    </a>
-  </div>
+<div class="nav-item">
+<a href="wallet.html"><img src="Image/Wallet.png">Wallet</a>
+</div>
 
-  <div class="nav-item active">
-    <a href="rewards.html" style="text-decoration:none;color:inherit;">
-      <img src="Image/Rewards.png">Rewards
-    </a>
-  </div>
+<div class="nav-item">
+<a href="account.html"><img src="Image/Name.png">Account</a>
+</div>
+</div>
+
 </div>
 
 <script>
 function copyCode(){
-  let text = document.getElementById("refCode").innerText;
-  navigator.clipboard.writeText(text);
-  alert("Referral Code Copied ✅");
+navigator.clipboard.writeText("XYZ1234");
+alert("Referral Code Copied ✅");
 }
 
 function shareNow(){
-  let link = document.getElementById("shareLink").value;
-  navigator.share({
-    title:"Join ADSVERO",
-    text:"Earn money with me!",
-    url:link
-  });
-}
-
-function shareWhatsApp(){
-  let link = document.getElementById("shareLink").value;
-  window.open("https://wa.me/?text="+encodeURIComponent(link));
-}
-
-function shareFacebook(){
-  let link = document.getElementById("shareLink").value;
-  window.open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(link));
-}
-
-function shareSMS(){
-  let link = document.getElementById("shareLink").value;
-  window.open("sms:?body="+encodeURIComponent(link));
+let link = document.getElementById("shareLink").value;
+navigator.clipboard.writeText(link);
+alert("Invite Link Copied ✅ Share anywhere!");
 }
 </script>
 
-</div>
 </body>
-</html>
+ </html>
