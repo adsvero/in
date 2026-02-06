@@ -24,6 +24,7 @@ body{
   margin:0 auto;
   background:white;
   min-height:100vh;
+  overflow-y:auto;   /* 👈 SCROLL FIX */
 }
 
 /* ===== RED HEADER ===== */
@@ -47,21 +48,31 @@ body{
   height:28px;
 }
 
-/* ===== MAIN CONTENT ===== */
+/* ===== BALANCE BADGE (CARD STYLE) ===== */
+.wallet-badge{
+  background:rgba(255,255,255,.25);
+  padding:8px 12px;
+  border-radius:20px;
+  font-weight:bold;
+}
+
+/* ===== MAIN SECTION ===== */
 .section{
   padding:16px;
 }
 
+/* ===== CARDS ===== */
 .card{
   background:white;
   border-radius:18px;
   padding:16px;
   margin-bottom:14px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-  border:1px solid rgba(0,0,0,0.05);
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+  border:1px solid rgba(0,0,0,.05);
+  pointer-events:auto;   /* 👈 CLICK FIX */
 }
 
-/* REAL INPUT BOX (editable) */
+/* ===== INPUT BOX ===== */
 .input-box input{
   width:100%;
   padding:10px;
@@ -70,14 +81,19 @@ body{
   font-size:16px;
 }
 
-/* clickable change upi */
-.change-upi{
-  color:#ff3b3b;
-  cursor:pointer;
-  margin-top:6px;
+/* clickable fix */
+.input-box{
+  pointer-events:auto;
 }
 
-/* Withdraw Button */
+/* ===== CHANGE UPI LINK ===== */
+.change-upi{
+  color:#ff3b3b;
+  margin-top:6px;
+  cursor:pointer;
+}
+
+/* ===== WITHDRAW BUTTON ===== */
 .withdraw-btn{
   width:100%;
   padding:14px;
@@ -130,24 +146,23 @@ body{
     <img src="Image/logo.png">
     <span>ADSVERO</span>
   </div>
-  <div>
-    ₹ <span id="walletBalance">00.0</span>
+
+  <!-- BALANCE BADGE -->
+  <div class="wallet-badge">
+    ₹ <span id="walletBalance">0.0</span>
   </div>
 </div>
 
 <div class="section">
-
 <h3>Withdraw Funds</h3>
 
 <!-- AMOUNT CARD -->
 <div class="card">
   <p><b>Excisee Amount (₹)</b></p>
-
   <div class="input-box">
     <input type="number" id="withdrawAmount" placeholder="Enter amount">
   </div>
-
-  <p style="margin-top:6px;color:#777;">
+  <p style="color:#777;margin-top:6px;">
     Minimum ₹500 → ₹1000000
   </p>
 </div>
@@ -155,30 +170,26 @@ body{
 <!-- BANK CARD -->
 <div class="card">
   <p><b>Bank Transfer</b></p>
-
   <div class="input-box">
     <input type="text" id="bankName" value="himanshu kumar">
   </div>
-
-  <p class="change-upi" onclick="alert('Bank details change page coming soon')">
-    Change Bank >
+  <p class="change-upi" onclick="alert('Bank change page coming soon')">
+    Change Bank &gt;
   </p>
 </div>
 
 <!-- UPI CARD -->
 <div class="card">
   <p><b>UPI</b></p>
-
   <div class="input-box">
     <input type="text" id="upiId" value="himanshu@upi">
   </div>
-
   <p class="change-upi" onclick="alert('UPI change page coming soon')">
-    Change UPI >
+    Change UPI &gt;
   </p>
 </div>
 
-<!-- WORKING BUTTON -->
+<!-- BUTTON -->
 <button class="withdraw-btn" onclick="requestWithdraw()">
   Request Withdraw
 </button>
@@ -190,7 +201,7 @@ Withdrawals are processed within 24–72 hours.
 </div>
 </div>
 
-<!-- BOTTOM NAV (REDIRECT WORKING) -->
+<!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <div class="nav-item">
     <a href="index.html" style="text-decoration:none;color:inherit;">
