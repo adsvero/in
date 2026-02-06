@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rewards | ADSVERO</title>
+<title>Rewards</title>
 
 <style>
 body{
@@ -13,23 +13,26 @@ background:#f2f2f2;
 }
 
 /* HEADER */
-.reward-header{
+.header{
 background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
-color:white;
-padding:16px;
+padding:14px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-font-weight:bold;
 }
 
-.balance-pill{
+.header img{
+height:26px;
+}
+
+.balance{
 background:rgba(255,255,255,0.25);
 padding:6px 10px;
 border-radius:20px;
+color:white;
 }
 
-/* PAGE CONTAINER */
+/* PAGE WRAPPER */
 #page{
 max-width:430px;
 margin:0 auto;
@@ -37,12 +40,10 @@ background:white;
 min-height:100vh;
 }
 
-/* BANNER */
-.banner-img{
+/* BANNER (MAIN FIX) */
+.banner{
 width:100%;
 display:block;
-border-radius:12px;
-margin-bottom:10px;
 }
 
 /* CARD */
@@ -54,7 +55,7 @@ margin:12px;
 box-shadow:0 8px 22px rgba(0,0,0,.12);
 }
 
-/* REFERRAL BOX */
+/* REF BOX */
 .ref-box{
 border:2px dashed #f2a60c;
 border-radius:12px;
@@ -64,11 +65,11 @@ justify-content:space-between;
 align-items:center;
 }
 
-.copy-btn{
+/* BUTTON */
+.btn{
 background:#f2a60c;
-color:black;
 border:none;
-padding:8px 12px;
+padding:8px 14px;
 border-radius:10px;
 font-weight:bold;
 }
@@ -87,15 +88,7 @@ border-radius:10px;
 border:1px solid #ddd;
 }
 
-.share-btn{
-background:#f2a60c;
-border:none;
-padding:10px 14px;
-border-radius:10px;
-font-weight:bold;
-}
-
-/* INVITE LIST ITEM */
+/* INVITE LIST */
 .invite-item{
 background:white;
 border-radius:14px;
@@ -132,10 +125,6 @@ width:26px;
 display:block;
 margin:0 auto 4px;
 }
-
-.nav-active{
-color:#ff3b3b;
-}
 </style>
 </head>
 
@@ -144,15 +133,15 @@ color:#ff3b3b;
 <div id="page">
 
 <!-- HEADER WITH YOUR LOGO -->
-<div class="reward-header">
-<img src="logo.png" height="26">
-<span class="balance-pill">₹ 00.0</span>
+<div class="header">
+<img src="logo.png">
+<span class="balance">₹ 00.0</span>
 </div>
 
-<!-- ✅ YOUR BANNER (CORRECT PLACE) -->
-<img src="invitebannar.png" class="banner-img">
+<!-- ✅ YOUR BANNER (FIXED) -->
+<img src="invitebannar.png" class="banner">
 
-<!-- REFERRAL CARD -->
+<!-- TOP CARD -->
 <div class="card">
 <h2>Invite Friends</h2>
 <p style="color:red;">Refer & Earn Rewards!</p>
@@ -162,15 +151,15 @@ color:#ff3b3b;
 
 <div class="ref-box">
 <b>XYZ1234</b>
-<button class="copy-btn" onclick="copyCode()">Copy Code</button>
+<button class="btn" onclick="copyCode()">Copy Code</button>
 </div>
 </div>
 
 <!-- SHARE LINK -->
 <div class="share-row">
-<input class="share-input" id="refLink" 
+<input class="share-input" id="refLink"
 value="https://adsvero.github.io/XYZ1234">
-<button class="share-btn" onclick="shareNow()">Share</button>
+<button class="btn" onclick="shareNow()">Share</button>
 </div>
 
 <!-- INVITE LIST -->
@@ -179,7 +168,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/1 users</b><br>
 +58 INR
 </div>
-<button class="copy-btn">Invite Now</button>
+<button class="btn">Invite Now</button>
 </div>
 
 <div class="invite-item">
@@ -187,7 +176,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/3 users</b><br>
 +128 INR
 </div>
-<button class="copy-btn">Invite Now</button>
+<button class="btn">Invite Now</button>
 </div>
 
 <div class="invite-item">
@@ -195,7 +184,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/5 users</b><br>
 +138 INR
 </div>
-<button class="copy-btn">Invite Now</button>
+<button class="btn">Invite Now</button>
 </div>
 
 <div class="invite-item">
@@ -203,7 +192,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/10 users</b><br>
 +348 INR
 </div>
-<button class="copy-btn">Invite Now</button>
+<button class="btn">Invite Now</button>
 </div>
 
 <div style="height:90px"></div>
@@ -222,7 +211,7 @@ value="https://adsvero.github.io/XYZ1234">
 <img src="Wallet.png">Wallet
 </a>
 
-<a href="rewards.html" class="nav-item nav-active">
+<a href="rewards.html" class="nav-item">
 <img src="Rewards.png">Rewards
 </a>
 </div>
@@ -243,4 +232,4 @@ alert("Link copied! Share anywhere.");
 </script>
 
 </body>
-                           </html>
+</html>
