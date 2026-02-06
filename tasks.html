@@ -24,10 +24,10 @@ body{
   margin:0 auto;
   background:white;
   min-height:100vh;
-  overflow-y:auto;
+  padding-bottom:80px;
 }
 
-/* ===== RED HEADER ===== */
+/* ===== HEADER ===== */
 .task-header{
   background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
   color:white;
@@ -81,7 +81,7 @@ body{
   border:1px solid rgba(0,0,0,.05);
 }
 
-/* top row */
+/* TOP ROW (TITLE + BUTTON) */
 .task-top{
   display:flex;
   justify-content:space-between;
@@ -91,11 +91,6 @@ body{
 
 .task-title{
   font-weight:bold;
-}
-
-.reward{
-  color:#333;
-  font-size:14px;
 }
 
 /* progress bar */
@@ -139,15 +134,6 @@ body{
   border-radius:16px;
   padding:12px;
   margin-top:10px;
-}
-
-/* upgrade box */
-.upgrade{
-  background:white;
-  border-radius:16px;
-  padding:14px;
-  margin-top:10px;
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
 
 /* ===== BOTTOM NAV ===== */
@@ -203,57 +189,30 @@ body{
 <h2>Today’s Tasks</h2>
 <p class="subtitle">Complete the ads to earn rewards</p>
 
-<!-- TASK 1 -->
+<!-- TASKS LOOP (10 TASKS) -->
+<script>
+for(let i=1;i<=10;i++){
+document.write(`
 <div class="task-card">
   <div class="task-top">
-    <span class="task-title">Ad Task 1 • Watch & Earn</span>
-    <span class="reward">Reward ₹2.00</span>
+    <span class="task-title">Ad Task ${i} • Watch & Earn</span>
+    <button class="start-btn" onclick="startTask(${i})">START</button>
   </div>
 
   <p>Watch Video (30 sec)</p>
 
   <div class="progress-bg">
-    <div class="progress-fill" style="width:40%"></div>
+    <div class="progress-fill" style="width:${i*8}%"></div>
   </div>
-
-  <button class="start-btn" onclick="startTask(1)">START</button>
 </div>
-
-<!-- TASK 2 -->
-<div class="task-card">
-  <div class="task-top">
-    <span class="task-title">Ad Task 2 • Watch & Earn</span>
-  </div>
-
-  <p>Completed</p>
-  <button class="done-btn">✔ DONE</button>
-</div>
-
-<!-- TASK 3 -->
-<div class="task-card">
-  <div class="task-top">
-    <span class="task-title">Ad Task 3 • Watch & Earn</span>
-    <span class="reward">Reward ₹2.00</span>
-  </div>
-
-  <p>Watch Video (30 sec)</p>
-
-  <div class="progress-bg">
-    <div class="progress-fill" style="width:20%"></div>
-  </div>
-
-  <button class="start-btn" onclick="startTask(3)">START</button>
-</div>
+`);
+}
+</script>
 
 <!-- NOTICE -->
 <div class="notice">
   <b>Don’t skip the ad!</b><br>
   Minimum watch time: 30 seconds
-</div>
-
-<!-- UPGRADE -->
-<div class="upgrade">
-  <b>Upgrade Plan</b>
 </div>
 
 </div>
