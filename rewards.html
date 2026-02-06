@@ -6,7 +6,12 @@
 <title>Rewards | ADSVERO</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
 
 body{
 background:#f2f2f2;
@@ -37,29 +42,35 @@ padding:6px 10px;
 border-radius:20px;
 }
 
-/* BANNER */
+/* BANNER (YOUR IMAGE) */
+.banner{
+padding:12px;
+}
+
 .banner img{
 width:100%;
-border-radius:12px;
+border-radius:16px;
+box-shadow:0 4px 16px rgba(0,0,0,.12);
 }
 
 /* REFERRAL CARD */
 .card{
 background:white;
 margin:12px;
-padding:14px;
-border-radius:16px;
-box-shadow:0 4px 16px rgba(0,0,0,.08);
+padding:16px;
+border-radius:18px;
+box-shadow:0 6px 18px rgba(0,0,0,.10);
 }
 
+/* REF CODE BOX */
 .code-box{
 display:flex;
 justify-content:space-between;
 align-items:center;
-border:1px dashed orange;
-padding:10px;
+border:1px dashed #f2a60c;
+padding:12px;
 border-radius:12px;
-margin-top:8px;
+margin-top:10px;
 }
 
 .copy-btn{
@@ -68,6 +79,7 @@ color:white;
 border:none;
 padding:10px 14px;
 border-radius:10px;
+font-weight:bold;
 }
 
 /* SHARE LINK */
@@ -79,8 +91,8 @@ margin:12px;
 
 .share-input{
 flex:1;
-padding:10px;
-border-radius:10px;
+padding:12px;
+border-radius:12px;
 border:1px solid #ddd;
 }
 
@@ -89,7 +101,8 @@ background:#f2a60c;
 color:white;
 border:none;
 padding:10px 14px;
-border-radius:10px;
+border-radius:12px;
+font-weight:bold;
 }
 
 /* INVITE LIST */
@@ -100,7 +113,7 @@ margin:12px;
 .invite-item{
 background:white;
 padding:12px;
-border-radius:12px;
+border-radius:14px;
 margin-bottom:10px;
 display:flex;
 justify-content:space-between;
@@ -114,6 +127,7 @@ color:white;
 border:none;
 padding:8px 14px;
 border-radius:10px;
+font-weight:bold;
 }
 
 /* BOTTOM NAV */
@@ -152,7 +166,7 @@ margin:0 auto 4px;
 <div class="balance">₹ <span id="bal">00.0</span></div>
 </div>
 
-<!-- BANNER -->
+<!-- YOUR BANNER -->
 <div class="banner">
 <img src="invitebannar.png">
 </div>
@@ -178,7 +192,7 @@ value="https://adsvero.github.io/XYZ1234">
 <button class="share-btn" onclick="shareNow()">Share</button>
 </div>
 
-<!-- INVITE LIST -->
+<!-- INVITE TARGET LIST -->
 <div class="invite-list">
 
 <div class="invite-item">
@@ -203,16 +217,6 @@ value="https://adsvero.github.io/XYZ1234">
 
 <div class="invite-item">
 <div>Invite 0/20 users<br>+728 INR</div>
-<button class="invite-now" onclick="shareNow()">Invite Now</button>
-</div>
-
- <div class="invite-item">
-<div>Invite 0/50 users<br>+2238 INR</div>
-<button class="invite-now" onclick="shareNow()">Invite Now</button>
-</div>
-
-<div class="invite-item">
-<div>Invite 0/100 users<br>+3948 INR</div>
 <button class="invite-now" onclick="shareNow()">Invite Now</button>
 </div>
 
