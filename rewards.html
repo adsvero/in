@@ -3,205 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invite Friends - ADSVERO</title>
+
+<title>Invite Friends | ADSVERO</title>
 
 <style>
 body{
-margin:0;
-font-family: Arial, sans-serif;
-background:#f2f2f2;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f2f2f2;
 }
 
-/* Top Header */
+/* Top Bar */
 .header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:10px;
-background:#ff4b5c;
-color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#ff4b4b;
+    padding:12px 15px;
+    color:white;
 }
 
 .header img{
-height:35px;
-}
-
-/* Wallet */
-.wallet{
-background:rgba(255,255,255,0.3);
-padding:6px 10px;
-border-radius:20px;
-}
-
-/* Main Container */
-.container{
-padding:10px;
+    height:32px;
 }
 
 /* Banner */
 .banner{
-width:100%;
-border-radius:15px;
+    width:100%;
 }
 
-/* Card */
+.banner img{
+    width:100%;
+    display:block;
+}
+
+/* Main Card */
 .card{
-background:white;
-border-radius:15px;
-padding:15px;
-margin-top:10px;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    background:white;
+    margin:10px;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 0 5px rgba(0,0,0,0.1);
 }
 
-/* Copy box */
-.copy-box{
-display:flex;
-justify-content:space-between;
-align-items:center;
-border:1px dashed #ffb703;
-padding:10px;
-border-radius:10px;
-margin-top:10px;
+.title{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.subtitle{
+    color:#ff4b4b;
+}
+
+/* Referral box */
+.ref-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border:2px dashed #f5b400;
+    padding:10px;
+    border-radius:10px;
+    margin-top:10px;
+}
+
+.ref-code{
+    font-size:18px;
+    font-weight:bold;
 }
 
 .copy-btn{
-background:#ffb703;
-border:none;
-padding:8px 12px;
-border-radius:8px;
-font-weight:bold;
+    background:#f5b400;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    font-weight:bold;
 }
 
-/* Share Link */
+/* Share link */
 .share-row{
-display:flex;
-margin-top:10px;
+    display:flex;
+    margin-top:10px;
 }
 
-.share-row input{
-flex:1;
-padding:8px;
-border-radius:8px;
-border:1px solid #ddd;
+.share-input{
+    flex:1;
+    padding:8px;
+    border-radius:8px;
+    border:1px solid #ddd;
 }
 
 .share-btn{
-background:#ffb703;
-border:none;
-padding:8px 12px;
-margin-left:8px;
-border-radius:8px;
-font-weight:bold;
+    background:#f5b400;
+    border:none;
+    padding:8px 12px;
+    margin-left:8px;
+    border-radius:8px;
 }
 
 /* Social Icons */
-.social-box{
-display:flex;
-justify-content:space-around;
-background:white;
-padding:15px;
-border-radius:15px;
-margin-top:10px;
+.social{
+    display:flex;
+    justify-content:space-around;
+    margin-top:15px;
 }
 
-.social-box img{
-width:50px;
+.social div{
+    text-align:center;
 }
 
-/* Bottom Navbar */
-.navbar{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-justify-content:space-around;
-background:white;
-padding:10px 0;
-box-shadow:0 -2px 5px rgba(0,0,0,0.1);
+.social img{
+    width:55px;
 }
 
-.navbar div{
-text-align:center;
-font-size:12px;
+/* Bottom menu */
+.bottom{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    background:white;
+    padding:10px 0;
+    box-shadow:0 -2px 5px rgba(0,0,0,0.1);
 }
 
-.active{
-color:red;
+.bottom img{
+    width:28px;
 }
 </style>
+
+<script>
+function copyCode(){
+    navigator.clipboard.writeText("XYZ1234");
+    alert("Referral Code Copied!");
+}
+</script>
+
 </head>
 
 <body>
 
 <!-- HEADER -->
 <div class="header">
-<img src="logo.png" alt="ADSVERO Logo">
-<div class="wallet">₹ 00.0</div>
+  <img src="logo.png" alt="logo">
+  <span>₹ 00.0</span>
 </div>
 
-<div class="container">
+<!-- TOP BANNER -->
+<div class="banner">
+  <img src="invitebannar.png" alt="Invite Banner">
+</div>
 
-<!-- BANNER IMAGE -->
-<img src="invitebannar.png" class="banner">
-
-<!-- INVITE CARD -->
+<!-- MAIN CARD -->
 <div class="card">
-<h2>Invite Friends</h2>
-<p style="color:red;">Refer & Earn Rewards!</p>
-<h3>Earn ₹100</h3>
-<p>For each friend that joins!</p>
+  <div class="title">Invite Friends</div>
+  <div class="subtitle">Refer & Earn Rewards!</div>
 
-<div class="copy-box">
-<b id="refCode">XYZ1234</b>
-<button class="copy-btn" onclick="copyCode()">Copy Code</button>
-</div>
-</div>
+  <h2>Earn ₹100</h2>
+  <p>For each friend that joins!</p>
 
-<!-- SHARE LINK -->
-<div class="share-row">
-<input type="text" id="shareLink" value="https://adsvero.github.io/XYZ1234">
-<button class="share-btn" onclick="copyLink()">Share</button>
-</div>
+  <div class="ref-box">
+    <div class="ref-code">XYZ1234</div>
+    <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+  </div>
 
-<!-- SOCIAL SHARE -->
-<div class="social-box">
-<div>
-<img src="whatsapp.png">
-<p>WhatsApp</p>
-</div>
+  <div class="share-row">
+    <input class="share-input" value="https://adsvero.github.io/XYZ1234">
+    <button class="share-btn">Share</button>
+  </div>
 
-<div>
-<img src="facebook.png">
-<p>Facebook</p>
-</div>
+  <p style="margin-top:15px;">Invite friends through your favorite apps</p>
 
-<div>
-<img src="sms.png">
-<p>SMS</p>
-</div>
-</div>
+  <div class="social">
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+      <div>WhatsApp</div>
+    </div>
 
-</div>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+      <div>Facebook</div>
+    </div>
 
-<!-- BOTTOM NAVBAR -->
-<div class="navbar">
-<div>Home</div>
-<div>Tasks</div>
-<div>Wallet</div>
-<div class="active">Rewards</div>
+    <div>
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+      <div>SMS</div>
+    </div>
+  </div>
 </div>
 
-<script>
-function copyCode(){
-navigator.clipboard.writeText(document.getElementById("refCode").innerText);
-alert("Referral Code Copied!");
-}
-
-function copyLink(){
-navigator.clipboard.writeText(document.getElementById("shareLink").value);
-alert("Invite Link Copied!");
-}
-</script>
+<!-- BOTTOM MENU -->
+<div class="bottom">
+  <div><img src="Home.png"></div>
+  <div><img src="Tasks.png"></div>
+  <div><img src="Wallet.png"></div>
+  <div><img src="Rewards.png"></div>
+</div>
 
 </body>
 </html>
