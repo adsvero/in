@@ -3,12 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rewards</title>
+<title>Rewards | ADSVERO</title>
 
 <style>
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial, sans-serif;
+}
+
+body{
 background:#f2f2f2;
 }
 
@@ -19,6 +24,8 @@ padding:12px 14px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+color:white;
+font-weight:bold;
 }
 
 .header img{
@@ -26,21 +33,20 @@ height:28px;
 }
 
 /* ===== MAIN CONTAINER ===== */
-.container{
+.page{
 max-width:430px;
 margin:0 auto;
 background:white;
 min-height:100vh;
 }
 
-/* ===== BANNER (MOST IMPORTANT FIX) ===== */
-.banner{
+/* ===== INVITE BANNER ===== */
+.invite-banner{
 width:100%;
 display:block;
-border-radius:0;
 }
 
-/* ===== CARD ===== */
+/* ===== CARD STYLE ===== */
 .card{
 background:white;
 border-radius:16px;
@@ -49,7 +55,7 @@ padding:14px;
 box-shadow:0 6px 16px rgba(0,0,0,.1);
 }
 
-/* REF BOX */
+/* REF CODE BOX */
 .ref-box{
 border:2px dashed #f2a60c;
 border-radius:12px;
@@ -66,6 +72,7 @@ border:none;
 padding:8px 14px;
 border-radius:10px;
 font-weight:bold;
+cursor:pointer;
 }
 
 /* SHARE ROW */
@@ -124,18 +131,18 @@ margin:0 auto 4px;
 
 <body>
 
-<div class="container">
+<div class="page">
 
-<!-- HEADER WITH LOGO -->
+<!-- HEADER -->
 <div class="header">
 <img src="logo.png">
-<span style="color:white;font-weight:bold;">₹ 00.0</span>
+<span>₹ 00.0</span>
 </div>
 
-<!-- 🔴 BANNER (THIS MUST SHOW) -->
-<img src="invitebannar.png" class="banner">
+<!-- BANNER -->
+<img src="invitebannar.png" class="invite-banner">
 
-<!-- TOP CARD -->
+<!-- INVITE CARD -->
 <div class="card">
 <h2>Invite Friends</h2>
 <p style="color:red;">Refer & Earn Rewards!</p>
@@ -144,7 +151,7 @@ margin:0 auto 4px;
 <p>For each friend that joins!</p>
 
 <div class="ref-box">
-<b>XYZ1234</b>
+<b id="refCode">XYZ1234</b>
 <button class="btn" onclick="copyCode()">Copy Code</button>
 </div>
 </div>
@@ -162,7 +169,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/1 users</b><br>
 +58 INR
 </div>
-<button class="btn">Invite Now</button>
+<button class="btn" onclick="inviteNow()">Invite Now</button>
 </div>
 
 <div class="invite-item">
@@ -170,7 +177,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/3 users</b><br>
 +128 INR
 </div>
-<button class="btn">Invite Now</button>
+<button class="btn" onclick="inviteNow()">Invite Now</button>
 </div>
 
 <div class="invite-item">
@@ -178,7 +185,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/5 users</b><br>
 +138 INR
 </div>
-<button class="btn">Invite Now</button>
+<button class="btn" onclick="inviteNow()">Invite Now</button>
 </div>
 
 <div class="invite-item">
@@ -186,7 +193,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/10 users</b><br>
 +348 INR
 </div>
-<button class="btn">Invite Now</button>
+<button class="btn" onclick="inviteNow()">Invite Now</button>
 </div>
 
 <div class="invite-item">
@@ -194,7 +201,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/20 users</b><br>
 +728 INR
 </div>
-<button class="btn">Invite Now</button>
+<button class="btn" onclick="inviteNow()">Invite Now</button>
 </div>
 
 <div class="invite-item">
@@ -202,7 +209,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/50 users</b><br>
 +2238 INR
 </div>
-<button class="btn">Invite Now</button>
+<button class="btn" onclick="inviteNow()">Invite Now</button>
 </div>
 
 <div class="invite-item">
@@ -210,7 +217,7 @@ value="https://adsvero.github.io/XYZ1234">
 <b>Invite 0/100 users</b><br>
 +3948 INR
 </div>
-<button class="btn">Invite Now</button>
+<button class="btn" onclick="inviteNow()">Invite Now</button>
 </div>
 
 <div style="height:90px"></div>
@@ -238,7 +245,8 @@ value="https://adsvero.github.io/XYZ1234">
 
 <script>
 function copyCode(){
-navigator.clipboard.writeText("XYZ1234");
+let code = document.getElementById("refCode").innerText;
+navigator.clipboard.writeText(code);
 alert("Referral code copied!");
 }
 
@@ -247,7 +255,11 @@ let link = document.getElementById("refLink").value;
 navigator.clipboard.writeText(link);
 alert("Link copied! Share anywhere.");
 }
+
+function inviteNow(){
+alert("Invite feature coming soon!");
+}
 </script>
 
 </body>
-  </html>
+</html>
