@@ -26,6 +26,7 @@ color:white;
 height:32px;
 }
 
+/* BALANCE */
 .balance{
 background:white;
 color:black;
@@ -36,26 +37,54 @@ font-size:14px;
 
 /* MAIN CARD */
 .card{
-margin:0;            /* पहले 10px था — हटाया */
 background:white;
-border-radius:0;      /* गोल corner हटाया */
-overflow:hidden;      /* जरूरी है full banner के लिए */
-padding:0;            /* पहले 10px था — हटाया */
+padding:0;
 }
 
-/* BANNER */
+/* FULL WIDTH BANNER */
 .banner img{
 width:100%;
 display:block;
-border-radius:0;      /* पहले 10px था — हटाया */
 }
 
-/* SHARE SECTION */
-.share-box{
+/* INVITE LINK BOX */
+.invite-link-box{
+padding:15px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-bottom:1px solid #ddd;
+}
+
+.invite-link-box input{
+width:70%;
+padding:8px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+.invite-link-box button{
+background:#ffb400;
+border:none;
+color:black;
+padding:8px 12px;
+border-radius:8px;
+}
+
+/* SHARE SECTION (BOTTOM) */
+.share-section{
 margin-top:15px;
+padding:15px;
+background:white;
+text-align:center;
+}
+
+.share-box{
 display:flex;
 justify-content:space-around;
 align-items:center;
+margin-top:10px;
 }
 
 .share-box div{
@@ -66,7 +95,7 @@ text-align:center;
 width:55px;
 }
 
-/* BOTTOM NAV */
+/* BOTTOM NAV (dummy example) */
 .bottom-nav{
 position:fixed;
 bottom:0;
@@ -96,10 +125,19 @@ font-size:12px;
 <!-- MAIN CONTENT -->
 <div class="card">
 
+<!-- FULL WIDTH BANNER -->
 <div class="banner">
 <img src="Image/invitebannar.png" alt="Invite Banner">
 </div>
 
+<!-- INVITE LINK JUST BELOW BANNER -->
+<div class="invite-link-box">
+<input type="text" value="https://adsvero.github.io/XYZ1234">
+<button>Share</button>
+</div>
+
+<!-- SHARE APPS AT BOTTOM -->
+<div class="share-section">
 <h3>Invite friends through your favorite apps</h3>
 
 <div class="share-box">
@@ -126,10 +164,9 @@ font-size:12px;
 </div>
 
 </div>
+</div>
 
 </div>
 
-<!-- BOTTOM NAV -->
-
 </body>
-</html>
+  </html>
