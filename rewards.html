@@ -36,17 +36,18 @@ font-size:14px;
 
 /* MAIN CARD */
 .card{
-margin:10px;
+margin:0;            /* पहले 10px था — हटाया */
 background:white;
-border-radius:12px;
-padding:10px;
-text-align:center;
+border-radius:0;      /* गोल corner हटाया */
+overflow:hidden;      /* जरूरी है full banner के लिए */
+padding:0;            /* पहले 10px था — हटाया */
 }
 
 /* BANNER */
 .banner img{
 width:100%;
-border-radius:10px;
+display:block;
+border-radius:0;      /* पहले 10px था — हटाया */
 }
 
 /* SHARE SECTION */
