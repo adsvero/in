@@ -41,42 +41,43 @@ background:white;
 padding:0;
 }
 
-/* FULL WIDTH BANNER */
+/* FULL BANNER */
 .banner img{
 width:100%;
 display:block;
 }
 
-/* INVITE LINK BOX */
-.invite-link-box{
+/* REFERRAL LINK BOX */
+.link-box{
 padding:15px;
+text-align:center;
 background:white;
-display:flex;
-align-items:center;
-justify-content:space-between;
-border-bottom:1px solid #ddd;
+border-top:1px solid #eee;
 }
 
-.invite-link-box input{
-width:70%;
-padding:8px;
-border:1px solid #ddd;
-border-radius:6px;
-}
-
-.invite-link-box button{
-background:#ffb400;
-border:none;
-color:black;
-padding:8px 12px;
+.link-input{
+width:90%;
+padding:10px;
+border:1px solid #ccc;
 border-radius:8px;
+text-align:center;
 }
 
-/* SHARE SECTION (BOTTOM) */
+/* SHARE BUTTON */
+.share-btn{
+margin-top:10px;
+padding:10px 15px;
+background:#ffb000;
+border:none;
+border-radius:8px;
+font-size:16px;
+}
+
+/* SHARE APPS BLOCK */
 .share-section{
 margin-top:15px;
 padding:15px;
-background:white;
+background:#fff;
 text-align:center;
 }
 
@@ -84,7 +85,6 @@ text-align:center;
 display:flex;
 justify-content:space-around;
 align-items:center;
-margin-top:10px;
 }
 
 .share-box div{
@@ -92,24 +92,12 @@ text-align:center;
 }
 
 .share-box img{
-width:55px;
+width:60px;
 }
 
-/* BOTTOM NAV (dummy example) */
-.bottom-nav{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-justify-content:space-around;
-background:white;
-padding:8px 0;
-box-shadow:0 -2px 5px rgba(0,0,0,0.1);
-}
-
-.bottom-nav div{
-text-align:center;
-font-size:12px;
+/* BOTTOM SPACING (so nav not overlap) */
+.bottom-space{
+height:80px;
 }
 </style>
 </head>
@@ -125,39 +113,42 @@ font-size:12px;
 <!-- MAIN CONTENT -->
 <div class="card">
 
-<!-- FULL WIDTH BANNER -->
+<!-- FULL BANNER -->
 <div class="banner">
 <img src="Image/Rewardbanner.png" alt="Invite Banner">
 </div>
 
-<!-- INVITE LINK JUST BELOW BANNER -->
-<div class="invite-link-box">
-<input type="text" value="https://adsvero.github.io/XYZ1234">
-<button>Share</button>
+<!-- REFERRAL LINK BOX (banner ke just niche) -->
+<div class="link-box">
+<input class="link-input" type="text" 
+value="https://adsvero.github.io/XYZ1234" readonly>
+
+<br><br>
+<button class="share-btn" onclick="copyLink()">Copy & Share Link</button>
 </div>
 
-<!-- SHARE APPS AT BOTTOM -->
+<!-- SHARE APPS (bilkul niche) -->
 <div class="share-section">
 <h3>Invite friends through your favorite apps</h3>
 
 <div class="share-box">
 
 <div>
-<a href="https://wa.me/?text=Join ADSVERO using my link: https://adsvero.github.io">
+<a href="https://wa.me/?text=Join ADSVERO: https://adsvero.github.io/XYZ1234">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 <p>WhatsApp</p>
 </a>
 </div>
 
 <div>
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://adsvero.github.io">
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://adsvero.github.io/XYZ1234">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
 <p>Facebook</p>
 </a>
 </div>
 
 <div>
-<a href="sms:?body=Join ADSVERO using my link: https://adsvero.github.io">
+<a href="sms:?body=Join ADSVERO: https://adsvero.github.io/XYZ1234">
 <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
 <p>SMS</p>
 </a>
@@ -166,7 +157,14 @@ font-size:12px;
 </div>
 </div>
 
-</div>
+<div class="bottom-space"></div>
+
+<script>
+function copyLink(){
+navigator.clipboard.writeText("https://adsvero.github.io/XYZ1234");
+alert("Link Copied!");
+}
+</script>
 
 </body>
-  </html>
+</html>
