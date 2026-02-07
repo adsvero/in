@@ -9,7 +9,6 @@
 body{
 margin:0;
 font-family: Arial, sans-serif;
-background:#ffffff;   /* plain white background */
 }
 
 /* TOP BAR */
@@ -20,6 +19,10 @@ align-items:center;
 background:linear-gradient(90deg,#ff4b4b,#ff7b7b);
 padding:10px 12px;
 color:white;
+position:fixed;
+top:0;
+width:100%;
+z-index:100;
 }
 
 .top-bar img{
@@ -34,10 +37,15 @@ border-radius:20px;
 font-size:14px;
 }
 
-/* BLANK CONTENT AREA */
-.blank-area{
-height: calc(100vh - 60px); /* full screen minus top bar */
-background:white;
+/* FULL SCREEN BACKGROUND */
+.page-bg{
+margin-top:60px;   /* top bar ke niche se start */
+width:100%;
+height:calc(100vh - 60px);
+background:url("Image/Rewardbanner.png");
+background-size:cover;      /* full cover */
+background-position:center;
+background-repeat:no-repeat;
 }
 </style>
 </head>
@@ -50,8 +58,8 @@ background:white;
 <div class="balance">₹ 00.0</div>
 </div>
 
-<!-- PLAIN BLANK PAGE -->
-<div class="blank-area"></div>
+<!-- BACKGROUND AREA -->
+<div class="page-bg"></div>
 
 </body>
-</html>
+  </html>
