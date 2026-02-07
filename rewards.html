@@ -15,44 +15,37 @@ background:#f2f2f2;
 /* HEADER */
 .header{
 background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
-padding:14px;
+padding:12px 14px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 
 .header img{
-height:26px;
+height:28px;
 }
 
-.balance{
-background:rgba(255,255,255,0.25);
-padding:6px 10px;
-border-radius:20px;
-color:white;
-}
-
-/* PAGE WRAPPER */
-#page{
+/* MAIN CONTAINER */
+.container{
 max-width:430px;
 margin:0 auto;
 background:white;
 min-height:100vh;
 }
 
-/* BANNER (MAIN FIX) */
+/* BANNER IMAGE */
 .banner{
 width:100%;
 display:block;
 }
 
-/* CARD */
+/* TOP CARD */
 .card{
 background:white;
-border-radius:18px;
-padding:16px;
-margin:12px;
-box-shadow:0 8px 22px rgba(0,0,0,.12);
+border-radius:16px;
+margin:10px;
+padding:14px;
+box-shadow:0 6px 16px rgba(0,0,0,.1);
 }
 
 /* REF BOX */
@@ -78,7 +71,7 @@ font-weight:bold;
 .share-row{
 display:flex;
 gap:8px;
-margin:12px;
+margin:10px;
 }
 
 .share-input{
@@ -88,12 +81,12 @@ border-radius:10px;
 border:1px solid #ddd;
 }
 
-/* INVITE LIST */
+/* INVITE LIST ITEM */
 .invite-item{
 background:white;
 border-radius:14px;
 padding:14px;
-margin:10px 12px;
+margin:10px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -130,15 +123,15 @@ margin:0 auto 4px;
 
 <body>
 
-<div id="page">
+<div class="container">
 
 <!-- HEADER WITH YOUR LOGO -->
 <div class="header">
 <img src="logo.png">
-<span class="balance">₹ 00.0</span>
+<span style="color:white;font-weight:bold;">₹ 00.0</span>
 </div>
 
-<!-- ✅ YOUR BANNER (FIXED) -->
+<!-- YOUR INVITE BANNER -->
 <img src="invitebannar.png" class="banner">
 
 <!-- TOP CARD -->
@@ -191,6 +184,30 @@ value="https://adsvero.github.io/XYZ1234">
 <div>
 <b>Invite 0/10 users</b><br>
 +348 INR
+</div>
+<button class="btn">Invite Now</button>
+</div>
+
+<div class="invite-item">
+<div>
+<b>Invite 0/20 users</b><br>
++728 INR
+</div>
+<button class="btn">Invite Now</button>
+</div>
+
+<div class="invite-item">
+<div>
+<b>Invite 0/50 users</b><br>
++2238 INR
+</div>
+<button class="btn">Invite Now</button>
+</div>
+
+<div class="invite-item">
+<div>
+<b>Invite 0/100 users</b><br>
++3948 INR
 </div>
 <button class="btn">Invite Now</button>
 </div>
