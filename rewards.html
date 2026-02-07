@@ -9,10 +9,10 @@
 body{
 margin:0;
 font-family: Arial, sans-serif;
-background:white;
+background:#f3f3f3;
 }
 
-/* TOP BAR */
+/* -------- TOP BAR -------- */
 .top-bar{
 display:flex;
 justify-content:space-between;
@@ -38,52 +38,72 @@ border-radius:20px;
 font-size:14px;
 }
 
-/* MAIN CONTENT */
-.main{
-margin-top:60px; /* top bar space */
-margin-bottom:70px; /* bottom nav space */
+/* -------- PAGE BODY -------- */
+.page{
+margin-top:60px; /* space for top bar */
+margin-bottom:70px; /* space for bottom nav */
 }
 
-/* BACKGROUND BANNER */
+/* -------- BANNER -------- */
 .banner img{
 width:100%;
 display:block;
 }
 
-/* CARD STYLE */
+/* -------- CARD STYLE -------- */
 .card{
 background:white;
-margin:15px;
-padding:15px;
-border-radius:12px;
+margin:10px;
+padding:12px;
+border-radius:10px;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* BUTTON */
-.btn{
-width:100%;
-padding:12px;
-background:#f5a623;
-border:none;
-border-radius:8px;
-font-size:16px;
-font-weight:bold;
-color:black;
+/* SHARE INPUT ROW */
+.share-row{
+display:flex;
+align-items:center;
+gap:8px;
 }
 
-/* SHARE BOX */
-.share-box{
+.share-row input{
+flex:1;
+padding:8px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+/* SHARE BUTTON */
+.share-btn{
+background:#f5a623;
+color:black;
+border:none;
+padding:8px 12px;
+border-radius:8px;
+font-weight:bold;
+display:flex;
+align-items:center;
+gap:5px;
+}
+
+/* -------- APP ICON ROW -------- */
+.app-row{
 display:flex;
 justify-content:space-around;
 align-items:center;
 margin-top:10px;
 }
 
-.share-box img{
+.app-box{
+text-align:center;
+font-size:12px;
+}
+
+.app-box img{
 width:55px;
 }
 
-/* BOTTOM NAV */
+/* -------- BOTTOM NAV -------- */
 .bottom-nav{
 position:fixed;
 bottom:0;
@@ -97,7 +117,11 @@ box-shadow:0 -2px 5px rgba(0,0,0,0.1);
 
 .bottom-nav a{
 text-decoration:none;
-color:black;
+color:gray;
+}
+
+.bottom-nav .active{
+color:red;
 }
 
 .bottom-nav div{
@@ -115,46 +139,51 @@ font-size:12px;
 <div class="balance">₹ 00.0</div>
 </div>
 
-<!-- MAIN CONTENT -->
-<div class="main">
+<div class="page">
 
-<!-- BACKGROUND BANNER -->
+<!-- BANNER -->
 <div class="banner">
 <img src="Image/Rewardbanner.png" alt="Reward Banner">
 </div>
 
-<!-- INVITE LINK CARD -->
+<!-- SHARE LINK CARD -->
 <div class="card">
-<h3>Invite Friends</h3>
-<input type="text" value="https://adsvero.github.io/XYZ1234" style="width:100%; padding:8px;">
+<b>Share your invite link</b><br>
+<small>Invite friends through your favorite apps</small>
 
-<button class="btn" onclick="copyLink()">Copy & Share Link</button>
+<div class="share-row" style="margin-top:8px;">
+<input type="text" id="refLink" value="https://adsvero.github.io/XYZ1234">
+
+<button class="share-btn" onclick="copyLink()">
+📤 Share
+</button>
+</div>
 </div>
 
-<!-- SHARE APPS CARD -->
+<!-- APPS CARD -->
 <div class="card">
-<h3>Invite via your favorite apps</h3>
+<b>Invite friends through your favorite apps</b>
 
-<div class="share-box">
+<div class="app-row">
 
-<div>
+<div class="app-box">
 <a href="https://wa.me/?text=Join ADSVERO: https://adsvero.github.io/XYZ1234">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-<p>WhatsApp</p>
+<p>Invite via<br>WhatsApp</p>
 </a>
 </div>
 
-<div>
+<div class="app-box">
 <a href="https://www.facebook.com/sharer/sharer.php?u=https://adsvero.github.io/XYZ1234">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
-<p>Facebook</p>
+<p>Invite via<br>Facebook</p>
 </a>
 </div>
 
-<div>
+<div class="app-box">
 <a href="sms:?body=Join ADSVERO: https://adsvero.github.io/XYZ1234">
 <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-<p>SMS</p>
+<p>Invite via<br>SMS</p>
 </a>
 </div>
 
@@ -163,7 +192,7 @@ font-size:12px;
 
 </div>
 
-<!-- BOTTOM NAVIGATION (SAME AS OTHER PAGES) -->
+<!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav">
 
 <a href="index.html">
@@ -185,7 +214,7 @@ font-size:12px;
 </a>
 
 <a href="account.html">
-<div>
+<div class="active">
 👤<br>Account
 </div>
 </a>
@@ -194,7 +223,9 @@ font-size:12px;
 
 <script>
 function copyLink(){
-navigator.clipboard.writeText("https://adsvero.github.io/XYZ1234");
+var link = document.getElementById("refLink");
+link.select();
+navigator.clipboard.writeText(link.value);
 alert("Link copied!");
 }
 </script>
