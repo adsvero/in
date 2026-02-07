@@ -12,7 +12,7 @@ font-family: Arial, sans-serif;
 background:#f3f3f3;
 }
 
-/* ===== TOP BAR ===== */
+/* ===== TOP BAR (FIXED + SAFE) ===== */
 .top-bar{
 display:flex;
 justify-content:space-between;
@@ -22,15 +22,18 @@ padding:12px 14px;
 color:white;
 position:fixed;
 top:0;
+left:0;
 width:100%;
-z-index:999;
+z-index:1000;
 box-sizing:border-box;
 }
 
+/* logo */
 .top-bar img{
 height:32px;
 }
 
+/* balance pill */
 .balance{
 background:white;
 color:black;
@@ -39,32 +42,35 @@ border-radius:20px;
 font-size:14px;
 }
 
-/* ===== MAIN PAGE ===== */
+/* ===== MAIN CONTAINER (so nothing hides under nav) ===== */
 .page-container{
-margin-top:56px; /* top bar height */
-margin-bottom:70px; /* bottom nav space */
+margin-top:58px;   /* space for top bar */
+margin-bottom:75px; /* space for bottom nav */
 }
 
-/* ===== BACKGROUND ===== */
+/* ===== BACKGROUND BANNER (NO ZOOM) ===== */
 .banner{
 width:100%;
 }
 
 .banner img{
 width:100%;
+height:auto;
 display:block;
+object-fit:cover;   /* important */
 }
 
-/* ===== CARD ===== */
+/* ===== CARD DESIGN ===== */
 .card{
-width:90%;
+width:92%;
 max-width:420px;
-margin:20px auto;
+margin:15px auto;
 background:white;
 border-radius:14px;
 padding:15px;
 box-shadow:0 2px 6px rgba(0,0,0,0.15);
 text-align:center;
+box-sizing:border-box;
 }
 
 /* LINK INPUT */
@@ -74,6 +80,7 @@ padding:10px;
 border:1px solid #ddd;
 border-radius:8px;
 font-size:14px;
+box-sizing:border-box;
 }
 
 /* BUTTON */
@@ -101,17 +108,18 @@ align-items:center;
 width:55px;
 }
 
-/* ===== UNIVERSAL BOTTOM NAV (SAME EVERY PAGE) ===== */
+/* ===== BOTTOM NAV (UNIVERSAL FOR ALL PAGES) ===== */
 .bottom-nav{
 position:fixed;
 bottom:0;
+left:0;
 width:100%;
 display:flex;
 justify-content:space-around;
 background:white;
 padding:8px 0;
 box-shadow:0 -2px 5px rgba(0,0,0,0.1);
-z-index:999;
+z-index:1000;
 }
 
 .bottom-nav div{
@@ -136,7 +144,7 @@ height:24px;
 
 <div class="page-container">
 
-<!-- BANNER -->
+<!-- BACKGROUND -->
 <div class="banner">
 <img src="Image/Rewardbanner.png" alt="Invite Banner">
 </div>
@@ -174,7 +182,7 @@ value="https://adsvero.github.io/XYZ1234">
 
 </div>
 
-<!-- BOTTOM NAVIGATION (SAME ON ALL PAGES) -->
+<!-- BOTTOM NAV (SAME EVERY PAGE) -->
 <div class="bottom-nav">
 
 <div onclick="window.location.href='index.html'">
@@ -192,9 +200,9 @@ value="https://adsvero.github.io/XYZ1234">
 <p>Wallet</p>
 </div>
 
-<div onclick="window.location.href='invite.html'">
-<img src="Image/Rewards.png">
-<p>Rewards</p>
+<div onclick="window.location.href='account.html'">
+<img src="Image/Account.png">
+<p>Account</p>
 </div>
 
 </div>
