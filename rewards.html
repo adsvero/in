@@ -3,261 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rewards | ADSVERO</title>
+<title>Invite Friends - ADSVERO</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
-
 body{
+margin:0;
+font-family: Arial, sans-serif;
 background:#f2f2f2;
 }
 
-/* ===== HEADER ===== */
+/* Top Header */
 .header{
-background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
-padding:12px 14px;
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
+padding:10px;
+background:#ff4b5c;
 color:white;
-font-weight:bold;
 }
 
 .header img{
-height:28px;
+height:35px;
 }
 
-/* ===== MAIN CONTAINER ===== */
-.page{
-max-width:430px;
-margin:0 auto;
-background:white;
-min-height:100vh;
+/* Wallet */
+.wallet{
+background:rgba(255,255,255,0.3);
+padding:6px 10px;
+border-radius:20px;
 }
 
-/* ===== INVITE BANNER ===== */
-.invite-banner{
+/* Main Container */
+.container{
+padding:10px;
+}
+
+/* Banner */
+.banner{
 width:100%;
-display:block;
+border-radius:15px;
 }
 
-/* ===== CARD STYLE ===== */
+/* Card */
 .card{
 background:white;
-border-radius:16px;
-margin:10px;
-padding:14px;
-box-shadow:0 6px 16px rgba(0,0,0,.1);
+border-radius:15px;
+padding:15px;
+margin-top:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* REF CODE BOX */
-.ref-box{
-border:2px dashed #f2a60c;
-border-radius:12px;
-padding:12px;
+/* Copy box */
+.copy-box{
 display:flex;
 justify-content:space-between;
 align-items:center;
-}
-
-/* BUTTON */
-.btn{
-background:#f2a60c;
-border:none;
-padding:8px 14px;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer;
-}
-
-/* SHARE ROW */
-.share-row{
-display:flex;
-gap:8px;
-margin:10px;
-}
-
-.share-input{
-flex:1;
+border:1px dashed #ffb703;
 padding:10px;
 border-radius:10px;
+margin-top:10px;
+}
+
+.copy-btn{
+background:#ffb703;
+border:none;
+padding:8px 12px;
+border-radius:8px;
+font-weight:bold;
+}
+
+/* Share Link */
+.share-row{
+display:flex;
+margin-top:10px;
+}
+
+.share-row input{
+flex:1;
+padding:8px;
+border-radius:8px;
 border:1px solid #ddd;
 }
 
-/* INVITE LIST ITEM */
-.invite-item{
-background:white;
-border-radius:14px;
-padding:14px;
-margin:10px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 6px 16px rgba(0,0,0,.08);
+.share-btn{
+background:#ffb703;
+border:none;
+padding:8px 12px;
+margin-left:8px;
+border-radius:8px;
+font-weight:bold;
 }
 
-/* BOTTOM NAV */
-.bottom-nav{
+/* Social Icons */
+.social-box{
+display:flex;
+justify-content:space-around;
+background:white;
+padding:15px;
+border-radius:15px;
+margin-top:10px;
+}
+
+.social-box img{
+width:50px;
+}
+
+/* Bottom Navbar */
+.navbar{
 position:fixed;
 bottom:0;
 width:100%;
-max-width:430px;
-background:white;
 display:flex;
 justify-content:space-around;
+background:white;
 padding:10px 0;
-border-top:1px solid #ddd;
+box-shadow:0 -2px 5px rgba(0,0,0,0.1);
 }
 
-.nav-item{
+.navbar div{
 text-align:center;
 font-size:12px;
-color:#999;
-text-decoration:none;
 }
 
-.nav-item img{
-width:26px;
-display:block;
-margin:0 auto 4px;
+.active{
+color:red;
 }
 </style>
 </head>
 
 <body>
 
-<div class="page">
-
 <!-- HEADER -->
 <div class="header">
-<img src="logo.png">
-<span>₹ 00.0</span>
+<img src="logo.png" alt="ADSVERO Logo">
+<div class="wallet">₹ 00.0</div>
 </div>
 
-<!-- BANNER -->
-<img src="invitebannar.png" class="invite-banner">
+<div class="container">
+
+<!-- BANNER IMAGE -->
+<img src="invitebannar.png" class="banner">
 
 <!-- INVITE CARD -->
 <div class="card">
 <h2>Invite Friends</h2>
 <p style="color:red;">Refer & Earn Rewards!</p>
-
 <h3>Earn ₹100</h3>
 <p>For each friend that joins!</p>
 
-<div class="ref-box">
+<div class="copy-box">
 <b id="refCode">XYZ1234</b>
-<button class="btn" onclick="copyCode()">Copy Code</button>
+<button class="copy-btn" onclick="copyCode()">Copy Code</button>
 </div>
 </div>
 
 <!-- SHARE LINK -->
 <div class="share-row">
-<input class="share-input" id="refLink"
-value="https://adsvero.github.io/XYZ1234">
-<button class="btn" onclick="shareNow()">Share</button>
+<input type="text" id="shareLink" value="https://adsvero.github.io/XYZ1234">
+<button class="share-btn" onclick="copyLink()">Share</button>
 </div>
 
-<!-- INVITE LIST -->
-<div class="invite-item">
+<!-- SOCIAL SHARE -->
+<div class="social-box">
 <div>
-<b>Invite 0/1 users</b><br>
-+58 INR
-</div>
-<button class="btn" onclick="inviteNow()">Invite Now</button>
+<img src="whatsapp.png">
+<p>WhatsApp</p>
 </div>
 
-<div class="invite-item">
 <div>
-<b>Invite 0/3 users</b><br>
-+128 INR
-</div>
-<button class="btn" onclick="inviteNow()">Invite Now</button>
+<img src="facebook.png">
+<p>Facebook</p>
 </div>
 
-<div class="invite-item">
 <div>
-<b>Invite 0/5 users</b><br>
-+138 INR
+<img src="sms.png">
+<p>SMS</p>
 </div>
-<button class="btn" onclick="inviteNow()">Invite Now</button>
-</div>
-
-<div class="invite-item">
-<div>
-<b>Invite 0/10 users</b><br>
-+348 INR
-</div>
-<button class="btn" onclick="inviteNow()">Invite Now</button>
 </div>
 
-<div class="invite-item">
-<div>
-<b>Invite 0/20 users</b><br>
-+728 INR
-</div>
-<button class="btn" onclick="inviteNow()">Invite Now</button>
 </div>
 
-<div class="invite-item">
-<div>
-<b>Invite 0/50 users</b><br>
-+2238 INR
-</div>
-<button class="btn" onclick="inviteNow()">Invite Now</button>
-</div>
-
-<div class="invite-item">
-<div>
-<b>Invite 0/100 users</b><br>
-+3948 INR
-</div>
-<button class="btn" onclick="inviteNow()">Invite Now</button>
-</div>
-
-<div style="height:90px"></div>
-
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-<a href="index.html" class="nav-item">
-<img src="Home.png">Home
-</a>
-
-<a href="tasks.html" class="nav-item">
-<img src="Task.png">Tasks
-</a>
-
-<a href="wallet.html" class="nav-item">
-<img src="Wallet.png">Wallet
-</a>
-
-<a href="rewards.html" class="nav-item">
-<img src="Rewards.png">Rewards
-</a>
-</div>
-
+<!-- BOTTOM NAVBAR -->
+<div class="navbar">
+<div>Home</div>
+<div>Tasks</div>
+<div>Wallet</div>
+<div class="active">Rewards</div>
 </div>
 
 <script>
 function copyCode(){
-let code = document.getElementById("refCode").innerText;
-navigator.clipboard.writeText(code);
-alert("Referral code copied!");
+navigator.clipboard.writeText(document.getElementById("refCode").innerText);
+alert("Referral Code Copied!");
 }
 
-function shareNow(){
-let link = document.getElementById("refLink").value;
-navigator.clipboard.writeText(link);
-alert("Link copied! Share anywhere.");
-}
-
-function inviteNow(){
-alert("Invite feature coming soon!");
+function copyLink(){
+navigator.clipboard.writeText(document.getElementById("shareLink").value);
+alert("Invite Link Copied!");
 }
 </script>
 
