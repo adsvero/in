@@ -17,11 +17,13 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 background:linear-gradient(90deg,#ff4b4b,#ff7b7b);
-padding:10px 12px;
+padding:12px 14px;
 color:white;
 position:fixed;
 top:0;
+left:0;
 width:100%;
+box-sizing:border-box;
 z-index:100;
 }
 
@@ -43,8 +45,8 @@ margin-top:60px;   /* top bar ke niche se start */
 width:100%;
 height:calc(100vh - 60px);
 background:url("Image/Rewardbanner.png");
-background-size:cover;      /* full cover */
-background-position:center;
+background-size:cover;      /* full screen cover */
+background-position:top center;
 background-repeat:no-repeat;
 }
 </style>
@@ -58,8 +60,8 @@ background-repeat:no-repeat;
 <div class="balance">₹ 00.0</div>
 </div>
 
-<!-- BACKGROUND AREA -->
+<!-- BACKGROUND -->
 <div class="page-bg"></div>
 
 </body>
-  </html>
+</html>
