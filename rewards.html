@@ -3,201 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Invite Friends | ADSVERO</title>
+<title>Invite Page</title>
 
 <style>
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#f2f2f2;
+margin:0;
+font-family: Arial, sans-serif;
+background:#f3f3f3;
 }
 
-/* Top Bar */
-.header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    background:#ff4b4b;
-    padding:12px 15px;
-    color:white;
+/* TOP BAR */
+.top-bar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:linear-gradient(90deg,#ff4b4b,#ff7b7b);
+padding:10px 12px;
+color:white;
 }
 
-.header img{
-    height:32px;
+.top-bar img{
+height:32px;
 }
 
-/* Banner */
-.banner{
-    width:100%;
+.balance{
+background:white;
+color:black;
+padding:6px 12px;
+border-radius:20px;
+font-size:14px;
 }
 
-.banner img{
-    width:100%;
-    display:block;
-}
-
-/* Main Card */
+/* MAIN CARD */
 .card{
-    background:white;
-    margin:10px;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 0 5px rgba(0,0,0,0.1);
+margin:10px;
+background:white;
+border-radius:12px;
+padding:10px;
+text-align:center;
 }
 
-.title{
-    font-size:22px;
-    font-weight:bold;
+/* BANNER */
+.banner img{
+width:100%;
+border-radius:10px;
 }
 
-.subtitle{
-    color:#ff4b4b;
+/* SHARE SECTION */
+.share-box{
+margin-top:15px;
+display:flex;
+justify-content:space-around;
+align-items:center;
 }
 
-/* Referral box */
-.ref-box{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border:2px dashed #f5b400;
-    padding:10px;
-    border-radius:10px;
-    margin-top:10px;
+.share-box div{
+text-align:center;
 }
 
-.ref-code{
-    font-size:18px;
-    font-weight:bold;
+.share-box img{
+width:55px;
 }
 
-.copy-btn{
-    background:#f5b400;
-    border:none;
-    padding:8px 12px;
-    border-radius:8px;
-    font-weight:bold;
+/* BOTTOM NAV */
+.bottom-nav{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+background:white;
+padding:8px 0;
+box-shadow:0 -2px 5px rgba(0,0,0,0.1);
 }
 
-/* Share link */
-.share-row{
-    display:flex;
-    margin-top:10px;
-}
-
-.share-input{
-    flex:1;
-    padding:8px;
-    border-radius:8px;
-    border:1px solid #ddd;
-}
-
-.share-btn{
-    background:#f5b400;
-    border:none;
-    padding:8px 12px;
-    margin-left:8px;
-    border-radius:8px;
-}
-
-/* Social Icons */
-.social{
-    display:flex;
-    justify-content:space-around;
-    margin-top:15px;
-}
-
-.social div{
-    text-align:center;
-}
-
-.social img{
-    width:55px;
-}
-
-/* Bottom menu */
-.bottom{
-    position:fixed;
-    bottom:0;
-    width:100%;
-    display:flex;
-    justify-content:space-around;
-    background:white;
-    padding:10px 0;
-    box-shadow:0 -2px 5px rgba(0,0,0,0.1);
-}
-
-.bottom img{
-    width:28px;
+.bottom-nav div{
+text-align:center;
+font-size:12px;
 }
 </style>
-
-<script>
-function copyCode(){
-    navigator.clipboard.writeText("XYZ1234");
-    alert("Referral Code Copied!");
-}
-</script>
-
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <img src="logo.png" alt="logo">
-  <span>₹ 00.0</span>
+<!-- TOP BAR -->
+<div class="top-bar">
+<img src="logo.png" alt="logo">
+<div class="balance">₹ 00.0</div>
 </div>
 
-<!-- TOP BANNER -->
-<div class="banner">
-  <img src="invitebannar.png" alt="Invite Banner">
-</div>
-
-<!-- MAIN CARD -->
+<!-- MAIN CONTENT -->
 <div class="card">
-  <div class="title">Invite Friends</div>
-  <div class="subtitle">Refer & Earn Rewards!</div>
 
-  <h2>Earn ₹100</h2>
-  <p>For each friend that joins!</p>
-
-  <div class="ref-box">
-    <div class="ref-code">XYZ1234</div>
-    <button class="copy-btn" onclick="copyCode()">Copy Code</button>
-  </div>
-
-  <div class="share-row">
-    <input class="share-input" value="https://adsvero.github.io/XYZ1234">
-    <button class="share-btn">Share</button>
-  </div>
-
-  <p style="margin-top:15px;">Invite friends through your favorite apps</p>
-
-  <div class="social">
-    <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-      <div>WhatsApp</div>
-    </div>
-
-    <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
-      <div>Facebook</div>
-    </div>
-
-    <div>
-      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
-      <div>SMS</div>
-    </div>
-  </div>
+<div class="banner">
+<img src="invitebannar.png" alt="Invite Banner">
 </div>
 
-<!-- BOTTOM MENU -->
-<div class="bottom">
-  <div><img src="Home.png"></div>
-  <div><img src="Tasks.png"></div>
-  <div><img src="Wallet.png"></div>
-  <div><img src="Rewards.png"></div>
+<h3>Invite friends through your favorite apps</h3>
+
+<div class="share-box">
+
+<div>
+<a href="https://wa.me/?text=Join ADSVERO using my link: https://adsvero.github.io">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+<p>WhatsApp</p>
+</a>
+</div>
+
+<div>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://adsvero.github.io">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+<p>Facebook</p>
+</a>
+</div>
+
+<div>
+<a href="sms:?body=Join ADSVERO using my link: https://adsvero.github.io">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+<p>SMS</p>
+</a>
+</div>
+
+</div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+<div>🏠 Home</div>
+<div>📋 Tasks</div>
+<div>💼 Wallet</div>
+<div>🎁 Rewards</div>
 </div>
 
 </body>
