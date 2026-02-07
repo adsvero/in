@@ -12,7 +12,7 @@ font-family:Arial, sans-serif;
 background:#f2f2f2;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 .header{
 background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
 padding:12px 14px;
@@ -21,12 +21,11 @@ justify-content:space-between;
 align-items:center;
 }
 
-/* LOGO FIX */
-.header .logo{
+.header img{
 height:28px;
 }
 
-/* MAIN CONTAINER */
+/* ===== MAIN CONTAINER ===== */
 .container{
 max-width:430px;
 margin:0 auto;
@@ -34,20 +33,14 @@ background:white;
 min-height:100vh;
 }
 
-/* BANNER FIX (IMPORTANT PART) */
-.banner-wrapper{
-width:100%;
-padding:10px;
-box-sizing:border-box;
-}
-
+/* ===== BANNER (MOST IMPORTANT FIX) ===== */
 .banner{
 width:100%;
-border-radius:16px;
 display:block;
+border-radius:0;
 }
 
-/* TOP CARD */
+/* ===== CARD ===== */
 .card{
 background:white;
 border-radius:16px;
@@ -135,14 +128,12 @@ margin:0 auto 4px;
 
 <!-- HEADER WITH LOGO -->
 <div class="header">
-<img src="logo.png" class="logo">
+<img src="logo.png">
 <span style="color:white;font-weight:bold;">₹ 00.0</span>
 </div>
 
-<!-- 👉👉👉 BANNER FIXED HERE 👇 -->
-<div class="banner-wrapper">
+<!-- 🔴 BANNER (THIS MUST SHOW) -->
 <img src="invitebannar.png" class="banner">
-</div>
 
 <!-- TOP CARD -->
 <div class="card">
