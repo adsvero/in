@@ -21,7 +21,8 @@ justify-content:space-between;
 align-items:center;
 }
 
-.header img{
+/* LOGO FIX */
+.header .logo{
 height:28px;
 }
 
@@ -33,9 +34,16 @@ background:white;
 min-height:100vh;
 }
 
-/* BANNER IMAGE */
+/* BANNER FIX (IMPORTANT PART) */
+.banner-wrapper{
+width:100%;
+padding:10px;
+box-sizing:border-box;
+}
+
 .banner{
 width:100%;
+border-radius:16px;
 display:block;
 }
 
@@ -125,14 +133,16 @@ margin:0 auto 4px;
 
 <div class="container">
 
-<!-- HEADER WITH YOUR LOGO -->
+<!-- HEADER WITH LOGO -->
 <div class="header">
-<img src="logo.png">
+<img src="logo.png" class="logo">
 <span style="color:white;font-weight:bold;">₹ 00.0</span>
 </div>
 
-<!-- YOUR INVITE BANNER -->
+<!-- 👉👉👉 BANNER FIXED HERE 👇 -->
+<div class="banner-wrapper">
 <img src="invitebannar.png" class="banner">
+</div>
 
 <!-- TOP CARD -->
 <div class="card">
@@ -249,4 +259,4 @@ alert("Link copied! Share anywhere.");
 </script>
 
 </body>
-</html>
+  </html>
