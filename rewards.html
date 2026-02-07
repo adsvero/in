@@ -12,18 +12,19 @@ font-family: Arial, sans-serif;
 background:#f3f3f3;
 }
 
-/* TOP BAR */
+/* ===== TOP BAR FIX ===== */
 .top-bar{
 display:flex;
 justify-content:space-between;
 align-items:center;
 background:linear-gradient(90deg,#ff4b4b,#ff7b7b);
-padding:10px 12px;
+padding:12px 14px;   /* <-- बढ़ाया गया */
 color:white;
 position:fixed;
 top:0;
 width:100%;
 z-index:999;
+box-sizing:border-box;
 }
 
 .top-bar img{
@@ -38,19 +39,19 @@ border-radius:20px;
 font-size:14px;
 }
 
-/* BACKGROUND IMAGE SECTION */
+/* ===== BACKGROUND FIX ===== */
 .page-bg{
-margin-top:46px;   /* top bar height */
+margin-top:56px;   /* <-- top bar height के बराबर */
 width:100%;
 min-height:100vh;
 background:url("Image/Rewardbanner.png");
-background-size:cover;
+background-size:contain;   /* <-- ZOOM FIX */
 background-position:top center;
 background-repeat:no-repeat;
-padding-top:250px; /* banner ke niche content lane ke liye */
+padding-top:280px; /* banner ke niche content lane ke liye */
 }
 
-/* CARD BOX */
+/* ===== CARD ===== */
 .card{
 margin:15px;
 background:white;
@@ -109,14 +110,12 @@ width:55px;
 
 <!-- CARD WITH LINK -->
 <div class="card">
-
 <h3>Invite Friends</h3>
 
 <input type="text" class="link-box" id="refLink"
 value="https://adsvero.github.io/XYZ1234">
 
 <button class="btn" onclick="copyLink()">Copy & Share Link</button>
-
 </div>
 
 <!-- SOCIAL BUTTONS -->
