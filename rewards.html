@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rewards</title>
+<title>Invite Page</title>
 
 <style>
 html, body{
@@ -12,6 +12,7 @@ font-family: Arial, sans-serif;
 background:#f3f3f3;
 width:100%;
 height:100%;
+overflow:hidden;   /* page fixed */
 }
 
 /* ===== TOP BAR ===== */
@@ -41,54 +42,65 @@ border-radius:20px;
 font-size:14px;
 }
 
-/* ===== BANNER AREA ===== */
+/* ===== BACKGROUND ===== */
 .page-bg{
-margin-top:56px;
+margin-top:56px; /* top bar height */
 width:100%;
-height:auto;
+height:calc(100vh - 120px); /* top + bottom nav adjust */
 background:url("Image/Rewardbanner.png");
 background-size:cover;
 background-position:center top;
 background-repeat:no-repeat;
-padding-bottom:80px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-end;
 }
 
-/* ===== ONLY ONE CARD (SMALLER) ===== */
+/* ===== CARDS ===== */
 .card{
-width:72%;          /* छोटा कर दिया */
-max-width:380px;    /* बहुत बड़ा नहीं जाएगा */
-margin:10px auto;
+width:90%;
+max-width:420px;
+margin-bottom:10px;
 background:white;
 border-radius:14px;
-padding:12px;
+padding:15px;
 box-shadow:0 2px 6px rgba(0,0,0,0.15);
+text-align:center;
 }
 
-/* row layout */
-.row{
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-
-/* input box छोटा */
-.input-box{
-width:60%;
-padding:8px;
+/* LINK INPUT */
+.link-box{
+width:100%;
+padding:10px;
 border:1px solid #ddd;
 border-radius:8px;
 font-size:14px;
 }
 
-/* button */
+/* BUTTON */
 .btn{
+margin-top:10px;
 background:#ffb000;
 color:black;
 border:none;
-padding:10px 12px;
+padding:12px;
+width:100%;
 border-radius:8px;
-font-size:14px;
+font-size:16px;
 font-weight:bold;
+}
+
+/* SOCIAL ICONS */
+.share-box{
+margin-top:10px;
+display:flex;
+justify-content:space-around;
+align-items:center;
+}
+
+.share-box img{
+width:55px;
 }
 
 /* ===== BOTTOM NAVIGATION ===== */
@@ -101,11 +113,13 @@ justify-content:space-around;
 background:white;
 padding:8px 0;
 box-shadow:0 -2px 5px rgba(0,0,0,0.1);
+z-index:999;
 }
 
 .bottom-nav div{
 text-align:center;
 font-size:12px;
+cursor:pointer;
 }
 
 .bottom-nav img{
@@ -122,20 +136,43 @@ height:24px;
 <div class="balance">₹ 00.0</div>
 </div>
 
-<!-- BANNER -->
+<!-- BACKGROUND AREA -->
 <div class="page-bg">
 
-<!-- ONLY ONE CARD (COPY CODE) -->
+<!-- LINK CARD -->
 <div class="card">
-<div class="row">
-<input type="text" class="input-box" id="inviteCode" value="XYZ1234">
-<button class="btn" onclick="copyCode()">Copy Code</button>
+<h3>Invite Friends</h3>
+
+<input type="text" class="link-box" id="refLink"
+value="https://adsvero.github.io/XYZ1234">
+
+<button class="btn" onclick="copyLink()">Copy & Share Link</button>
+</div>
+
+<!-- SOCIAL CARD -->
+<div class="card">
+<h4>Invite via your favorite apps</h4>
+
+<div class="share-box">
+
+<a href="https://wa.me/?text=Join ADSVERO: https://adsvero.github.io/XYZ1234">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://adsvero.github.io/XYZ1234">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+</a>
+
+<a href="sms:?body=Join ADSVERO: https://adsvero.github.io/XYZ1234">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+</a>
+
 </div>
 </div>
 
 </div>
 
-<!-- BOTTOM NAV -->
+<!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav">
 
 <div onclick="window.location.href='index.html'">
@@ -143,7 +180,7 @@ height:24px;
 <p>Home</p>
 </div>
 
-<div onclick="window.location.href='task.html'">
+<div onclick="window.location.href='tasks.html'">
 <img src="Image/Tasks.png">
 <p>Tasks</p>
 </div>
@@ -153,19 +190,19 @@ height:24px;
 <p>Wallet</p>
 </div>
 
-<div onclick="window.location.href='account.html'">
-<img src="Image/Name.png">
-<p>Account</p>
+<div onclick="window.location.href='invite.html'">
+<img src="Image/Rewards.png">
+<p>Rewards</p>
 </div>
 
 </div>
 
 <script>
-function copyCode(){
-var copyText = document.getElementById("inviteCode");
+function copyLink(){
+var copyText = document.getElementById("refLink");
 copyText.select();
 document.execCommand("copy");
-alert("Invite Code Copied!");
+alert("Link copied!");
 }
 </script>
 
