@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invite Page</title>
+<title>Rewards</title>
 
 <style>
 html, body{
@@ -12,7 +12,6 @@ font-family: Arial, sans-serif;
 background:#f3f3f3;
 width:100%;
 height:100%;
-overflow-y:auto;
 }
 
 /* ===== TOP BAR ===== */
@@ -42,36 +41,27 @@ border-radius:20px;
 font-size:14px;
 }
 
-/* ===== BANNER ===== */
-.banner{
+/* ===== BANNER AREA ===== */
+.page-bg{
 margin-top:56px;
 width:100%;
+height:auto;
+background:url("Image/Rewardbanner.png");
+background-size:cover;
+background-position:center top;
+background-repeat:no-repeat;
+padding-bottom:80px;
 }
 
-.banner img{
-width:100%;
-display:block;
-}
-
-/* ===== FLOATING CARDS (EXACT LIKE YOUR IMAGE) ===== */
-.floating-container{
-position:relative;
-top:-110px;   /* IMPORTANT: moves cards UP over banner */
-}
-
-/* Card style */
+/* ===== ONLY ONE CARD (SMALLER) ===== */
 .card{
-width:83%;
+width:72%;          /* छोटा कर दिया */
+max-width:380px;    /* बहुत बड़ा नहीं जाएगा */
 margin:10px auto;
 background:white;
 border-radius:14px;
 padding:12px;
 box-shadow:0 2px 6px rgba(0,0,0,0.15);
-}
-
-.top-card{
-width:72% !important;   /* केवल ऊपर वाला कार्ड पतला */
-margin:6px auto;
 }
 
 /* row layout */
@@ -81,7 +71,7 @@ align-items:center;
 justify-content:space-between;
 }
 
-/* input boxes */
+/* input box छोटा */
 .input-box{
 width:60%;
 padding:8px;
@@ -90,18 +80,18 @@ border-radius:8px;
 font-size:14px;
 }
 
-/* buttons */
-.small-btn{
+/* button */
+.btn{
 background:#ffb000;
+color:black;
 border:none;
-padding:10px 14px;
+padding:10px 12px;
 border-radius:8px;
 font-size:14px;
 font-weight:bold;
-cursor:pointer;
 }
 
-/* ===== BOTTOM NAV ===== */
+/* ===== BOTTOM NAVIGATION ===== */
 .bottom-nav{
 position:fixed;
 bottom:0;
@@ -116,7 +106,6 @@ box-shadow:0 -2px 5px rgba(0,0,0,0.1);
 .bottom-nav div{
 text-align:center;
 font-size:12px;
-cursor:pointer;
 }
 
 .bottom-nav img{
@@ -134,35 +123,19 @@ height:24px;
 </div>
 
 <!-- BANNER -->
-<div class="banner">
-<img src="Image/Rewardbanner.png" alt="Reward Banner">
-</div>
+<div class="page-bg">
 
-<!-- FLOATING CARDS -->
-<div class="floating-container">
-
-<!-- INVITE CODE -->
+<!-- ONLY ONE CARD (COPY CODE) -->
 <div class="card">
 <div class="row">
-<input type="text" class="input-box" id="inviteCode" value="XYZ1234" readonly>
-<button class="small-btn" onclick="copyCode()">Copy Code</button>
-</div>
-</div>
-
-<!-- INVITE LINK -->
-<div class="card">
-<div class="row">
-<input type="text" class="input-box" id="refLink"
-value="https://adsvero.github.io/XYZ1234">
-<button class="small-btn" onclick="copyLink()">Share</button>
+<input type="text" class="input-box" id="inviteCode" value="XYZ1234">
+<button class="btn" onclick="copyCode()">Copy Code</button>
 </div>
 </div>
 
 </div>
 
-<br><br><br>
-
-<!-- BOTTOM NAVIGATION -->
+<!-- BOTTOM NAV -->
 <div class="bottom-nav">
 
 <div onclick="window.location.href='index.html'">
@@ -170,7 +143,7 @@ value="https://adsvero.github.io/XYZ1234">
 <p>Home</p>
 </div>
 
-<div onclick="window.location.href='tasks.html'">
+<div onclick="window.location.href='task.html'">
 <img src="Image/Tasks.png">
 <p>Tasks</p>
 </div>
@@ -180,24 +153,19 @@ value="https://adsvero.github.io/XYZ1234">
 <p>Wallet</p>
 </div>
 
-<div onclick="window.location.href='invite.html'">
-<img src="Image/Rewards.png">
-<p>Rewards</p>
+<div onclick="window.location.href='account.html'">
+<img src="Image/Name.png">
+<p>Account</p>
 </div>
 
 </div>
 
 <script>
 function copyCode(){
-navigator.clipboard.writeText("XYZ1234");
-alert("Invite Code Copied!");
-}
-
-function copyLink(){
-var copyText = document.getElementById("refLink");
+var copyText = document.getElementById("inviteCode");
 copyText.select();
 document.execCommand("copy");
-alert("Invite Link Copied!");
+alert("Invite Code Copied!");
 }
 </script>
 
