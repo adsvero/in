@@ -154,7 +154,15 @@ value="https://adsvero.github.io/XYZ1234">
 <button class="small-btn" onclick="copyLink()">Share</button>
 </div>
 </div>
-
+  
+<!-- INVITE LINK -->
+<div class="card">
+<div class="row">
+<input type="text" class="input-box" id="refLink"
+value="https://adsvero.github.io/XYZ1234">
+<button class="small-btn" onclick="copyLink()">Share</button>
+</div>
+  </div>
   
 </div>
 
@@ -190,7 +198,12 @@ function copyCode(){
 navigator.clipboard.writeText("XYZ1234");
 alert("Invite Code Copied!");
 }
-
+function copyLink(){
+var copyText = document.getElementById("refLink");
+copyText.select();
+document.execCommand("copy");
+alert("Invite Link Copied!");
+}
 </script>
 
 </body>
