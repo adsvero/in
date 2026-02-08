@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invite Friends</title>
+<title>Invite Page</title>
 
 <style>
 body{
@@ -12,7 +12,7 @@ font-family: Arial, sans-serif;
 background:#f3f3f3;
 }
 
-/* -------- TOP BAR -------- */
+/* ===== TOP BAR ===== */
 .top-bar{
 display:flex;
 justify-content:space-between;
@@ -24,6 +24,7 @@ position:fixed;
 top:0;
 width:100%;
 z-index:999;
+box-sizing:border-box;
 }
 
 .top-bar img{
@@ -38,28 +39,45 @@ border-radius:20px;
 font-size:14px;
 }
 
-/* -------- PAGE BODY -------- */
+/* ===== PAGE BODY ===== */
 .page{
-margin-top:60px; /* space for top bar */
-margin-bottom:70px; /* space for bottom nav */
+margin-top:60px;
+margin-bottom:70px;
 }
 
-/* -------- BANNER -------- */
-.banner img{
+/* ===== FAKE BANNER (NO IMAGE) ===== */
+.banner{
 width:100%;
-display:block;
+height:220px;
+background: linear-gradient(180deg, #fff2e6, #ffb347, #ff8c00);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+box-sizing:border-box;
 }
 
-/* -------- CARD STYLE -------- */
+.banner h2{
+margin:0;
+color:#4b2600;
+}
+
+.banner p{
+margin:5px 0;
+color:#6b3400;
+}
+
+/* ===== WHITE CARD ===== */
 .card{
 background:white;
 margin:10px;
 padding:12px;
-border-radius:10px;
+border-radius:12px;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* SHARE INPUT ROW */
+/* SHARE ROW */
 .share-row{
 display:flex;
 align-items:center;
@@ -68,7 +86,7 @@ gap:8px;
 
 .share-row input{
 flex:1;
-padding:8px;
+padding:10px;
 border:1px solid #ddd;
 border-radius:8px;
 }
@@ -78,15 +96,12 @@ border-radius:8px;
 background:#f5a623;
 color:black;
 border:none;
-padding:8px 12px;
-border-radius:8px;
+padding:10px 14px;
+border-radius:10px;
 font-weight:bold;
-display:flex;
-align-items:center;
-gap:5px;
 }
 
-/* -------- APP ICON ROW -------- */
+/* APP ICON ROW */
 .app-row{
 display:flex;
 justify-content:space-around;
@@ -103,7 +118,7 @@ font-size:12px;
 width:55px;
 }
 
-/* -------- BOTTOM NAV -------- */
+/* ===== BOTTOM NAV ===== */
 .bottom-nav{
 position:fixed;
 bottom:0;
@@ -135,15 +150,20 @@ font-size:12px;
 
 <!-- TOP BAR -->
 <div class="top-bar">
-<img src="Image/logo.png" alt="logo">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="logo">
 <div class="balance">₹ 00.0</div>
 </div>
 
 <div class="page">
 
-<!-- BANNER -->
+<!-- FAKE BANNER (NO IMAGE NEEDED) -->
 <div class="banner">
-<img src="Image/Rewardbanner.png" alt="Reward Banner">
+<div>
+<h2>Invite Friends</h2>
+<p>Refer & Earn Rewards!</p>
+<h3>Earn ₹100</h3>
+<p>For each friend that joins!</p>
+</div>
 </div>
 
 <!-- SHARE LINK CARD -->
@@ -154,36 +174,34 @@ font-size:12px;
 <div class="share-row" style="margin-top:8px;">
 <input type="text" id="refLink" value="https://adsvero.github.io/XYZ1234">
 
-<button class="share-btn" onclick="copyLink()">
-📤 Share
-</button>
+<button class="share-btn" onclick="copyLink()">📤 Share</button>
 </div>
 </div>
 
 <!-- APPS CARD -->
 <div class="card">
-<b>Invite friends through your favorite apps</b>
+<b>Invite via your favorite apps</b>
 
 <div class="app-row">
 
 <div class="app-box">
 <a href="https://wa.me/?text=Join ADSVERO: https://adsvero.github.io/XYZ1234">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-<p>Invite via<br>WhatsApp</p>
+<p>WhatsApp</p>
 </a>
 </div>
 
 <div class="app-box">
 <a href="https://www.facebook.com/sharer/sharer.php?u=https://adsvero.github.io/XYZ1234">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
-<p>Invite via<br>Facebook</p>
+<p>Facebook</p>
 </a>
 </div>
 
 <div class="app-box">
 <a href="sms:?body=Join ADSVERO: https://adsvero.github.io/XYZ1234">
 <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-<p>Invite via<br>SMS</p>
+<p>SMS</p>
 </a>
 </div>
 
@@ -192,7 +210,7 @@ font-size:12px;
 
 </div>
 
-<!-- BOTTOM NAVIGATION -->
+<!-- BOTTOM NAV -->
 <div class="bottom-nav">
 
 <a href="index.html">
@@ -203,19 +221,19 @@ font-size:12px;
 
 <a href="tasks.html">
 <div>
-✅<br>Tasks
+📋<br>Tasks
 </div>
 </a>
 
 <a href="wallet.html">
 <div>
-💼<br>Wallet
+👛<br>Wallet
 </div>
 </a>
 
-<a href="account.html">
-<div class="active">
-👤<br>Account
+<a href="invite.html" class="active">
+<div>
+🎁<br>Rewards
 </div>
 </a>
 
@@ -225,7 +243,7 @@ font-size:12px;
 function copyLink(){
 var link = document.getElementById("refLink");
 link.select();
-navigator.clipboard.writeText(link.value);
+document.execCommand("copy");
 alert("Link copied!");
 }
 </script>
