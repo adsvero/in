@@ -12,7 +12,7 @@ font-family: Arial, sans-serif;
 background:#f3f3f3;
 width:100%;
 height:100%;
-overflow-y:auto;   /* थोड़ा scroll allow */
+overflow-y:auto;
 }
 
 /* ===== TOP BAR ===== */
@@ -53,46 +53,16 @@ width:100%;
 display:block;
 }
 
-/* ===== WHITE STRIP AREA ===== */
-.white-strip{
-width:100%;
-background:rgba(255,255,255,0.9);
-padding:18px 0 10px 0;
-position:relative;
-}
-
 /* ===== CARDS ===== */
 .card{
 width:90%;
 max-width:420px;
-margin:10px auto;
+margin:15px auto;
 background:white;
 border-radius:14px;
 padding:15px;
 box-shadow:0 2px 6px rgba(0,0,0,0.15);
 text-align:center;
-}
-
-/* LINK INPUT */
-.link-box{
-width:100%;
-padding:10px;
-border:1px solid #ddd;
-border-radius:8px;
-font-size:14px;
-}
-
-/* BUTTON */
-.btn{
-margin-top:10px;
-background:#ffb000;
-color:black;
-border:none;
-padding:12px;
-width:100%;
-border-radius:8px;
-font-size:16px;
-font-weight:bold;
 }
 
 /* SOCIAL ICONS */
@@ -145,21 +115,7 @@ height:24px;
 <img src="Image/Rewardbanner.png" alt="Reward Banner">
 </div>
 
-<!-- WHITE STRIP + LINK CARD -->
-<div class="white-strip">
-
-<div class="card">
-<h3>Share your invite link</h3>
-
-<input type="text" class="link-box" id="refLink"
-value="https://adsvero.github.io/XYZ1234">
-
-<button class="btn" onclick="copyLink()">Copy & Share Link</button>
-</div>
-
-</div>
-
-<!-- SOCIAL CARD -->
+<!-- ONLY SOCIAL CARD (Link Card REMOVED) -->
 <div class="card">
 <h4>Invite via your favorite apps</h4>
 
@@ -205,14 +161,5 @@ value="https://adsvero.github.io/XYZ1234">
 
 </div>
 
-<script>
-function copyLink(){
-var copyText = document.getElementById("refLink");
-copyText.select();
-document.execCommand("copy");
-alert("Link copied!");
-}
-</script>
-
 </body>
-  </html>
+</html>
