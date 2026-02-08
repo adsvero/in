@@ -27,54 +27,26 @@ z-index:999;
 box-sizing:border-box;
 }
 
-.top-bar img{
-height:32px;
-}
-
-.balance{
-background:white;
-color:black;
-padding:6px 12px;
-border-radius:20px;
-font-size:14px;
-}
-
-/* ===== PAGE BODY ===== */
+/* ===== PAGE WRAPPER ===== */
 .page{
-margin-top:60px;
-margin-bottom:70px;
+margin-top:55px;      /* top bar ke niche space */
+margin-bottom:70px;   /* bottom nav ke liye space */
 }
 
-/* ===== FAKE BANNER (NO IMAGE) ===== */
+/* ===== BACKGROUND BANNER ===== */
 .banner{
 width:100%;
-height:220px;
-background: linear-gradient(180deg, #fff2e6, #ffb347, #ff8c00);
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-box-sizing:border-box;
+height:240px;
+background:url("Rewardbanner.png") center/cover no-repeat;
 }
 
-.banner h2{
-margin:0;
-color:#4b2600;
-}
-
-.banner p{
-margin:5px 0;
-color:#6b3400;
-}
-
-/* ===== WHITE CARD ===== */
-.card{
+/* ===== OVERLAY CARD (UPAR CHIPKA HUA) ===== */
+.overlay-card{
 background:white;
-margin:10px;
+margin:-40px 12px 10px 12px;  /* banner ke upar overlap */
 padding:12px;
 border-radius:12px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
+box-shadow:0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* SHARE ROW */
@@ -82,6 +54,7 @@ box-shadow:0 2px 6px rgba(0,0,0,0.1);
 display:flex;
 align-items:center;
 gap:8px;
+margin-top:8px;
 }
 
 .share-row input{
@@ -99,6 +72,15 @@ border:none;
 padding:10px 14px;
 border-radius:10px;
 font-weight:bold;
+}
+
+/* APP CARD */
+.app-card{
+background:white;
+margin:10px 12px;
+padding:12px;
+border-radius:12px;
+box-shadow:0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* APP ICON ROW */
@@ -128,6 +110,7 @@ justify-content:space-around;
 background:white;
 padding:8px 0;
 box-shadow:0 -2px 5px rgba(0,0,0,0.1);
+z-index:999;
 }
 
 .bottom-nav a{
@@ -150,36 +133,28 @@ font-size:12px;
 
 <!-- TOP BAR -->
 <div class="top-bar">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="logo">
+<img src="Image/logo.png" height="32">
 <div class="balance">₹ 00.0</div>
 </div>
 
 <div class="page">
 
-<!-- FAKE BANNER (NO IMAGE NEEDED) -->
-<div class="banner">
-<div>
-<h2>Invite Friends</h2>
-<p>Refer & Earn Rewards!</p>
-<h3>Earn ₹100</h3>
-<p>For each friend that joins!</p>
-</div>
-</div>
+<!-- BACKGROUND BANNER -->
+<div class="banner"></div>
 
-<!-- SHARE LINK CARD -->
-<div class="card">
+<!-- OVERLAY SHARE CARD -->
+<div class="overlay-card">
 <b>Share your invite link</b><br>
 <small>Invite friends through your favorite apps</small>
 
-<div class="share-row" style="margin-top:8px;">
+<div class="share-row">
 <input type="text" id="refLink" value="https://adsvero.github.io/XYZ1234">
-
 <button class="share-btn" onclick="copyLink()">📤 Share</button>
 </div>
 </div>
 
 <!-- APPS CARD -->
-<div class="card">
+<div class="app-card">
 <b>Invite via your favorite apps</b>
 
 <div class="app-row">
@@ -210,31 +185,23 @@ font-size:12px;
 
 </div>
 
-<!-- BOTTOM NAV -->
+<!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav">
 
 <a href="index.html">
-<div>
-🏠<br>Home
-</div>
+<div>🏠<br>Home</div>
 </a>
 
 <a href="tasks.html">
-<div>
-📋<br>Tasks
-</div>
+<div>📋<br>Tasks</div>
 </a>
 
 <a href="wallet.html">
-<div>
-👛<br>Wallet
-</div>
+<div>👛<br>Wallet</div>
 </a>
 
 <a href="invite.html" class="active">
-<div>
-🎁<br>Rewards
-</div>
+<div>🎁<br>Rewards</div>
 </a>
 
 </div>
@@ -249,4 +216,4 @@ alert("Link copied!");
 </script>
 
 </body>
-</html>
+  </html>
