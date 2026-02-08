@@ -12,7 +12,7 @@ font-family: Arial, sans-serif;
 background:#f3f3f3;
 width:100%;
 height:100%;
-overflow:hidden;   /* page fixed */
+overflow-y:auto;
 }
 
 /* ===== TOP BAR ===== */
@@ -42,68 +42,61 @@ border-radius:20px;
 font-size:14px;
 }
 
-/* ===== BACKGROUND ===== */
-.page-bg{
-margin-top:56px; /* top bar height */
+/* ===== BANNER ===== */
+.banner{
+margin-top:56px;
 width:100%;
-height:calc(100vh - 120px); /* top + bottom nav adjust */
-background:url("Image/Rewardbanner.png");
-background-size:cover;
-background-position:center top;
-background-repeat:no-repeat;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:flex-end;
 }
 
-/* ===== CARDS ===== */
+.banner img{
+width:100%;
+display:block;
+}
+
+/* ===== FLOATING CARDS (EXACT LIKE YOUR IMAGE) ===== */
+.floating-container{
+position:relative;
+top:-70px;   /* IMPORTANT: moves cards UP over banner */
+}
+
+/* Card style */
 .card{
 width:90%;
-max-width:420px;
-margin-bottom:10px;
+margin:10px auto;
 background:white;
 border-radius:14px;
-padding:15px;
+padding:12px;
 box-shadow:0 2px 6px rgba(0,0,0,0.15);
-text-align:center;
 }
 
-/* LINK INPUT */
-.link-box{
-width:100%;
-padding:10px;
+/* row layout */
+.row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+/* input boxes */
+.input-box{
+width:68%;
+padding:8px;
 border:1px solid #ddd;
 border-radius:8px;
 font-size:14px;
 }
 
-/* BUTTON */
-.btn{
-margin-top:10px;
+/* buttons */
+.small-btn{
 background:#ffb000;
-color:black;
 border:none;
-padding:12px;
-width:100%;
+padding:10px 14px;
 border-radius:8px;
-font-size:16px;
+font-size:14px;
 font-weight:bold;
+cursor:pointer;
 }
 
-/* SOCIAL ICONS */
-.share-box{
-margin-top:10px;
-display:flex;
-justify-content:space-around;
-align-items:center;
-}
-
-.share-box img{
-width:55px;
-}
-
-/* ===== BOTTOM NAVIGATION ===== */
+/* ===== BOTTOM NAV ===== */
 .bottom-nav{
 position:fixed;
 bottom:0;
@@ -113,7 +106,6 @@ justify-content:space-around;
 background:white;
 padding:8px 0;
 box-shadow:0 -2px 5px rgba(0,0,0,0.1);
-z-index:999;
 }
 
 .bottom-nav div{
@@ -136,41 +128,34 @@ height:24px;
 <div class="balance">₹ 00.0</div>
 </div>
 
-<!-- BACKGROUND AREA -->
-<div class="page-bg">
+<!-- BANNER -->
+<div class="banner">
+<img src="Image/Rewardbanner.png" alt="Reward Banner">
+</div>
 
-<!-- LINK CARD -->
+<!-- FLOATING CARDS -->
+<div class="floating-container">
+
+<!-- INVITE CODE -->
 <div class="card">
-<h3>Invite Friends</h3>
+<div class="row">
+<input type="text" class="input-box" id="inviteCode" value="XYZ1234" readonly>
+<button class="small-btn" onclick="copyCode()">Copy Code</button>
+</div>
+</div>
 
-<input type="text" class="link-box" id="refLink"
+<!-- INVITE LINK -->
+<div class="card">
+<div class="row">
+<input type="text" class="input-box" id="refLink"
 value="https://adsvero.github.io/XYZ1234">
-
-<button class="btn" onclick="copyLink()">Copy & Share Link</button>
-</div>
-
-<!-- SOCIAL CARD -->
-<div class="card">
-<h4>Invite via your favorite apps</h4>
-
-<div class="share-box">
-
-<a href="https://wa.me/?text=Join ADSVERO: https://adsvero.github.io/XYZ1234">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
-
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://adsvero.github.io/XYZ1234">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
-</a>
-
-<a href="sms:?body=Join ADSVERO: https://adsvero.github.io/XYZ1234">
-<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-</a>
-
+<button class="small-btn" onclick="copyLink()">Share</button>
 </div>
 </div>
 
 </div>
+
+<br><br><br>
 
 <!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav">
@@ -198,11 +183,16 @@ value="https://adsvero.github.io/XYZ1234">
 </div>
 
 <script>
+function copyCode(){
+navigator.clipboard.writeText("XYZ1234");
+alert("Invite Code Copied!");
+}
+
 function copyLink(){
 var copyText = document.getElementById("refLink");
 copyText.select();
 document.execCommand("copy");
-alert("Link copied!");
+alert("Invite Link Copied!");
 }
 </script>
 
