@@ -53,17 +53,23 @@ width:100%;
 display:block;
 }
 
-/* ===== TWO ROW CARD (EXACT LIKE YOUR IMAGE) ===== */
+/* ===== FLOATING CARDS (EXACT LIKE YOUR IMAGE) ===== */
+.floating-container{
+position:relative;
+top:-70px;   /* IMPORTANT: moves cards UP over banner */
+}
+
+/* Card style */
 .card{
 width:90%;
-margin:15px auto;
+margin:10px auto;
 background:white;
-border-radius:12px;
+border-radius:14px;
 padding:12px;
 box-shadow:0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* row style */
+/* row layout */
 .row{
 display:flex;
 align-items:center;
@@ -72,7 +78,7 @@ justify-content:space-between;
 
 /* input boxes */
 .input-box{
-width:70%;
+width:68%;
 padding:8px;
 border:1px solid #ddd;
 border-radius:8px;
@@ -83,7 +89,7 @@ font-size:14px;
 .small-btn{
 background:#ffb000;
 border:none;
-padding:10px 12px;
+padding:10px 14px;
 border-radius:8px;
 font-size:14px;
 font-weight:bold;
@@ -127,7 +133,10 @@ height:24px;
 <img src="Image/Rewardbanner.png" alt="Reward Banner">
 </div>
 
-<!-- INVITE CODE + COPY BUTTON (ROW 1) -->
+<!-- FLOATING CARDS -->
+<div class="floating-container">
+
+<!-- INVITE CODE -->
 <div class="card">
 <div class="row">
 <input type="text" class="input-box" id="inviteCode" value="XYZ1234" readonly>
@@ -135,17 +144,18 @@ height:24px;
 </div>
 </div>
 
-<!-- INVITE LINK + SHARE BUTTON (ROW 2) -->
+<!-- INVITE LINK -->
 <div class="card">
 <div class="row">
 <input type="text" class="input-box" id="refLink"
 value="https://adsvero.github.io/XYZ1234">
-
 <button class="small-btn" onclick="copyLink()">Share</button>
 </div>
 </div>
 
-<br><br><br> <!-- space for bottom nav -->
+</div>
+
+<br><br><br>
 
 <!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav">
