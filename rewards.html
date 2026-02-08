@@ -12,6 +12,7 @@ font-family: Arial, sans-serif;
 background:#f3f3f3;
 width:100%;
 height:100%;
+overflow-y:auto;   /* थोड़ा scroll allow */
 }
 
 /* ===== TOP BAR ===== */
@@ -41,40 +42,30 @@ border-radius:20px;
 font-size:14px;
 }
 
-/* ===== MAIN CONTAINER (SCROLLABLE) ===== */
-.main-wrapper{
-margin-top:56px;          /* top bar height */
-padding-bottom:70px;      /* bottom nav space */
-min-height:100vh;
-overflow-y:auto;          /* page scrollable */
-}
-
-/* ===== BANNER (NO ZOOM) ===== */
+/* ===== BANNER ===== */
 .banner{
+margin-top:56px;
 width:100%;
 }
 
 .banner img{
 width:100%;
 display:block;
-object-fit:contain;       /* zoom problem fix */
 }
 
-/* ===== CARDS OVER BANNER ===== */
-.cards-area{
-margin-top:-40px;         /* cards upar set on banner */
+/* ===== WHITE STRIP AREA ===== */
+.white-strip{
+width:100%;
+background:rgba(255,255,255,0.9);
+padding:18px 0 10px 0;
 position:relative;
-z-index:10;
-display:flex;
-flex-direction:column;
-align-items:center;
 }
 
-/* ===== CARD STYLE ===== */
+/* ===== CARDS ===== */
 .card{
 width:90%;
 max-width:420px;
-margin-bottom:12px;
+margin:10px auto;
 background:white;
 border-radius:14px;
 padding:15px;
@@ -149,17 +140,14 @@ height:24px;
 <div class="balance">₹ 00.0</div>
 </div>
 
-<div class="main-wrapper">
-
 <!-- BANNER -->
 <div class="banner">
-<img src="Image/Rewardbanner.png" alt="Invite Banner">
+<img src="Image/Rewardbanner.png" alt="Reward Banner">
 </div>
 
-<!-- CARDS AREA -->
-<div class="cards-area">
+<!-- WHITE STRIP + LINK CARD -->
+<div class="white-strip">
 
-<!-- LINK CARD -->
 <div class="card">
 <h3>Share your invite link</h3>
 
@@ -167,6 +155,8 @@ height:24px;
 value="https://adsvero.github.io/XYZ1234">
 
 <button class="btn" onclick="copyLink()">Copy & Share Link</button>
+</div>
+
 </div>
 
 <!-- SOCIAL CARD -->
@@ -186,9 +176,6 @@ value="https://adsvero.github.io/XYZ1234">
 <a href="sms:?body=Join ADSVERO: https://adsvero.github.io/XYZ1234">
 <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
 </a>
-
-</div>
-</div>
 
 </div>
 </div>
@@ -228,4 +215,4 @@ alert("Link copied!");
 </script>
 
 </body>
-</html>
+  </html>
