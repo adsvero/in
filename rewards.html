@@ -12,7 +12,6 @@ font-family: Arial, sans-serif;
 background:#f3f3f3;
 width:100%;
 height:100%;
-overflow:hidden;   /* page fixed */
 }
 
 /* ===== TOP BAR ===== */
@@ -42,26 +41,40 @@ border-radius:20px;
 font-size:14px;
 }
 
-/* ===== BACKGROUND ===== */
-.page-bg{
-margin-top:56px; /* top bar height */
+/* ===== MAIN CONTAINER (SCROLLABLE) ===== */
+.main-wrapper{
+margin-top:56px;          /* top bar height */
+padding-bottom:70px;      /* bottom nav space */
+min-height:100vh;
+overflow-y:auto;          /* page scrollable */
+}
+
+/* ===== BANNER (NO ZOOM) ===== */
+.banner{
 width:100%;
-height:calc(100vh - 120px); /* top + bottom nav adjust */
-background:url("Image/Rewardbanner.png");
-background-size:cover;
-background-position:center top;
-background-repeat:no-repeat;
+}
+
+.banner img{
+width:100%;
+display:block;
+object-fit:contain;       /* zoom problem fix */
+}
+
+/* ===== CARDS OVER BANNER ===== */
+.cards-area{
+margin-top:-40px;         /* cards upar set on banner */
+position:relative;
+z-index:10;
 display:flex;
 flex-direction:column;
 align-items:center;
-justify-content:flex-end;
 }
 
-/* ===== CARDS ===== */
+/* ===== CARD STYLE ===== */
 .card{
 width:90%;
 max-width:420px;
-margin-bottom:10px;
+margin-bottom:12px;
 background:white;
 border-radius:14px;
 padding:15px;
@@ -136,12 +149,19 @@ height:24px;
 <div class="balance">₹ 00.0</div>
 </div>
 
-<!-- BACKGROUND AREA -->
-<div class="page-bg">
+<div class="main-wrapper">
+
+<!-- BANNER -->
+<div class="banner">
+<img src="Image/Rewardbanner.png" alt="Invite Banner">
+</div>
+
+<!-- CARDS AREA -->
+<div class="cards-area">
 
 <!-- LINK CARD -->
 <div class="card">
-<h3>Invite Friends</h3>
+<h3>Share your invite link</h3>
 
 <input type="text" class="link-box" id="refLink"
 value="https://adsvero.github.io/XYZ1234">
@@ -171,6 +191,7 @@ value="https://adsvero.github.io/XYZ1234">
 </div>
 
 </div>
+</div>
 
 <!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav">
@@ -181,7 +202,7 @@ value="https://adsvero.github.io/XYZ1234">
 </div>
 
 <div onclick="window.location.href='tasks.html'">
-<img src="Image/Task.png">
+<img src="Image/Tasks.png">
 <p>Tasks</p>
 </div>
 
@@ -190,9 +211,9 @@ value="https://adsvero.github.io/XYZ1234">
 <p>Wallet</p>
 </div>
 
-<div onclick="window.location.href='account.html'">
-<img src="Image/Name.png">
-<p>Account</p>
+<div onclick="window.location.href='invite.html'">
+<img src="Image/Rewards.png">
+<p>Rewards</p>
 </div>
 
 </div>
