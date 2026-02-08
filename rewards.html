@@ -9,122 +9,133 @@
 body{
 margin:0;
 font-family: Arial, sans-serif;
-background:#f3f3f3;
+background:url("Image/Rewardbanner.png") no-repeat center top;
+background-size:cover;
+min-height:100vh;
+padding-bottom:80px; /* bottom nav ke liye space */
 }
 
-/* ===== TOP BAR ===== */
+/* TOP BAR */
 .top-bar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 background:linear-gradient(90deg,#ff4b4b,#ff7b7b);
 padding:10px 12px;
 color:white;
-position:fixed;
-top:0;
-width:100%;
-z-index:999;
-box-sizing:border-box;
+z-index:1000;
 }
 
-/* ===== PAGE WRAPPER ===== */
-.page{
-margin-top:55px;      /* top bar ke niche space */
-margin-bottom:70px;   /* bottom nav ke liye space */
+.top-bar img{
+height:32px;
 }
 
-/* ===== BACKGROUND BANNER ===== */
-.banner{
-width:100%;
-height:240px;
-background:url("Rewardbanner.png") center/cover no-repeat;
-}
-
-/* ===== OVERLAY CARD (UPAR CHIPKA HUA) ===== */
-.overlay-card{
+.balance{
 background:white;
-margin:-40px 12px 10px 12px;  /* banner ke upar overlap */
-padding:12px;
-border-radius:12px;
-box-shadow:0 2px 8px rgba(0,0,0,0.15);
+color:black;
+padding:6px 12px;
+border-radius:20px;
+font-size:14px;
 }
 
-/* SHARE ROW */
-.share-row{
+/* BANNER */
+.invite-banner{
+margin-top:55px; /* top bar ke niche lane ke liye */
+width:100%;
+}
+
+.invite-banner img{
+width:100%;
+display:block;
+}
+
+/* LINK CARD */
+.card{
+margin:15px;
+background:white;
+border-radius:12px;
+padding:15px;
+box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+.card h3{
+margin:0 0 10px 0;
+text-align:center;
+}
+
+.link-box{
 display:flex;
 align-items:center;
 gap:8px;
-margin-top:8px;
 }
 
-.share-row input{
-flex:1;
-padding:10px;
-border:1px solid #ddd;
+.link-box input{
+width:70%;
+padding:8px;
+border:1px solid #ccc;
 border-radius:8px;
 }
 
-/* SHARE BUTTON */
 .share-btn{
-background:#f5a623;
+background:#ffb000;
 color:black;
 border:none;
-padding:10px 14px;
-border-radius:10px;
+padding:10px 12px;
+border-radius:8px;
 font-weight:bold;
+cursor:pointer;
 }
 
-/* APP CARD */
+/* APPS CARD */
 .app-card{
+margin:15px;
 background:white;
-margin:10px 12px;
-padding:12px;
 border-radius:12px;
-box-shadow:0 2px 8px rgba(0,0,0,0.15);
+padding:15px;
+text-align:center;
 }
 
-/* APP ICON ROW */
-.app-row{
+.app-icons{
 display:flex;
 justify-content:space-around;
-align-items:center;
 margin-top:10px;
 }
 
-.app-box{
+.app-icons div{
 text-align:center;
-font-size:12px;
 }
 
-.app-box img{
+.app-icons img{
 width:55px;
 }
 
-/* ===== BOTTOM NAV ===== */
+/* BOTTOM NAV */
 .bottom-nav{
 position:fixed;
 bottom:0;
+left:0;
 width:100%;
 display:flex;
 justify-content:space-around;
 background:white;
 padding:8px 0;
 box-shadow:0 -2px 5px rgba(0,0,0,0.1);
-z-index:999;
+z-index:1000;
 }
 
 .bottom-nav a{
 text-decoration:none;
-color:gray;
-}
-
-.bottom-nav .active{
-color:red;
-}
-
-.bottom-nav div{
+color:black;
 text-align:center;
 font-size:12px;
+}
+
+.bottom-nav img{
+width:22px;
 }
 </style>
 </head>
@@ -133,48 +144,48 @@ font-size:12px;
 
 <!-- TOP BAR -->
 <div class="top-bar">
-<img src="Image/logo.png" height="32">
+<img src="Image/logo.png" alt="logo">
 <div class="balance">₹ 00.0</div>
 </div>
 
-<div class="page">
+<!-- BANNER -->
+<div class="invite-banner">
+<img src="Image/invitebannar.png" alt="Invite Banner">
+</div>
 
-<!-- BACKGROUND BANNER -->
-<div class="banner"></div>
+<!-- SHARE LINK CARD -->
+<div class="card">
+<h3>Share your invite link</h3>
+<p>Invite friends through your favorite apps</p>
 
-<!-- OVERLAY SHARE CARD -->
-<div class="overlay-card">
-<b>Share your invite link</b><br>
-<small>Invite friends through your favorite apps</small>
-
-<div class="share-row">
-<input type="text" id="refLink" value="https://adsvero.github.io/XYZ1234">
-<button class="share-btn" onclick="copyLink()">📤 Share</button>
+<div class="link-box">
+<input type="text" value="https://adsvero.github.io/XYZ1234" readonly id="refLink">
+<button class="share-btn" onclick="copyLink()">Share</button>
 </div>
 </div>
 
 <!-- APPS CARD -->
 <div class="app-card">
-<b>Invite via your favorite apps</b>
+<h3>Invite via your favorite apps</h3>
 
-<div class="app-row">
+<div class="app-icons">
 
-<div class="app-box">
-<a href="https://wa.me/?text=Join ADSVERO: https://adsvero.github.io/XYZ1234">
+<div>
+<a href="https://wa.me/?text=Join ADSVERO using my link: https://adsvero.github.io/XYZ1234">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 <p>WhatsApp</p>
 </a>
 </div>
 
-<div class="app-box">
+<div>
 <a href="https://www.facebook.com/sharer/sharer.php?u=https://adsvero.github.io/XYZ1234">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
 <p>Facebook</p>
 </a>
 </div>
 
-<div class="app-box">
-<a href="sms:?body=Join ADSVERO: https://adsvero.github.io/XYZ1234">
+<div>
+<a href="sms:?body=Join ADSVERO using my link: https://adsvero.github.io/XYZ1234">
 <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
 <p>SMS</p>
 </a>
@@ -183,25 +194,27 @@ font-size:12px;
 </div>
 </div>
 
-</div>
-
 <!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav">
 
 <a href="index.html">
-<div>🏠<br>Home</div>
+<img src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png">
+<p>Home</p>
 </a>
 
 <a href="tasks.html">
-<div>📋<br>Tasks</div>
+<img src="https://cdn-icons-png.flaticon.com/512/190/190411.png">
+<p>Tasks</p>
 </a>
 
 <a href="wallet.html">
-<div>👛<br>Wallet</div>
+<img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png">
+<p>Wallet</p>
 </a>
 
-<a href="invite.html" class="active">
-<div>🎁<br>Rewards</div>
+<a href="rewards.html">
+<img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png">
+<p>Rewards</p>
 </a>
 
 </div>
