@@ -1,101 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invite Page</title>
 
 <style>
-html, body{
-margin:0;
-font-family: Arial, sans-serif;
-background:#f3f3f3;
-width:100%;
-height:100%;
-overflow:hidden;   /* page fixed */
-}
+/* ===== ONLY SOCIAL ICONS KE LIYE NEW CSS ===== */
 
-/* ===== TOP BAR ===== */
-.top-bar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:linear-gradient(90deg,#ff4b4b,#ff7b7b);
-padding:12px 14px;
-color:white;
-position:fixed;
-top:0;
-width:100%;
-z-index:999;
-box-sizing:border-box;
-}
-
-.top-bar img{
-height:32px;
-}
-
-.balance{
-background:white;
-color:black;
-padding:6px 12px;
-border-radius:20px;
-font-size:14px;
-}
-
-/* ===== BACKGROUND ===== */
-.page-bg{
-margin-top:56px;
-width:100%;
-height:calc(100vh - 120px);
-background:url("Image/Rewardbanner.png");
-background-size:cover;
-background-position:center top;
-background-repeat:no-repeat;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:flex-end;
-}
-
-/* ===== CARDS ===== */
-.card{
-width:90%;
-max-width:420px;
-margin-bottom:10px;
-background:white;
-border-radius:14px;
-padding:15px;
-box-shadow:0 2px 6px rgba(0,0,0,0.15);
-text-align:center;
-}
-
-/* LINK INPUT */
-.link-box{
-width:100%;
-padding:10px;
-border:1px solid #ddd;
-border-radius:8px;
-font-size:14px;
-}
-
-/* BUTTON */
-.btn{
-margin-top:10px;
-background:#ffb000;
-color:black;
-border:none;
-padding:12px;
-width:100%;
-border-radius:8px;
-font-size:16px;
-font-weight:bold;
-}
-
-/* SOCIAL ICONS NEW CARD (ONLY ADDED PART) */
 .social-card{
 width:90%;
 max-width:420px;
-margin:10px auto 15px auto;
+margin:15px auto 20px auto;
 background:white;
 border-radius:14px;
 padding:12px;
@@ -111,56 +26,33 @@ margin-top:8px;
 }
 
 .social-row img{
-width:50px;
-}
-
-/* ===== BOTTOM NAVIGATION ===== */
-.bottom-nav{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-justify-content:space-around;
-background:white;
-padding:8px 0;
-box-shadow:0 -2px 5px rgba(0,0,0,0.1);
-z-index:999;
-}
-
-.bottom-nav div{
-text-align:center;
-font-size:12px;
-cursor:pointer;
-}
-
-.bottom-nav img{
-height:24px;
+width:48px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-<img src="Image/logo.png" alt="logo">
-<div class="balance">₹ 00.0</div>
+<!-- ===== TUMHARA PURANA CODE (BILKUL SAME) ===== -->
+
+<div class="row">
+<input type="text" class="input-box" id="inviteCode" value="XYZ1234" readonly>
+<button class="small-btn" onclick="copyCode()">Copy Code</button>
+</div>
 </div>
 
-<!-- BACKGROUND AREA -->
-<div class="page-bg">
-
-<!-- LINK CARD (TUMHARA SAME) -->
-<div class="card">
-<h3>Invite Friends</h3>
-
-<input type="text" class="link-box" id="refLink"
-value="https://adsvero.github.io/XYZ1234">
-
-<button class="btn" onclick="copyLink()">Copy & Share Link</button>
+<!-- INVITE LINK -->
+<div class="share-card">
+  <div class="row">
+    <input type="text" class="input-box"
+     value="https://adsvero.github.io/XYZ1234">
+    <button class="share-btn" onclick="copyLink()">Share</button>
+  </div>
 </div>
 
-<!-- 🔥 NEW SOCIAL ICON CARD (ONLY ADDITION) -->
+<br><br><br>
+
+<!-- ===== NEW SOCIAL ICON CARD (ONLY ADDITION) ===== -->
 <div class="social-card">
 <h4>Share via Apps</h4>
 
@@ -181,9 +73,7 @@ value="https://adsvero.github.io/XYZ1234">
 </div>
 </div>
 
-</div>
-
-<!-- BOTTOM NAVIGATION (TUMHARA SAME) -->
+<!-- ===== BOTTOM NAV (TUMHARA SAME) ===== -->
 <div class="bottom-nav">
 
 <div onclick="window.location.href='index.html'">
@@ -209,6 +99,11 @@ value="https://adsvero.github.io/XYZ1234">
 </div>
 
 <script>
+function copyCode(){
+navigator.clipboard.writeText("XYZ1234");
+alert("Invite Code Copied!");
+}
+
 function copyLink(){
 var copyText = document.getElementById("refLink");
 copyText.select();
