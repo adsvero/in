@@ -29,11 +29,9 @@ width:100%;
 z-index:999;
 box-sizing:border-box;
 }
-
 .top-bar img{
 height:32px;
 }
-
 .balance{
 background:white;
 color:black;
@@ -47,23 +45,22 @@ font-size:14px;
 margin-top:56px;
 width:100%;
 }
-
 .banner img{
 width:100%;
 display:block;
 }
 
-/* ===== FLOATING CARDS (EXACT LIKE YOUR IMAGE) ===== */
+/* ===== FLOATING CARDS ===== */
 .floating-container{
 position:relative;
-top:-70px;   /* IMPORTANT: moves cards UP over banner */
+top:-70px;
 }
 
 /* Card style */
 .card{
-width:45%;              /* card ko chhota rakhega */
+width:45%;
 max-width:420px;
-margin:-50px 45% 20px auto;   /* ← IMPORTANT: card ko right side le jata hai */
+margin:-50px 45% 20px auto;
 background:white;
 border-radius:14px;
 padding:12px;
@@ -98,6 +95,55 @@ font-weight:bold;
 cursor:pointer;
 }
 
+/* SHARE LINK CARD */
+.share-card{
+width:90%;
+max-width:420px;
+margin:15px auto 20px auto;
+background:white;
+border-radius:14px;
+padding:12px;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* share button */
+.share-btn{
+background:#ffb000;
+color:black;
+border:none;
+padding:10px 14px;
+border-radius:8px;
+font-size:14px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* ===== SOCIAL ICON CARD (NEW ADDITION ONLY) ===== */
+.social-card{
+width:90%;
+max-width:420px;
+margin:15px auto 30px auto;
+background:white;
+border-radius:14px;
+padding:12px;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+.social-card h4{
+margin:6px 0 10px 0;
+}
+
+.social-row{
+display:flex;
+justify-content:space-around;
+align-items:center;
+}
+
+.social-row img{
+width:50px;
+}
+
 /* ===== BOTTOM NAV ===== */
 .bottom-nav{
 position:fixed;
@@ -109,13 +155,11 @@ background:white;
 padding:8px 0;
 box-shadow:0 -2px 5px rgba(0,0,0,0.1);
 }
-
 .bottom-nav div{
 text-align:center;
 font-size:12px;
 cursor:pointer;
 }
-
 .bottom-nav img{
 height:24px;
 }
@@ -146,16 +190,36 @@ height:24px;
 </div>
 </div>
 
-
 <!-- INVITE LINK -->
 <div class="share-card">
-  <div class="row">
-    <input type="text" class="input-box"
-     value="https://adsvero.github.io/XYZ1234">
-    <button class="share-btn" onclick="copyLink()">Share</button>
-  </div>
+<div class="row">
+<input type="text" class="input-box"
+value="https://adsvero.github.io/XYZ1234">
+<button class="share-btn" onclick="copyLink()">Share</button>
 </div>
-  
+</div>
+
+</div>
+
+<!-- ===== NEW SOCIAL ICONS CARD (ONLY ADDITION) ===== -->
+<div class="social-card">
+<h4>Share via Apps</h4>
+
+<div class="social-row">
+
+<a href="https://wa.me/?text=Join ADSVERO: https://adsvero.github.io/XYZ1234">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://adsvero.github.io/XYZ1234">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+</a>
+
+<a href="sms:?body=Join ADSVERO: https://adsvero.github.io/XYZ1234">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+</a>
+
+</div>
 </div>
 
 <br><br><br>
@@ -190,48 +254,11 @@ function copyCode(){
 navigator.clipboard.writeText("XYZ1234");
 alert("Invite Code Copied!");
 }
+
 function copyLink(){
-var copyText = document.getElementById("refLink");
-copyText.select();
-document.execCommand("copy");
 alert("Invite Link Copied!");
 }
 </script>
-<style>
-  ... तुम्हारा पूरा पुराना CSS यहाँ रहेगा ...
 
-/* ---- COPY CODE CARD ---- */
-.code-card{
-  width:45%;
-  max-width:420px;
-  margin:-40px auto 10px auto;   /* ऊपर set + नीचे gap */
-  background:white;
-  border-radius:14px;
-  padding:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
-}
-
-/* ---- SHARE LINK CARD ---- */
-.share-card{
-  width:90%;
-  max-width:420px;
-  margin:15px auto 20px auto;   /* cards अलग दिखेंगे */
-  background:white;
-  border-radius:14px;
-  padding:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
-  }
-  
-.share-btn{
-   background:#ffb000;   /* वही yellow */
-   color:black;
-   border:none;
-   padding:10px 14px;
-   border-radius:8px;
-   font-size:14px;
-   font-weight:bold;
-   cursor:pointer;
-}
-</style>
 </body>
 </html>
