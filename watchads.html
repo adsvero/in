@@ -1,172 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Watch & Earn</title>
+<title>My App</title>
 
 <style>
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f3f3f3;
+    margin:0;
+    font-family: Arial;
+    background:#f2f2f2;
 }
 
-/* ===== TOP BAR ===== */
+/* HEADER WITH LOGO */
 .header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:#ff3b3b;
-  color:white;
-  padding:12px 14px;
+    background:white;
+    padding:10px 15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #ddd;
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-weight:bold;
-  font-size:18px;
+.header img{
+    height:40px;
 }
 
+/* BALANCE BOX */
 .balance{
-  background:rgba(255,255,255,0.3);
-  padding:6px 10px;
-  border-radius:20px;
+    background:red;
+    color:white;
+    padding:6px 10px;
+    border-radius:6px;
+    font-size:14px;
 }
 
-/* ===== MAIN CONTENT ===== */
+/* MAIN CONTAINER */
 .container{
-  padding:12px;
+    padding:15px;
+    padding-bottom:80px; /* bottom menu ke liye space */
 }
 
-.title{
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:8px;
+/* VIDEO BOX */
+.video-box{
+    background:black;
+    padding:5px;
+    border-radius:10px;
 }
 
-/* ===== VIDEO CARD ===== */
-.video-card{
-  background:black;
-  border-radius:12px;
-  overflow:hidden;
-  margin-bottom:10px;
+video{
+    width:100%;
+    border-radius:10px;
 }
 
-.video-img{
-  width:100%;
-  display:block;
+/* PROGRESS BAR */
+.progress-container{
+    width:100%;
+    background:#ddd;
+    height:6px;
+    border-radius:5px;
+    margin-top:8px;
 }
 
-/* fake progress bar */
-.progress{
-  height:4px;
-  background:red;
-  width:30%;
+.progress-bar{
+    width:0%;
+    height:6px;
+    background:red;
+    border-radius:5px;
 }
 
-/* ===== BUTTONS ===== */
+/* BUTTONS */
 .btn-red{
-  width:100%;
-  background:#ff3b3b;
-  color:white;
-  border:none;
-  padding:12px;
-  border-radius:10px;
-  font-size:16px;
-  margin:10px 0;
+    width:100%;
+    padding:12px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    margin-top:10px;
 }
 
 .btn-yellow{
-  width:100%;
-  background:#ffb000;
-  color:white;
-  border:none;
-  padding:12px;
-  border-radius:10px;
-  font-size:16px;
+    width:100%;
+    padding:12px;
+    background:orange;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    margin-top:8px;
 }
 
-/* ===== BOTTOM NAV ===== */
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  display:flex;
-  justify-content:space-around;
-  background:white;
-  padding:8px 0;
-  box-shadow:0 -2px 5px rgba(0,0,0,0.1);
+/* BOTTOM NAVIGATION */
+.bottom{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    padding:8px 0;
+    border-top:1px solid #ddd;
 }
 
-.nav-item{
-  text-align:center;
-  font-size:12px;
-  color:#999;
+.bottom div{
+    text-align:center;
+    font-size:12px;
+    color:#666;
 }
 
-.nav-item img{
-  height:24px;
+.bottom img{
+    width:22px;
+    display:block;
+    margin:auto;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
+<!-- TOP HEADER WITH YOUR LOGO -->
 <div class="header">
-  <div class="logo">
-    <img src="Image/logo.png" height="24">
-    
-  </div>
+  <img src="logo.png" alt="Your Logo">
   <div class="balance">₹00.0</div>
 </div>
 
-<!-- CONTENT -->
 <div class="container">
 
-<div class="title">Watch Video & Earn</div>
+<h3>Watch Video & Earn</h3>
 
-<div class="video-card">
-  <div class="progress"></div>
-  <img src="Image/Ads.mp4" class="video-img">
+<div class="video-box">
+<video id="myVideo" muted>
+  <source src="ads.mp4" type="video/mp4">
+</video>
+
+<div class="progress-container">
+  <div id="bar" class="progress-bar"></div>
+</div>
 </div>
 
-<p>📺 The new ad to time convert...</p>
+<button class="btn-red" onclick="playVideo()">Continue Watching</button>
 
-<button class="btn-red">Continue Watching</button>
-<button class="btn-yellow">Complete in: 25 seconds</button>
-
-</div>
-
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-
-  <div class="nav-item" onclick="window.location.href='index.html'">
-    <img src="Image/Home.png">
-    <p>Home</p>
-  </div>
-
-  <div class="nav-item active" onclick="window.location.href='tasks.html'">
-    <img src="Image/Task.png">
-    <p>Tasks</p>
-  </div>
-
-  <div class="nav-item" onclick="window.location.href='wallet.html'">
-    <img src="Image/Wallet.png">
-    <p>Wallet</p>
-  </div>
-
-  <div class="nav-item" onclick="window.location.href='account.html'">
-    <img src="Image/Name.png">
-    <p>Account</p>
-  </div>
+<button class="btn-yellow" id="timerBtn">Complete in: 25 seconds</button>
 
 </div>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom">
+  <div>
+    <img src="home.png">
+    Home
+  </div>
+
+  <div>
+    <img src="task.png">
+    Tasks
+  </div>
+
+  <div>
+    <img src="wallet.png">
+    Wallet
+  </div>
+
+  <div>
+    <img src="Name.png">
+    Account
+  </div>
+</div>
+
+<script>
+let video = document.getElementById("myVideo");
+let bar = document.getElementById("bar");
+let timerBtn = document.getElementById("timerBtn");
+let timeLeft = 25;
+
+function playVideo(){
+   video.play();
+
+   let interval = setInterval(function(){
+
+      let percent = (video.currentTime / 25) * 100;
+      bar.style.width = percent + "%";
+
+      timerBtn.innerText = "Complete in: " + timeLeft + " seconds";
+      timeLeft--;
+
+      if(timeLeft < 0){
+         clearInterval(interval);
+         timerBtn.innerText = "✔ Completed!";
+      }
+
+   },1000);
+}
+</script>
 
 </body>
 </html>
