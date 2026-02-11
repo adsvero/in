@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch & Earn</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f3f3f3;
+}
+
+/* ===== TOP BAR ===== */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#ff3b3b;
+  color:white;
+  padding:12px 14px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.balance{
+  background:rgba(255,255,255,0.3);
+  padding:6px 10px;
+  border-radius:20px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.container{
+  padding:12px;
+}
+
+.title{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+/* ===== VIDEO CARD ===== */
+.video-card{
+  background:black;
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:10px;
+}
+
+.video-img{
+  width:100%;
+  display:block;
+}
+
+/* fake progress bar */
+.progress{
+  height:4px;
+  background:red;
+  width:30%;
+}
+
+/* ===== BUTTONS ===== */
+.btn-red{
+  width:100%;
+  background:#ff3b3b;
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-size:16px;
+  margin:10px 0;
+}
+
+.btn-yellow{
+  width:100%;
+  background:#ffb000;
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-size:16px;
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:space-around;
+  background:white;
+  padding:8px 0;
+  box-shadow:0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-item{
+  text-align:center;
+  font-size:12px;
+  color:#999;
+}
+
+.nav-item img{
+  height:24px;
+}
+
+.active{
+  color:red !important;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="header">
+  <div class="logo">
+    <img src="Image/logo.png" height="24">
+    
+  </div>
+  <div class="balance">₹00.0</div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+<div class="title">Watch Video & Earn</div>
+
+<div class="video-card">
+  <div class="progress"></div>
+  <img src="Image/sale-banner.png" class="video-img">
+</div>
+
+<p>📺 The new ad to time convert...</p>
+
+<button class="btn-red">Continue Watching</button>
+<button class="btn-yellow">Complete in: 25 seconds</button>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+
+  <div class="nav-item" onclick="window.location.href='index.html'">
+    <img src="Image/Home.png">
+    <p>Home</p>
+  </div>
+
+  <div class="nav-item active" onclick="window.location.href='tasks.html'">
+    <img src="Image/Task.png">
+    <p>Tasks</p>
+  </div>
+
+  <div class="nav-item" onclick="window.location.href='wallet.html'">
+    <img src="Image/Wallet.png">
+    <p>Wallet</p>
+  </div>
+
+  <div class="nav-item" onclick="window.location.href='account.html'">
+    <img src="Image/Name.png">
+    <p>Account</p>
+  </div>
+
+</div>
+
+</body>
+</html>
