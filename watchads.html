@@ -12,12 +12,12 @@ font-family:Arial, sans-serif;
 background:#f3f3f3;
 }
 
-/* ===== TOP BAR ===== */
+/* ===== TOP BAR (APP STYLE) ===== */
 .top-bar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:linear-gradient(90deg,#ff6464,#ff7b7b);
+background:#ff3b3b;
 padding:12px 14px;
 position:fixed;
 top:0;
@@ -44,25 +44,44 @@ margin-top:70px;
 padding:15px;
 }
 
+/* ===== TITLE ===== */
 .title{
 font-size:20px;
 font-weight:bold;
 margin-bottom:10px;
 }
 
-/* ===== VIDEO BOX ===== */
-.video-box{
+/* ===== FAKE VIDEO PLAYER (APP LOOK) ===== */
+.player-box{
 width:100%;
 max-width:420px;
 margin:auto;
 background:black;
-border-radius:12px;
+border-radius:14px;
 overflow:hidden;
+position:relative;
 }
 
-video{
+/* VIDEO THUMBNAIL */
+.player-box img{
 width:100%;
 display:block;
+}
+
+/* RED PROGRESS BAR */
+.progress-bar{
+height:6px;
+width:30%;
+background:red;
+}
+
+/* PLAY ICON */
+.play-btn{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:60px;
 }
 
 /* ===== BUTTONS ===== */
@@ -134,14 +153,26 @@ font-weight:bold;
 
 <div class="title">Watch Video & Earn</div>
 
-<div class="video-box">
-<video controls>
-<!-- 🔴 YAHAN APNI VIDEO KA NAAM DALO -->
+<!-- CUSTOM VIDEO LOOK -->
+<div class="player-box">
+
+<!-- RED PROGRESS BAR -->
+<div class="progress-bar"></div>
+
+<!-- THUMBNAIL IMAGE (APP LOOK) -->
+<img src="Image/sale.jpg" alt="Video Thumbnail">
+
+<!-- PLAY ICON -->
+<img src="Image/play.png" class="play-btn">
+
+<!-- HIDDEN REAL VIDEO -->
+<video id="myVideo" style="display:none;">
 <source src="Video/Ads.mp4" type="video/mp4">
 </video>
+
 </div>
 
-<button class="btn-red">Continue Watching</button>
+<button class="btn-red" onclick="playVideo()">Continue Watching</button>
 <button class="btn-yellow">Complete in: 25 seconds</button>
 
 </div>
@@ -154,8 +185,8 @@ font-weight:bold;
 <p>Home</p>
 </div>
 
-<div class="active" onclick="window.location.href='tasks.html'">
-<img src="Image/Task.png">
+<div class="active" onclick="window.location.href='task.html'">
+<img src="Image/Tasks.png">
 <p>Tasks</p>
 </div>
 
@@ -164,12 +195,20 @@ font-weight:bold;
 <p>Wallet</p>
 </div>
 
-<div onclick="window.location.href='account.html'">
-<img src="Image/Name.png">
+<div onclick="window.location.href='Name.html'">
+<img src="Image/Account.png">
 <p>Account</p>
 </div>
 
 </div>
+
+<script>
+function playVideo(){
+document.querySelector(".player-box img").style.display="none";
+document.getElementById("myVideo").style.display="block";
+document.getElementById("myVideo").play();
+}
+</script>
 
 </body>
 </html>
