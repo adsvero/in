@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Watch & Earn</title>
 
@@ -9,204 +8,176 @@
 body{
 margin:0;
 font-family:Arial, sans-serif;
-background:#f3f3f3;
+background:#f2f2f2;
 }
 
-/* ===== TOP BAR (APP STYLE) ===== */
-.top-bar{
+/* HEADER */
+.header{
+background:linear-gradient(90deg,#ff3b3b,#ff6b6b);
+padding:15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:#ff3b3b;
-padding:12px 14px;
-position:fixed;
-top:0;
-width:100%;
-z-index:999;
-box-sizing:border-box;
-}
-
-.top-bar img{
-height:32px;
+color:white;
+font-weight:bold;
 }
 
 .balance{
 background:white;
-color:black;
+color:#ff3b3b;
 padding:6px 12px;
 border-radius:20px;
-font-size:14px;
-}
-
-/* ===== CONTENT ===== */
-.container{
-margin-top:70px;
-padding:15px;
-}
-
-/* ===== TITLE ===== */
-.title{
-font-size:20px;
 font-weight:bold;
-margin-bottom:10px;
 }
 
-/* ===== FAKE VIDEO PLAYER (APP LOOK) ===== */
+/* CONTENT */
+.container{
+padding:15px;
+padding-bottom:90px;
+}
+
+h2{
+margin-top:10px;
+}
+
+/* VIDEO BOX */
 .player-box{
+position:relative;
 width:100%;
 max-width:420px;
-margin:auto;
-background:black;
-border-radius:14px;
+margin:15px auto;
+border-radius:15px;
 overflow:hidden;
-position:relative;
+background:black;
+aspect-ratio:16/9;
 }
 
-/* VIDEO THUMBNAIL */
-.player-box img{
+.player-box video{
 width:100%;
-display:block;
+height:100%;
 }
 
-/* RED PROGRESS BAR */
-.progress-bar{
-height:6px;
-width:30%;
-background:red;
-}
-
-/* PLAY ICON */
-.play-btn{
+/* CUSTOM PLAY BUTTON */
+.custom-play{
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-width:60px;
+font-size:50px;
+color:white;
+background:rgba(0,0,0,0.6);
+width:80px;
+height:80px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
 }
 
-/* ===== BUTTONS ===== */
+/* BUTTONS */
 .btn-red{
-width:100%;
-max-width:420px;
-margin:12px auto 6px auto;
-display:block;
 background:#ff3b3b;
 color:white;
-border:none;
-padding:12px;
-border-radius:10px;
-font-size:16px;
+padding:15px;
+border-radius:12px;
+text-align:center;
+margin:15px 0;
+font-size:18px;
+font-weight:bold;
 }
 
 .btn-yellow{
-width:100%;
-max-width:420px;
-margin:auto;
-display:block;
-background:#ffb000;
+background:#f4a100;
 color:white;
-border:none;
-padding:12px;
-border-radius:10px;
-font-size:16px;
+padding:15px;
+border-radius:12px;
+text-align:center;
+font-size:18px;
+font-weight:bold;
 }
 
-/* ===== BOTTOM NAV ===== */
+/* BOTTOM NAV */
 .bottom-nav{
 position:fixed;
 bottom:0;
 width:100%;
+background:white;
 display:flex;
 justify-content:space-around;
-background:white;
-padding:8px 0;
-box-shadow:0 -2px 6px rgba(0,0,0,0.1);
+padding:10px 0;
+box-shadow:0 -2px 5px rgba(0,0,0,0.1);
 }
 
-.bottom-nav div{
+.nav-item{
 text-align:center;
 font-size:12px;
-cursor:pointer;
-}
-
-.bottom-nav img{
-height:24px;
-}
-
-.active{
-color:red;
+color:#888;
 font-weight:bold;
+}
+
+.nav-item.active{
+color:#ff3b3b;
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-<img src="Image/logo.png" alt="Logo">
+<!-- HEADER -->
+<div class="header">
+<div>ADSVERO</div>
 <div class="balance">₹00.0</div>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- CONTENT -->
 <div class="container">
 
-<div class="title">Watch Video & Earn</div>
+<h2>Watch Video & Earn</h2>
 
-<!-- CUSTOM VIDEO LOOK -->
 <div class="player-box">
-
-<!-- RED PROGRESS BAR -->
-<div class="progress-bar"></div>
-
-<!-- THUMBNAIL IMAGE (APP LOOK) -->
-<img src="Image/sale.jpg" alt="Video Thumbnail">
-
-<!-- PLAY ICON -->
-<img src="Image/play.png" class="play-btn">
-
-<!-- HIDDEN REAL VIDEO -->
-<video id="myVideo" style="display:none;">
-<source src="Video/Ads.mp4" type="video/mp4">
+<video id="myVideo" poster="thumb.jpg">
+<source src="Ads.mp4" type="video/mp4">
 </video>
 
+<div class="custom-play" onclick="playVideo()">▶</div>
 </div>
 
-<button class="btn-red" onclick="playVideo()">Continue Watching</button>
-<button class="btn-yellow">Complete in: 25 seconds</button>
+<div class="btn-red">
+Continue Watching
+</div>
+
+<div class="btn-yellow">
+Complete in: 25 seconds
+</div>
 
 </div>
 
-<!-- BOTTOM NAVIGATION -->
+<!-- BOTTOM NAV -->
 <div class="bottom-nav">
-
-<div onclick="window.location.href='index.html'">
-<img src="Image/Home.png">
-<p>Home</p>
+<div class="nav-item" onclick="location.href='index.html'">
+Home
 </div>
 
-<div class="" onclick="window.location.href='tasks.html'">
-<img src="Image/Task.png">
-<p>Tasks</p>
+<div class="nav-item active">
+Tasks
 </div>
 
-<div onclick="window.location.href='wallet.html'">
-<img src="Image/Wallet.png">
-<p>Wallet</p>
+<div class="nav-item" onclick="location.href='wallet.html'">
+Wallet
 </div>
 
-<div onclick="window.location.href='account.html'">
-<img src="Image/Name.png">
-<p>Account</p>
+<div class="nav-item" onclick="location.href='account.html'">
+Account
 </div>
-
 </div>
 
 <script>
 function playVideo(){
-document.querySelector(".player-box img").style.display="none";
-document.getElementById("myVideo").style.display="block";
-document.getElementById("myVideo").play();
+var v = document.getElementById("myVideo");
+v.play();
+document.querySelector(".custom-play").style.display="none";
+v.setAttribute("controls","controls");
 }
 </script>
 
