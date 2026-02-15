@@ -7,213 +7,190 @@
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-  background:#f2f2f2;
-  overflow-x:hidden;
-  overflow-y:auto;
+background:#f2f2f2;
+overflow-x:hidden;
 }
 
-/* ===== MOBILE CONTAINER ===== */
 #page{
-  max-width:430px;
-  width:100%;
-  margin:0 auto;
-  background:white;
-  padding-bottom:60px;
+max-width:430px;
+margin:0 auto;
+background:white;
+padding-bottom:80px;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .header{
-  background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
-  padding:18px 0 0px;
-  color:#fff;
-  border-bottom-left-radius:32px;
-  border-bottom-right-radius:32px;
-  overflow:hidden;
-  position:relative;
-  z-index:10;
+background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
+padding:18px 0;
+color:#fff;
+border-bottom-left-radius:32px;
+border-bottom-right-radius:32px;
 }
 
 .header-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 16px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 16px;
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-weight:700;
-  font-size:20px;
+display:flex;
+align-items:center;
+gap:8px;
+font-weight:700;
+font-size:20px;
 }
 
-/* Logo size */
-.brand img{ height:36px; }
+.brand img{
+height:36px;
+}
 
 .wallet-badge{
-  background:rgba(255,255,255,.25);
-  padding:8px 12px;
-  border-radius:20px;
-  font-weight:700;
+background:rgba(255,255,255,.25);
+padding:8px 12px;
+border-radius:20px;
+font-weight:700;
 }
 
-/* ===== BANNER ===== */
+/* BANNER */
 .banner{
-  margin-top:12px;
-  width:100%;
-  height:auto;
+margin:12px;
 }
-
 .banner img{
-  width:100%;
-  height:180px;
-  object-fit:contain;
-  border-radius:0;
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:12px;
 }
 
-/* ===== 4 BUTTONS ===== */
+/* 4 BUTTONS */
 .menu{
-  margin:10px 8px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
+margin:10px 12px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
 }
 
 .menu-item{
-  border-radius:14px;
-  padding:8px 6px;
-  text-align:center;
-  box-shadow:0 8px 18px rgba(0,0,0,.12);
-  color:white;
-  aspect-ratio: 1 / 1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+border-radius:14px;
+padding:10px 6px;
+text-align:center;
+color:#fff;
+aspect-ratio:1/1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
-/* exact colors */
-.menu-item.watch{ background:#ff3b3b; }
-.menu-item.tasks{ background:#2f80ff; }
-.menu-item.rewards{ background:#2ea44f; }
-.menu-item.withdraw{ background:#f2a60c; }
-
 .menu-item img{
-  width:32px;
-  height:32px;
-  margin-bottom:4px;
+width:32px;
+margin-bottom:4px;
 }
 
 .menu-item span{
-  font-size:12px;
-  font-weight:700;
+font-size:12px;
+font-weight:700;
 }
 
-/* ===== PLAN SECTION ===== */
+.menu-item.watch{background:#ff3b3b;}
+.menu-item.tasks{background:#2f80ff;}
+.menu-item.rewards{background:#2ea44f;}
+.menu-item.withdraw{background:#f2a60c;}
+
+/* PLAN */
 .plan-section{
-  padding:14px;
+padding:14px;
 }
 
 .plan-section h3{
-  font-size:20px;
-  margin-bottom:4px;
+font-size:20px;
+margin-bottom:4px;
 }
 
 .plan-section p{
-  color:#777;
-  margin-bottom:10px;
+color:#777;
+margin-bottom:10px;
 }
 
-/* PLAN CARD DESIGN */
 .plan-card{
-  background:white;
-  border-radius:16px;
-  padding:12px;
-  margin-bottom:10px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  box-shadow:0 4px 10px rgba(0,0,0,.08);
-  position:relative;
+background:#fff;
+border-radius:16px;
+padding:12px;
+margin-bottom:10px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 4px 10px rgba(0,0,0,.08);
 }
 
-.plan-card .price{
-  font-size:22px;
-  font-weight:700;
-  width:60px;
+.price{
+font-size:22px;
+font-weight:700;
+width:60px;
 }
 
-.plan-card .details{
-  flex:1;
-  font-size:12px;
+.details{
+flex:1;
+font-size:12px;
 }
 
-.plan-card .details p{
-  margin:2px 0;
+.details p{
+margin:2px 0;
 }
 
 .buy-btn{
-  background:#f2a60c;
-  color:black;
-  border:none;
-  padding:8px 12px;
-  border-radius:10px;
-  font-weight:700;
+background:#f2a60c;
+border:none;
+padding:8px 14px;
+border-radius:10px;
+font-weight:700;
 }
 
-/* MOST POPULAR TAG */
-.popular{
-  border:2px solid #6a1b9a;
-}
-
-.tag{
-  position:absolute;
-  top:-8px;
-  right:10px;
-  background:#6a1b9a;
-  color:white;
-  padding:4px 8px;
-  border-radius:8px;
-  font-size:10px;
-}
-
-/* ===== BOTTOM NAV ===== */
+/* BOTTOM NAV */
 .bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:70px;
-  background:#fff;
-  border-top:1px solid #ddd;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:70px;
+background:#fff;
+border-top:1px solid #ddd;
+display:flex;
+justify-content:space-around;
+align-items:center;
+z-index:999;
+}
+
+.bottom-nav a{
+flex:1;
+text-decoration:none;
 }
 
 .nav-item{
-  text-align:center;
-  font-size:12px;
-  color:#999;
-  font-weight:700;
+text-align:center;
+font-size:12px;
+color:#999;
+font-weight:700;
 }
 
 .nav-item img{
-  width:26px;
-  display:block;
-  margin:0 auto 4px;
+width:26px;
+display:block;
+margin:0 auto 4px;
 }
 
-.nav-item.active{ color:#ff3b3b; }
-
+.nav-item.active{
+color:#ff3b3b;
+}
 </style>
 </head>
 
@@ -228,124 +205,121 @@ body{
       <img src="Image/logo.png">
       <span></span>
     </div>
-    <div class="wallet-badge">
-      ₹ <span id="walletAmt">0.00</span>
-    </div>
-  </div>
-
-  <div class="banner">
-    <img src="Image/Banner.png">
+    <div class="wallet-badge">₹ 0.00</div>
   </div>
 </div>
 
-<!-- 4 BUTTONS -->
+<!-- BANNER -->
+<div class="banner">
+  <img src="Image/Banner.png">
+</div>
+
+<!-- MENU -->
 <div class="menu">
+
 <a href="watchads.html" style="text-decoration:none;">
-  <div class="menu-item watch">
-    <img src="Image/Watch.png">
-    <span>Watch Ads</span>
-  </div>
-  
+<div class="menu-item watch">
+<img src="Image/Watch.png">
+<span>Watch Ads</span>
+</div>
+</a>
+
 <a href="task.html" style="text-decoration:none;">
-  <div class="menu-item tasks">
-    <img src="Image/Tasks.png">
-    <span>Daily Tasks</span>
-  </div>
-  
+<div class="menu-item tasks">
+<img src="Image/Tasks.png">
+<span>Daily Tasks</span>
+</div>
+</a>
+
 <a href="invite.html" style="text-decoration:none;">
-  <div class="menu-item rewards">
-    <img src="Image/Rewards.png">
-    <span>Invite</span>
-  </div>
-  
+<div class="menu-item rewards">
+<img src="Image/Rewards.png">
+<span>Invite</span>
+</div>
+</a>
+
 <a href="wallet.html" style="text-decoration:none;">
-  <div class="menu-item withdraw">
-    <img src="Image/Withdraw.png">
-    <span>Withdraw</span>
-  </div>
+<div class="menu-item withdraw">
+<img src="Image/Withdraw.png">
+<span>Withdraw</span>
+</div>
+</a>
+
 </div>
 
-<!-- ===== PLAN PURCHASE CHART ===== -->
+<!-- PLAN -->
 <div class="plan-section">
-  <h3>Plan Purchase Now</h3>
-  <p>Complete the ads & earn rewards</p>
+<h3>Plan Purchase Now</h3>
+<p>Complete the ads & earn rewards</p>
 
-  <div class="plan-card">
-    <div class="price">₹49</div>
-    <div class="details">
-      <b>Validity : 3 Days</b>
-      <p>Watch 5 ads daily</p>
-      <p>Earn up to ₹100 Daily</p>
-      <p>🪙 50 Bonus Points</p>
-    </div>
-    <button class="buy-btn">Purchase</button>
-  </div>
+<div class="plan-card">
+<div class="price">₹49</div>
+<div class="details">
+<b>Validity : 3 Days</b>
+<p>Watch 5 ads daily</p>
+<p>Earn up to ₹100 Daily</p>
+<p>🪙 50 Bonus Points</p>
+</div>
+<button class="buy-btn">Purchase</button>
+</div>
 
-  <div class="plan-card">
-    <div class="price">₹99</div>
-    <div class="details">
-      <b>Validity : 7 Days</b>
-      <p>Watch 10 ads daily</p>
-      <p>Earn up to ₹250 Daily</p>
-      <p>🪙 100 Bonus Points</p>
-    </div>
-    <button class="buy-btn">Purchase</button>
-  </div>
+<div class="plan-card">
+<div class="price">₹99</div>
+<div class="details">
+<b>Validity : 7 Days</b>
+<p>Watch 10 ads daily</p>
+<p>Earn up to ₹250 Daily</p>
+<p>🪙 100 Bonus Points</p>
+</div>
+<button class="buy-btn">Purchase</button>
+</div>
 
-  <div class="plan-card">
-    <div class="price">₹149</div>
-    <div class="details">
-      <b>Validity : 14 Days</b>
-      <p>Watch 15 ads daily</p>
-      <p>Earn up to ₹350 Daily</p>
-      <p>🪙 150 Bonus Points</p>
-    </div>
-    <button class="buy-btn">Purchase</button>
-  </div>
-
-  <div class="plan-card popular">
-    <div class="price">₹199</div>
-    <div class="details">
-      <b>Validity : 21 Days</b>
-      <p>Watch 20 ads daily</p>
-      <p>Earn up to ₹450 Daily</p>
-      <p>🪙 200 Bonus Points</p>
-    </div>
-    <button class="buy-btn">Purchase</button>
-    <span class="tag">Most Popular</span>
-  </div>
-
-  <div class="plan-card">
-    <div class="price">₹249</div>
-    <div class="details">
-      <b>Validity : 28 Days</b>
-      <p>Watch 25 ads daily</p>
-      <p>Earn up to ₹600 Daily</p>
-      <p>🪙 250 Bonus Points</p>
-    </div>
-    <button class="buy-btn">Purchase</button>
-  </div>
+<div class="plan-card">
+<div class="price">₹149</div>
+<div class="details">
+<b>Validity : 14 Days</b>
+<p>Watch 15 ads daily</p>
+<p>Earn up to ₹350 Daily</p>
+<p>🪙 150 Bonus Points</p>
+</div>
+<button class="buy-btn">Purchase</button>
+</div>
 
 </div>
+
 </div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
-  <div class="nav-item active">
-    <img src="Image/Home.png">Home
-  </div>
 
-  <div class="nav-item">
-    <img src="Image/Task.png">Tasks
-  </div>
+<a href="index.html">
+<div class="nav-item active">
+<img src="Image/Home.png">
+<span>Home</span>
+</div>
+</a>
 
-  <div class="nav-item">
-    <img src="Image/Wallet.png">Wallet
-  </div>
-  
-  <div class="nav-item">
-    <img src="Image/Name.png">Account
-  </div>
+<a href="task.html">
+<div class="nav-item">
+<img src="Image/Task.png">
+<span>Tasks</span>
+</div>
+</a>
+
+<a href="wallet.html">
+<div class="nav-item">
+<img src="Image/Wallet.png">
+<span>Wallet</span>
+</div>
+</a>
+
+<a href="account.html">
+<div class="nav-item">
+<img src="Image/Name.png">
+<span>Account</span>
+</div>
+</a>
+
 </div>
 
 </body>
