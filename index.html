@@ -16,7 +16,6 @@
 body{
   background:#f2f2f2;
   overflow-x:hidden;
-  overflow-y:auto;
 }
 
 /* ===== MOBILE CONTAINER ===== */
@@ -25,8 +24,6 @@ body{
   width:100%;
   margin:0 auto;
   background:white;
-  min-height:100vh;
-  padding-bottom:100px;
 }
 
 /* ===== HEADER ===== */
@@ -75,7 +72,7 @@ body{
 
 .banner img{
   width:100%;
-  height:180px;
+  height:260px;
   object-fit:cover;
   border-radius:0;
 }
@@ -185,26 +182,22 @@ body{
   border-radius:8px;
   font-size:10px;
 }
+
 /* ===== BOTTOM NAV ===== */
 .bottom-nav{
-   position:fixed;
-   bottom:0;
-   left:50%;
-   transform:translateX(-50%);
-   width:100%;
-   max-width:500px;
-   height:70px;
-   background:#fff;
-   border-top:1px solid #ddd;
-   display:flex;
-   justify-content:space-around;
-   align-items:center;
-   z-index:999;
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:#fff;
+  border-top:1px solid #ddd;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
 }
 
 .nav-item{
-  flex:1;
-}
   text-align:center;
   font-size:12px;
   color:#999;
@@ -218,12 +211,6 @@ body{
 }
 
 .nav-item.active{ color:#ff3b3b; }
-  
- body{
-   margin:0;
-   padding:0;
-   padding-bottom:80px;
- }
 
 </style>
 </head>
@@ -250,32 +237,27 @@ body{
 </div>
 
 <!-- 4 BUTTONS -->
-<!-- 4 BUTTONS -->
 <div class="menu">
- <a href="watchads.html" style="text-decoration:none;">
   <div class="menu-item watch">
     <img src="Image/Watch.png">
     <span>Watch Ads</span>
   </div>
-<a href="tasks.html" style="text-decoration:none;">
+
   <div class="menu-item tasks">
     <img src="Image/Tasks.png">
     <span>Daily Tasks</span>
   </div>
 
-<a href="invite.html" style="text-decoration:none;">
   <div class="menu-item rewards">
     <img src="Image/Rewards.png">
-    <span>Invite</span>
+    <span>Rewards</span>
   </div>
-</a>
-<a href="wallet.html" style="text-decoration:none;">
+
   <div class="menu-item withdraw">
     <img src="Image/Withdraw.png">
     <span>Withdraw</span>
   </div>
 </div>
-
 
 <!-- ===== PLAN PURCHASE CHART ===== -->
 <div class="plan-section">
@@ -341,30 +323,21 @@ body{
 </div>
 </div>
 
-
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
-  <div class="nav-item">
-    <a href="index.html" style="text-decoration:none; color:inherit;">
-      <img src="Image/Home.png">Home
-    </a>
+  <div class="nav-item active">
+    <img src="Image/Home.png">Home
   </div>
-
   <div class="nav-item">
-    <a href="tasks.html" style="text-decoration:none; color:inherit;">
-      <img src="Image/Task.png">Tasks
-    </a>
+    <img src="Image/Task.png">Tasks
   </div>
-
   <div class="nav-item">
-    <a href="wallet.html" style="text-decoration:none; color:inherit;">
-      <img src="Image/Wallet.png">Wallet
-    </a>
+    <img src="Image/Wallet.png">Wallet
   </div>
-
   <div class="nav-item">
-    <a href="account.html" style="text-decoration:none; color:inherit;">
-      <img src="Image/Name.png">Account
-    </a>
+    <img src="Image/Name.png">Account
   </div>
 </div>
+
+</body>
+  </html>
