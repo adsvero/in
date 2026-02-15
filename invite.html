@@ -15,29 +15,39 @@ height:100%;
 overflow-y:auto;
 }
 
-/* ===== TOP BAR ===== */
-.top-bar{
+/* HEADER */
+.header{
+background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
+padding:18px 0;
+color:#fff;
+border-bottom-left-radius:32px;
+border-bottom-right-radius:32px;
+}
+
+.header-top{
 display:flex;
-justify-content:space-between;
 align-items:center;
-background:linear-gradient(90deg,#ff4b4b,#ff7b7b);
-padding:12px 14px;
-color:white;
-position:fixed;
-top:0;
-width:100%;
-z-index:999;
-box-sizing:border-box;
+justify-content:space-between;
+padding:0 16px;
 }
-.top-bar img{
-height:32px;
+
+.brand{
+display:flex;
+align-items:center;
+gap:8px;
+font-weight:700;
+font-size:20px;
 }
-.balance{
-background:white;
-color:black;
-padding:6px 12px;
+
+.brand img{
+height:36px;
+}
+
+.wallet-badge{
+background:rgba(255,255,255,.25);
+padding:8px 12px;
 border-radius:20px;
-font-size:14px;
+font-weight:700;
 }
 
 /* ===== BANNER ===== */
