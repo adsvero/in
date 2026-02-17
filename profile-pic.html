@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Picture</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f2f2f2;
+}
+
+/* ===== MOBILE CONTAINER ===== */
+#page{
+  max-width:430px;
+  margin:auto;
+  background:#fff;
+  min-height:100vh;
+  padding-bottom:80px;
+}
+
+/* ===== HEADER ===== */
+.header{
+  background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
+  padding:18px 14px;
+  border-bottom-left-radius:28px;
+  border-bottom-right-radius:28px;
+  color:#fff;
+}
+
+.header-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  font-size:20px;
+}
+
+.brand img{
+  height:36px;
+}
+
+.wallet{
+  background:rgba(255,255,255,.25);
+  padding:8px 14px;
+  border-radius:20px;
+  font-weight:700;
+}
+
+/* ===== AVATAR SECTION ===== */
+.avatar-section{
+  padding:14px;
+}
+
+.current-avatar{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff3b3b,#ff7a6a);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:32px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+
+/* ===== GRID ===== */
+.avatar-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.avatar-grid img{
+  width:100%;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  object-fit:cover;
+  cursor:pointer;
+  border:3px solid transparent;
+  transition:.2s;
+}
+
+.avatar-grid img.selected{
+  border:3px solid #ff3b3b;
+}
+
+/* ===== UPLOAD BOX ===== */
+.upload-box{
+  margin-top:16px;
+  background:#f5f5f5;
+  border-radius:14px;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#999;
+  font-size:14px;
+}
+
+/* ===== SAVE BUTTON ===== */
+.save-btn{
+  margin-top:16px;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:28px;
+  background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
+  color:#fff;
+  font-size:16px;
+  font-weight:700;
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:#fff;
+  border-top:1px solid #ddd;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.nav-item{
+  text-align:center;
+  font-size:12px;
+  color:#999;
+  font-weight:700;
+}
+
+.nav-item img{
+  width:26px;
+  display:block;
+  margin:0 auto 4px;
+}
+
+.nav-item.active{
+  color:#ff3b3b;
+}
+</style>
+</head>
+
+<body>
+
+<div id="page">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div class="brand">
+      <img src="Image/logo.png">
+      ADSVERO
+    </div>
+    <div class="wallet">₹0.00</div>
+  </div>
+</div>
+
+<!-- AVATAR -->
+<div class="avatar-section">
+
+<div class="current-avatar" id="currentAvatar">A</div>
+
+<div class="avatar-grid" id="avatarGrid">
+
+<!-- avatars -->
+<img src="Image/av1.png">
+<img src="Image/av2.png">
+<img src="Image/av3.png">
+<img src="Image/av4.png">
+<img src="Image/av5.png">
+<img src="Image/av6.png">
+<img src="Image/av7.png">
+<img src="Image/av8.png">
+<img src="Image/av9.png">
+<img src="Image/av10.png">
+<img src="Image/av11.png">
+<img src="Image/av12.png">
+
+</div>
+
+<div class="upload-box">
+Upload Your Photo
+</div>
+
+<button class="save-btn">Save Profile Picture</button>
+
+</div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <div class="nav-item">
+    <img src="Image/Home.png">Home
+  </div>
+  <div class="nav-item">
+    <img src="Image/Task.png">Tasks
+  </div>
+  <div class="nav-item">
+    <img src="Image/Wallet.png">Wallet
+  </div>
+  <div class="nav-item active">
+    <img src="Image/Name.png">Account
+  </div>
+</div>
+
+<script>
+const avatars = document.querySelectorAll(".avatar-grid img");
+const current = document.getElementById("currentAvatar");
+
+avatars.forEach(img=>{
+  img.onclick=()=>{
+    avatars.forEach(a=>a.classList.remove("selected"));
+    img.classList.add("selected");
+    current.innerHTML="";
+    current.style.background="none";
+    current.style.backgroundImage=`url(${img.src})`;
+    current.style.backgroundSize="cover";
+  }
+});
+</script>
+
+</body>
+</html>
