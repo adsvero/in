@@ -228,6 +228,8 @@ body{
 const avatars = document.querySelectorAll(".avatar-grid img");
 const current = document.getElementById("currentAvatar");
 
+let selectedDP = "";
+
 avatars.forEach(img=>{
   img.onclick=()=>{
     avatars.forEach(a=>a.classList.remove("selected"));
@@ -236,8 +238,18 @@ avatars.forEach(img=>{
     current.style.background="none";
     current.style.backgroundImage=`url(${img.src})`;
     current.style.backgroundSize="cover";
+    selectedDP = img.src;
   }
 });
+
+function saveProfile(){
+  if(selectedDP===""){
+    alert("Please select profile picture");
+    return;
+  }
+  localStorage.setItem("profilePic", selectedDP);
+  window.location.href="account.html";
+}
 </script>
 
 </body>
