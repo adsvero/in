@@ -249,3 +249,18 @@ font-weight:700;
     </a>
   </div>
 </div>
+
+<script>
+const savedDP = localStorage.getItem("profilePic");
+
+if(savedDP){
+  const avatar = document.querySelector(".profile-avatar");
+  avatar.innerHTML = "";
+  avatar.style.backgroundImage = `url(${savedDP})`;
+  avatar.style.backgroundSize = "cover";
+  avatar.style.backgroundPosition = "center";
+}
+</script>
+
+</body>
+</html>
