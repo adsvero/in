@@ -173,7 +173,15 @@ body{
   <!-- TITLE -->
   <div class="title-row">
     <h2>Transaction History</h2>
-    <div class="filter">All types ▾</div>
+    <div class="filter">
+  <span id="filterLabel">All types ▾</span>
+
+  <div class="dropdown" id="filterMenu">
+    <div data-type="all">All</div>
+    <div data-type="deposit">Deposit</div>
+    <div data-type="withdraw">Withdraw</div>
+  </div>
+    </div>
   </div>
 
   <!-- LIST -->
