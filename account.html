@@ -93,28 +93,26 @@ font-weight:700;
 }
 
 /* ===== MENU LIST ===== */
-.menu-list{
-  padding:10px 16px;
-}
-
 .menu-item{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding:14px 0;
+  gap:12px;
+  padding:14px;
   border-bottom:1px solid #eee;
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
 }
 
 .menu-item img{
   width:22px;
-  margin-right:10px;
 }
 
-.menu-left{
-  display:flex;
-  align-items:center;
+.menu-item b{
+  margin-left:auto;
+  color:#999;
 }
-
+  
 /* Logout Button */
 .logout{
   margin:20px 16px;
@@ -188,44 +186,35 @@ font-weight:700;
 </div>
 
 <!-- MENU -->
-<div class="menu-list">
+<a href="profile-pic.html" class="menu-item">
+  <img src="Image/Profile.png">
+  <span>Profile Picture</span>
+  <b>›</b>
+</a>
 
-  <div class="menu-item">
-    <div class="menu-left">
-      <img src="Image/profile.png"> Profile Picture
-    </div>
-    <span>›</span>
-  </div>
+<a href="referral.html" class="menu-item">
+  <img src="Image/Refer.png">
+  <span>Referral Program</span>
+  <b>›</b>
+</a>
 
-  <div class="menu-item">
-    <div class="menu-left">
-      <img src="Image/referral.png"> Referral Program
-    </div>
-    <span>›</span>
-  </div>
+<a href="account-details.html" class="menu-item">
+  <img src="Image/User.png">
+  <span>Account Details</span>
+  <b>›</b>
+</a>
 
-  <div class="menu-item">
-    <div class="menu-left">
-      <img src="Image/Kyc.png"> Account Details
-    </div>
-    <span>›</span>
-  </div>
+<a href="history.html" class="menu-item">
+  <img src="Image/History.png">
+  <span>Transaction History</span>
+  <b>›</b>
+</a>
 
-  <div class="menu-item">
-    <div class="menu-left">
-      <img src="Image/history.png"> Transaction History
-    </div>
-    <span>›</span>
-  </div>
-
-  <div class="menu-item">
-    <div class="menu-left">
-      <img src="Image/support.png"> Support / Help Center
-    </div>
-    <span>›</span>
-  </div>
-
-</div>
+<a href="support.html" class="menu-item">
+  <img src="Image/Support.png">
+  <span>Support / Help Center</span>
+  <b>›</b>
+</a>
 
 <!-- LOGOUT -->
 <div class="logout">
