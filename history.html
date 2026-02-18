@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transaction History</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f2f2f2;
+}
+
+/* ===== HEADER ===== */
+.header{
+  background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
+  padding:18px 16px 26px;
+  color:#fff;
+  border-bottom-left-radius:28px;
+  border-bottom-right-radius:28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  font-size:20px;
+}
+
+.brand img{
+  height:34px;
+}
+
+.wallet-badge{
+  background:rgba(255,255,255,.25);
+  padding:8px 14px;
+  border-radius:18px;
+  font-weight:700;
+}
+
+/* ===== PAGE ===== */
+.page{
+  max-width:430px;
+  margin:auto;
+  padding:16px;
+  padding-bottom:90px;
+}
+
+/* TITLE ROW */
+.title-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.title-row h2{
+  font-size:20px;
+}
+
+.filter{
+  font-size:14px;
+  color:#555;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 3px 8px rgba(0,0,0,.06);
+}
+
+.tx{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 16px;
+  border-bottom:1px solid #eee;
+}
+
+.tx:last-child{
+  border-bottom:none;
+}
+
+.tx-left{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+
+.amount.plus{
+  color:#1ca34a;
+  font-weight:700;
+}
+
+.amount.minus{
+  color:#e33;
+  font-weight:700;
+}
+
+.label{
+  color:#333;
+  font-size:14px;
+}
+
+.date{
+  color:#888;
+  font-size:12px;
+}
+
+.arrow{
+  color:#bbb;
+  font-size:18px;
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:#fff;
+  border-top:1px solid #ddd;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.nav-item{
+  text-align:center;
+  font-size:12px;
+  color:#999;
+  font-weight:700;
+}
+
+.nav-item img{
+  width:26px;
+  display:block;
+  margin:0 auto 4px;
+}
+
+.nav-item.active{
+  color:#ff3b3b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="brand">
+    <img src="Image/logo.png">
+    ADSVERO
+  </div>
+  <div class="wallet-badge">₹0.00</div>
+</div>
+
+<div class="page">
+
+  <!-- TITLE -->
+  <div class="title-row">
+    <h2>Transaction History</h2>
+    <div class="filter">All types ▾</div>
+  </div>
+
+  <!-- LIST -->
+  <div class="card">
+
+    <div class="tx">
+      <div class="tx-left">
+        <div class="amount plus">+ ₹100</div>
+        <div class="label">Referral Bonus</div>
+        <div class="date">Apr 23, 2024</div>
+      </div>
+      <div class="arrow">›</div>
+    </div>
+
+    <div class="tx">
+      <div class="tx-left">
+        <div class="amount minus">- ₹50</div>
+        <div class="label">Wallet Withdrawal</div>
+        <div class="date">Apr 21, 2024</div>
+      </div>
+      <div class="arrow">›</div>
+    </div>
+
+    <div class="tx">
+      <div class="tx-left">
+        <div class="amount minus">- ₹100</div>
+        <div class="label">Wallet Withdrawal</div>
+        <div class="date">Apr 18, 2024</div>
+      </div>
+      <div class="arrow">›</div>
+    </div>
+
+    <div class="tx">
+      <div class="tx-left">
+        <div class="amount plus">+ ₹200</div>
+        <div class="label">Tasks Completed</div>
+        <div class="date">Apr 16, 2024</div>
+      </div>
+      <div class="arrow">›</div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+
+  <div class="nav-item">
+    <img src="Image/Home.png">
+    Home
+  </div>
+
+  <div class="nav-item">
+    <img src="Image/Task.png">
+    Tasks
+  </div>
+
+  <div class="nav-item active">
+    <img src="Image/Wallet.png">
+    Wallet
+  </div>
+
+  <div class="nav-item">
+    <img src="Image/Name.png">
+    Account
+  </div>
+
+</div>
+
+</body>
+</html>
