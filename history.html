@@ -3,234 +3,243 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transaction History</title>
+<title>Transaction History | </title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f2f2f2}
 
-body{background:#f4f4f4}
+#page{
+max-width:430px;
+margin:auto;
+background:white;
+min-height:100vh;
+padding-bottom:80px;
+}
 
-/* ===== HEADER ===== */
-.topbar{
+/* HEADER */
+.header{
 background:linear-gradient(90deg,#ff3b3b,#ff7a6a);
-padding:18px 16px 26px;
-border-bottom-left-radius:28px;
-border-bottom-right-radius:28px;
+padding:18px 0;
+color:#fff;
+border-bottom-left-radius:32px;
+border-bottom-right-radius:32px;
+}
+.header-top{
 display:flex;
 justify-content:space-between;
 align-items:center;
-color:#fff;
+padding:0 16px;
 }
-
-.logo{
-display:flex;
-align-items:center;
-gap:8px;
-font-size:20px;
-font-weight:700;
-}
-
-.logo img{height:32px}
-
-.wallet-pill{
+.brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:20px}
+.brand img{height:36px}
+.wallet-badge{
 background:rgba(255,255,255,.25);
-padding:8px 14px;
+padding:8px 12px;
 border-radius:20px;
 font-weight:700;
 }
 
-/* ===== PAGE ===== */
-.container{padding:16px}
-
+/* TITLE ROW */
 .title-row{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:12px;
+padding:16px;
 }
+.title-row h2{font-size:22px}
 
-.title{font-size:22px;font-weight:700}
+/* FILTER */
+.filter{
+position:relative;
+font-size:14px;
+color:#555;
+cursor:pointer;
+}
+.filter-menu{
+display:none;
+position:absolute;
+right:0;
+top:24px;
+background:white;
+border-radius:8px;
+box-shadow:0 6px 16px rgba(0,0,0,.15);
+overflow:hidden;
+}
+.filter-menu div{
+padding:10px 14px;
+cursor:pointer;
+}
+.filter-menu div:hover{background:#f2f2f2}
 
-.filter{font-size:14px;color:#777;cursor:pointer}
-
+/* CARD */
 .card{
-background:#fff;
+background:#f7f7f7;
+margin:0 16px;
 border-radius:16px;
 overflow:hidden;
-box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
-
-.item{
-padding:14px 16px;
+.tx{
 display:flex;
 justify-content:space-between;
-align-items:center;
-border-bottom:1px solid #eee;
+padding:14px 12px;
+border-bottom:1px solid #e5e5e5;
 }
+.tx:last-child{border:none}
+.tx-title{font-size:15px}
+.tx-date{font-size:12px;color:#777}
+.tx-amt{font-weight:bold;font-size:16px}
 
-.left{display:flex;flex-direction:column;gap:4px}
-
-.amount.plus{color:#18a558;font-weight:700}
-.amount.minus{color:#e53935;font-weight:700}
-
-.desc{font-size:15px}
-.date{font-size:12px;color:#888}
-
-.arrow{color:#bbb;font-size:18px}
-
-/* ===== BOTTOM NAV ===== */
+/* BOTTOM NAV */
 .bottom-nav{
 position:fixed;
 bottom:0;
 left:0;
 width:100%;
+height:70px;
 background:#fff;
+border-top:1px solid #ddd;
 display:flex;
 justify-content:space-around;
-padding:8px 0 6px;
-border-top:1px solid #ddd;
+align-items:center;
 }
-
-.nav-item{text-align:center;font-size:12px;color:#888}
-.nav-item img{width:22px;display:block;margin:0 auto 2px}
-
-.nav-item.active{
-color:#ff3b3b;
-font-weight:600;
-}
-
-.nav-item.active img{
-filter:brightness(0) saturate(100%) invert(34%) sepia(92%) saturate(7400%) hue-rotate(349deg) brightness(103%) contrast(101%);
-}
+.nav-item{text-align:center;font-size:12px;color:#999;font-weight:700}
+.nav-item img{width:26px;display:block;margin:auto}
+.nav-item.active{color:#ff3b3b}
 </style>
 </head>
 
 <body>
 
+<div id="page">
+
 <!-- HEADER -->
-<div class="topbar">
-  <div class="logo">
-    <img src="Image/logo.png">
-    <span></span>
-  </div>
-
-  <div class="wallet-pill">
-    ₹ <span id="walletAmt">0.00</span>
-  </div>
+<div class="header">
+<div class="header-top">
+<div class="brand">
+<img src="Image/logo.png">
+<span></span>
+</div>
+<div class="wallet-badge">₹ <span id="walletAmt">0.00</span></div>
+</div>
 </div>
 
-<!-- CONTENT -->
-<div class="content">
-
+<!-- TITLE -->
 <div class="title-row">
-<div class="title">Transaction History</div>
+<h2>Transaction History</h2>
 
-<div class="filter">
-<span id="filterLabel">All types ▾</span>
+<div class="filter" onclick="toggleFilter()">
+<span id="filterText">All types ▾</span>
 
-<div class="dropdown" id="filterMenu">
-<div data-type="all">All</div>
-<div data-type="deposit">Deposit</div>
-<div data-type="withdraw">Withdraw</div>
-</div>
-</div>
+<div class="filter-menu" id="filterMenu">
+<div onclick="setFilter('all')">All</div>
+<div onclick="setFilter('deposit')">Deposit</div>
+<div onclick="setFilter('withdraw')">Withdraw</div>
 </div>
 
+</div>
+</div>
+
+<!-- LIST -->
+<div class="card" id="txList"></div>
+
+</div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
-  <div class="nav-item">
-    <a href="index.html" style="text-decoration:none;color:inherit;">
-      <img src="Image/Home.png">
-      Home
-    </a>
-  </div>
+<div class="nav-item">
+<a href="index.html" style="text-decoration:none;color:inherit">
+<img src="Image/Home.png">Home
+</a>
+</div>
 
-  <div class="nav-item">
-    <a href="tasks.html" style="text-decoration:none;color:inherit;">
-      <img src="Image/Task.png">
-      Tasks
-    </a>
-  </div>
+<div class="nav-item">
+<a href="tasks.html" style="text-decoration:none;color:inherit">
+<img src="Image/Task.png">Tasks
+</a>
+</div>
 
-  <div class="nav-item">
-    <a href="history.html" style="text-decoration:none;color:inherit;">
-      <img src="Image/Wallet.png">
-      Wallet
-    </a>
-  </div>
+<div class="nav-item active">
+<a href="wallet.html" style="text-decoration:none;color:inherit">
+<img src="Image/Wallet.png">Wallet
+</a>
+</div>
 
-  <div class="nav-item">
-    <a href="account.html" style="text-decoration:none;color:inherit;">
-      <img src="Image/Name.png">
-      Account
-    </a>
-  </div>
+<div class="nav-item">
+<a href="account.html" style="text-decoration:none;color:inherit">
+<img src="Image/Name.png">Account
+</a>
+</div>
 </div>
 
 <script>
-/* ===== WALLET LOAD ===== */
+
+let currentFilter="all";
+
+/* WALLET */
 function loadWallet(){
-  let bal = localStorage.getItem("walletBalance") || 0;
-  document.getElementById("walletAmt").innerText = parseFloat(bal).toFixed(2);
+let bal=parseFloat(localStorage.getItem("walletBalance")||0);
+document.getElementById("walletAmt").innerText=bal.toFixed(2);
 }
 
-/* ===== HISTORY LOAD ===== */
-function loadHistory(){
-  const list = document.getElementById("historyList");
-  list.innerHTML = "";
-
-  let history = JSON.parse(localStorage.getItem("txHistory") || "[]");
-
-  history.reverse().forEach(tx=>{
-    const item = document.createElement("div");
-    item.className = "item " + tx.type;
-
-    item.innerHTML = `
-      <div class="left">
-        <div class="amount ${tx.type==='deposit'?'plus':'minus'}">
-          ${tx.type==='deposit'?'+':'-'} ₹${tx.amount}
-        </div>
-        <div class="desc">${tx.note}</div>
-        <div class="date">${tx.date}</div>
-      </div>
-      <div class="arrow">›</div>
-    `;
-
-    list.appendChild(item);
-  });
-}
-
-/* ===== FILTER ===== */
-let filterMode="all";
-
+/* FILTER */
 function toggleFilter(){
-  if(filterMode==="all"){filterMode="deposit"}
-  else if(filterMode==="deposit"){filterMode="withdraw"}
-  else{filterMode="all"}
-
-  document.querySelector(".filter").innerText=
-    filterMode==="all"?"All types ▾":
-    filterMode==="deposit"?"Deposit ▾":"Withdraw ▾";
-
-  applyFilter();
+let m=document.getElementById("filterMenu");
+m.style.display=m.style.display==="block"?"none":"block";
 }
 
-function applyFilter(){
-  const items=document.querySelectorAll(".item");
+function setFilter(type){
+currentFilter=type;
 
-  items.forEach(i=>{
-    if(filterMode==="all") i.style.display="flex";
-    else if(filterMode==="deposit")
-      i.style.display=i.classList.contains("deposit")?"flex":"none";
-    else
-      i.style.display=i.classList.contains("withdraw")?"flex":"none";
-  });
+document.getElementById("filterText").innerText=
+type==="all"?"All types ▾":
+type==="deposit"?"Deposit ▾":"Withdraw ▾";
+
+document.getElementById("filterMenu").style.display="none";
+loadHistory();
 }
 
-/* ===== INIT ===== */
+/* HISTORY LOAD */
+function loadHistory(){
+let history=JSON.parse(localStorage.getItem("txHistory")||"[]");
+let list=document.getElementById("txList");
+list.innerHTML="";
+
+history.forEach(tx=>{
+
+if(currentFilter!=="all" && tx.type!==currentFilter) return;
+
+let color=tx.type==="deposit"?"#16a34a":"#dc2626";
+let sign=tx.type==="deposit"?"+":"-";
+
+list.innerHTML+=`
+<div class="tx">
+<div>
+<div class="tx-amt" style="color:${color}">
+${sign} ₹${tx.amount}
+</div>
+<div class="tx-title">${tx.note}</div>
+<div class="tx-date">${tx.date}</div>
+</div>
+<div style="color:#aaa">›</div>
+</div>`;
+});
+}
+
+/* INIT DEMO DATA */
+if(!localStorage.getItem("txHistory")){
+let demo=[
+{type:"deposit",amount:100,note:"Referral Bonus",date:"Apr 23, 2024"},
+{type:"withdraw",amount:50,note:"Wallet Withdrawal",date:"Apr 21, 2024"},
+{type:"withdraw",amount:100,note:"Wallet Withdrawal",date:"Apr 18, 2024"},
+{type:"deposit",amount:200,note:"Tasks Completed",date:"Apr 16, 2024"}
+];
+localStorage.setItem("txHistory",JSON.stringify(demo));
+}
+
 loadWallet();
 loadHistory();
+
 </script>
 
 </body>
