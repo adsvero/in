@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,15 +6,25 @@
 <title>Wallet | ADSVERO</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#f2f2f2}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
 
+body{
+  background:#f2f2f2;
+}
+
+/* ===== MOBILE CONTAINER ===== */
 #page{
-max-width:430px;
-margin:auto;
-background:white;
-min-height:100vh;
-padding-bottom:80px;
+  max-width:430px;
+  width:100%;
+  margin:0 auto;
+  background:white;
+  min-height:100vh;
+  overflow-y:auto;   /* 👈 SCROLL FIX */
 }
 
 /* HEADER */
@@ -25,14 +35,26 @@ color:#fff;
 border-bottom-left-radius:32px;
 border-bottom-right-radius:32px;
 }
+
 .header-top{
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 padding:0 16px;
 }
-.brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:20px}
-.brand img{height:36px}
+
+.brand{
+display:flex;
+align-items:center;
+gap:8px;
+font-weight:700;
+font-size:20px;
+}
+
+.brand img{
+height:36px;
+}
+
 .wallet-badge{
 background:rgba(255,255,255,.25);
 padding:8px 12px;
@@ -40,62 +62,92 @@ border-radius:20px;
 font-weight:700;
 }
 
-/* SECTION */
-.section{padding:16px}
+
+/* ===== BALANCE BADGE (CARD STYLE) ===== */
+.wallet-badge{
+  background:rgba(255,255,255,.25);
+  padding:8px 12px;
+  border-radius:20px;
+  font-weight:bold;
+}
+
+/* ===== MAIN SECTION ===== */
+.section{
+  padding:16px;
+}
+
+/* ===== CARDS ===== */
 .card{
-background:white;
-border-radius:18px;
-padding:16px;
-margin-bottom:14px;
-box-shadow:0 8px 22px rgba(0,0,0,.12);
-border:1px solid rgba(0,0,0,.05);
+  background:white;
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:14px;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+  border:1px solid rgba(0,0,0,.05);
+  pointer-events:auto;   /* 👈 CLICK FIX */
 }
+
+/* ===== INPUT BOX ===== */
 .input-box input{
-width:100%;
-padding:10px;
-border:1px solid #ddd;
-border-radius:10px;
-font-size:16px;
+  width:100%;
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:16px;
 }
 
+/* clickable fix */
+.input-box{
+  pointer-events:auto;
+}
+
+/* ===== CHANGE UPI LINK ===== */
+.change-upi{
+  color:#ff3b3b;
+  margin-top:6px;
+  cursor:pointer;
+}
+
+/* ===== WITHDRAW BUTTON ===== */
 .withdraw-btn{
-width:100%;
-padding:14px;
-border:none;
-border-radius:12px;
-background:#f2a60c;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:#f2a60c;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* HISTORY */
-.tx{
-display:flex;
-justify-content:space-between;
-padding:12px 0;
-border-bottom:1px solid #eee;
-}
-.tx:last-child{border:none}
-.tx-note{font-size:14px}
-.tx-date{font-size:12px;color:#777}
-
-/* BOTTOM NAV */
+/* ===== BOTTOM NAV ===== */
 .bottom-nav{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-height:70px;
-background:#fff;
-border-top:1px solid #ddd;
-display:flex;
-justify-content:space-around;
-align-items:center;
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:#fff;
+  border-top:1px solid #ddd;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
 }
-.nav-item{text-align:center;font-size:12px;color:#999;font-weight:700}
-.nav-item img{width:26px;display:block;margin:auto}
-.nav-item.active{color:#ff3b3b}
+
+.nav-item{
+  text-align:center;
+  font-size:12px;
+  color:#999;
+  font-weight:700;
+}
+
+.nav-item img{
+  width:26px;
+  display:block;
+  margin:0 auto 4px;
+}
+
+.nav-item.active{ color:#ff3b3b; }
 </style>
 </head>
 
@@ -105,159 +157,101 @@ align-items:center;
 
 <!-- HEADER -->
 <div class="header">
-<div class="header-top">
-<div class="brand">
-<img src="Image/logo.png">
-<span></span>
-</div>
-<div class="wallet-badge">₹ <span id="walletAmt">0.00</span></div>
-</div>
+  <div class="header-top">
+    <div class="brand">
+      <img src="Image/logo.png">
+      <span></span>
+    </div>
+    <div class="wallet-badge">₹ 0.00</div>
+  </div>
 </div>
 
 <div class="section">
 <h3>Withdraw Funds</h3>
 
+<!-- AMOUNT CARD -->
 <div class="card">
-<p><b>Withdraw Amount (₹)</b></p>
-<div class="input-box">
-<input type="number" id="withdrawAmount" placeholder="Enter amount">
-</div>
-<p style="color:#777;margin-top:6px">Minimum ₹50</p>
+  <p><b>Excisee Amount (₹)</b></p>
+  <div class="input-box">
+    <input type="number" id="withdrawAmount" placeholder="Enter amount">
+  </div>
+  <p style="color:#777;margin-top:6px;">
+    Minimum ₹500 → ₹1000000
+  </p>
 </div>
 
+<!-- BANK CARD -->
 <div class="card">
-<p><b>Bank Transfer</b></p>
-<div class="input-box">
-<input type="text" value="himanshu kumar">
-</div>
+  <p><b>Bank Transfer</b></p>
+  <div class="input-box">
+    <input type="text" id="bankName" value="himanshu kumar">
+  </div>
+  <p class="change-upi" onclick="alert('Bank change page coming soon')">
+    Change Bank &gt;
+  </p>
 </div>
 
+<!-- UPI CARD -->
 <div class="card">
-<p><b>UPI</b></p>
-<div class="input-box">
-<input type="text" value="himanshu@upi">
-</div>
-</div>
-
-<button class="withdraw-btn" onclick="requestWithdraw()">Request Withdraw</button>
-
-</div>
-
-<!-- HISTORY -->
-<div class="section">
-<h3>Transaction History</h3>
-<div id="txList"></div>
+  <p><b>UPI</b></p>
+  <div class="input-box">
+    <input type="text" id="upiId" value="himanshu@upi">
+  </div>
+  <p class="change-upi" onclick="alert('UPI change page coming soon')">
+    Change UPI &gt;
+  </p>
 </div>
 
+<!-- BUTTON -->
+<button class="withdraw-btn" onclick="requestWithdraw()">
+  Request Withdraw
+</button>
+
+<p style="margin-top:8px;color:#777;">
+Withdrawals are processed within 24–72 hours.
+</p>
+
+</div>
 </div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
-<div class="nav-item">
-<a href="index.html" style="text-decoration:none;color:inherit">
-<img src="Image/Home.png">Home
-</a>
-</div>
+  <div class="nav-item">
+    <a href="index.html" style="text-decoration:none;color:inherit;">
+      <img src="Image/Home.png">Home
+    </a>
+  </div>
 
-<div class="nav-item">
-<a href="tasks.html" style="text-decoration:none;color:inherit">
-<img src="Image/Task.png">Tasks
-</a>
-</div>
+  <div class="nav-item">
+    <a href="tasks.html" style="text-decoration:none;color:inherit;">
+      <img src="Image/Task.png">Tasks
+    </a>
+  </div>
 
-<div class="nav-item active">
-<a href="wallet.html" style="text-decoration:none;color:inherit">
-<img src="Image/Wallet.png">Wallet
-</a>
-</div>
+  <div class="nav-item active">
+    <a href="wallet.html" style="text-decoration:none;color:inherit;">
+      <img src="Image/Wallet.png">Wallet
+    </a>
+  </div>
 
-<div class="nav-item">
-<a href="account.html" style="text-decoration:none;color:inherit">
-<img src="Image/Name.png">Account
-</a>
-</div>
+  <div class="nav-item">
+    <a href="account.html" style="text-decoration:none;color:inherit;">
+      <img src="Image/Name.png">Account
+    </a>
+  </div>
 </div>
 
 <script>
-
-/* WALLET LOAD */
-function loadWallet(){
-let bal = parseFloat(localStorage.getItem("walletBalance")||0);
-document.getElementById("walletAmt").innerText = bal.toFixed(2);
-}
-
-/* ADD HISTORY */
-function addHistory(type,amount,note){
-let history = JSON.parse(localStorage.getItem("txHistory")||"[]");
-
-history.unshift({
-type:type,
-amount:amount,
-note:note,
-date:new Date().toLocaleDateString(),
-time:new Date().toLocaleTimeString()
-});
-
-localStorage.setItem("txHistory",JSON.stringify(history));
-}
-
-/* WITHDRAW */
 function requestWithdraw(){
-let amt = parseFloat(document.getElementById("withdrawAmount").value);
-let bal = parseFloat(localStorage.getItem("walletBalance")||0);
+  let amt = document.getElementById("withdrawAmount").value;
 
-if(!amt || amt<50){
-alert("Minimum withdraw ₹500");
-return;
+  if(amt == "" || amt < 500){
+    alert("Minimum withdraw ₹500 required ❌");
+    return;
+  }
+
+  alert("Withdraw Request Submitted ✅");
 }
-
-if(amt>bal){
-alert("Insufficient Balance");
-return;
-}
-
-bal -= amt;
-localStorage.setItem("walletBalance",bal);
-
-addHistory("withdraw",amt,"Wallet Withdrawal");
-loadWallet();
-loadHistory();
-
-alert("Withdraw Request Submitted");
-}
-
-/* LOAD HISTORY */
-function loadHistory(){
-let history = JSON.parse(localStorage.getItem("txHistory")||"[]");
-let list = document.getElementById("txList");
-
-list.innerHTML="";
-
-history.forEach(tx=>{
-let color = tx.type==="deposit"?"green":"red";
-let sign = tx.type==="deposit"?"+":"-";
-
-list.innerHTML += `
-<div class="tx">
-<div>
-<div class="tx-note">${tx.note}</div>
-<div class="tx-date">${tx.date}</div>
-</div>
-<div style="color:${color};font-weight:bold">${sign}₹${tx.amount}</div>
-</div>`;
-});
-}
-
-/* DEMO DEPOSIT (REMOVE LATER) */
-if(!localStorage.getItem("walletBalance")){
-localStorage.setItem("walletBalance",500);
-addHistory("deposit",500,"Welcome Bonus");
-}
-
-/* INIT */
-loadWallet();
-loadHistory();
-
 </script>
 
 </body>
