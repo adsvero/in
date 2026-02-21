@@ -114,6 +114,32 @@ body::before{
   <div class="nav-item"><img src="Image/Wallet.png">Wallet</div>
   <div class="nav-item"><img src="Image/Name.png">Account</div>
 </div>
+<script>
+function login(){
 
+const phone = document.getElementById("phone").value.trim();
+const password = document.getElementById("password").value.trim();
+
+const saved = JSON.parse(localStorage.getItem("adsveroUser"));
+
+if(!saved){
+alert("User not registered");
+return;
+}
+
+if(phone === saved.phone && password === saved.password){
+
+localStorage.setItem("isLoggedIn","true");
+
+alert("Login Success ✅");
+
+location.href="account.html";
+
+}else{
+alert("Invalid login");
+}
+
+}
+  </script>
 </body>
 </html>
