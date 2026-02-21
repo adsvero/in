@@ -142,26 +142,36 @@ body::before{
 <script>
 document.getElementById("registerBtn").addEventListener("click", function () {
 
-  const phone = document.getElementById("phone").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const confirm = document.getElementById("confirm").value.trim();
+const name = document.getElementById("name").value.trim();
+const phone = document.getElementById("phone").value.trim();
+const password = document.getElementById("password").value.trim();
+const confirm = document.getElementById("confirm").value.trim();
 
-  if (!phone || !password || !confirm) {
-    alert("Fill all fields");
-    return;
-  }
+if (!name || !phone || !password || !confirm) {
+alert("Fill all fields");
+return;
+}
 
-  if (password !== confirm) {
-    alert("Password not match");
-    return;
-  }
+if (password !== confirm) {
+alert("Password not match");
+return;
+}
 
-  localStorage.setItem("userPhone", phone);
-  localStorage.setItem("userPassword", password);
-  localStorage.setItem("isLoggedIn", "false");
+const user = {
+name: name,
+phone: phone,
+email: phone + "@gmail.com",
+password: password
+};
 
-  location.href = "login.html";
+localStorage.setItem("adsveroUser", JSON.stringify(user));
+
+alert("Register Success ✅");
+
+location.href = "account.html";
+
 });
+</script>
 </script>
 
 </body>
