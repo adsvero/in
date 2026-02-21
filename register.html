@@ -161,17 +161,19 @@ const user = {
 name: name,
 phone: phone,
 email: phone + "@gmail.com",
-password: password
+password: password,
+avatar: "",
+wallet: 0
 };
 
 localStorage.setItem("adsveroUser", JSON.stringify(user));
 
 alert("Register Success ✅");
 
-location.href = "account.html";
+// 👉 LOGIN PAGE REDIRECT
+location.href = "login.html";
 
 });
-</script>
 </script>
 
 </body>
