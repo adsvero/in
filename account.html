@@ -180,8 +180,8 @@ font-weight:700;
 <div class="profile">
 <div class="profile-avatar" id="menuAvatar">A</div>
 <div class="profile-info">
-<h3 id="menuName">Himanshu</h3>
-<p id="menuEmail">himanshu@gmail.com</p>
+<h3 id="accName"></h3>
+<p id="accEmail"></p>
 </div>
 </div>
 
@@ -275,6 +275,17 @@ avatar.innerText = name.charAt(0).toUpperCase();
 
 loadMenuProfile();
 </script>
-  
+<script>
+
+const user = JSON.parse(localStorage.getItem("adsveroUser"));
+
+if(user){
+
+  document.getElementById("accName").innerText = user.name;
+  document.getElementById("accEmail").innerText = user.email;
+
+}
+
+</script>
 </body>
 </html>
