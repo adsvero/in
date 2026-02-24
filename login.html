@@ -100,7 +100,7 @@ body::before{
     <input type="password" placeholder="Password">
   </div>
 
-  <button class="btn">Login</button>
+  <button class="btn" onclick="login()">Login</button>
 
   <div class="login-text">
     Don’t have an account?
@@ -133,7 +133,7 @@ localStorage.setItem("isLoggedIn","true");
 
 alert("Login Success ✅");
 
-location.href="account.html";
+location.href="index.html";
 
 }else{
 alert("Invalid login");
