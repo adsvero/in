@@ -178,7 +178,7 @@ font-weight:700;
   
 <!-- PROFILE -->
 <div class="profile">
-<div class="profile-avatar" id="menuAvatar">A</div>
+<div class="profile-avatar" id="profileavatar"></div>
 <div class="profile-info">
 <h3 id="accName"></h3>
 <p id="accEmail"></p>
@@ -283,6 +283,25 @@ if(user){
 
   document.getElementById("accName").innerText = user.name;
   document.getElementById("accEmail").innerText = user.email;
+
+}
+
+</script>
+<script>
+
+const user = JSON.parse(localStorage.getItem("adsveroUser"));
+
+if(user){
+
+  // name
+  document.getElementById("accName").innerText = user.name;
+
+  // email / phone
+  document.getElementById("accEmail").innerText = user.phone;
+
+  // avatar letter
+  const letter = user.name.charAt(0).toUpperCase();
+  document.getElementById("profileAvatar").innerText = letter;
 
 }
 
