@@ -250,24 +250,39 @@ font-weight:700;
   </div>
 </div>
   
-
+<script>
+/* ===== LOAD USER DATA ===== */
 const user = JSON.parse(localStorage.getItem("adsveroUser"));
 const dp = localStorage.getItem("profilePic");
 
 if(user){
+
+  /* ===== NAME ===== */
   document.getElementById("accName").innerText = user.name;
+
+  /* ===== PHONE / EMAIL ===== */
   document.getElementById("accEmail").innerText = user.phone;
 
+  /* ===== AVATAR ===== */
   const avatar = document.getElementById("profileAvatar");
 
   if(dp){
+    // show profile picture
     avatar.innerHTML = "";
     avatar.style.backgroundImage = `url(${dp})`;
     avatar.style.backgroundSize = "cover";
     avatar.style.backgroundPosition = "center";
   }else{
+    // show first letter
     avatar.innerText = user.name.charAt(0).toUpperCase();
   }
 }
+
+/* ===== LOGOUT ===== */
+function logout(){
+  localStorage.removeItem("adsveroUser");
+  window.location.href = "login.html";
+}
+</script>
 </body>
 </html>
