@@ -252,15 +252,22 @@ font-weight:700;
   
 <script>
 const user = JSON.parse(localStorage.getItem("adsveroUser"));
+const dp = localStorage.getItem("profilePic");
 
 if(user){
   document.getElementById("accName").innerText = user.name;
   document.getElementById("accEmail").innerText = user.phone;
-  document.getElementById("profileavatar").innerText =
-    user.name.charAt(0).toUpperCase();
+
+  const avatar = document.getElementById("profileAvatar");
+
+  if(dp){
+    avatar.innerHTML = "";
+    avatar.style.backgroundImage = `url(${dp})`;
+    avatar.style.backgroundSize = "cover";
+    avatar.style.backgroundPosition = "center";
+  }else{
+    avatar.innerText = user.name.charAt(0).toUpperCase();
+  }
 }
-</script>
-
-
 </body>
 </html>
