@@ -225,6 +225,12 @@ body{
 </div>
 
 <script>
+const user = JSON.parse(localStorage.getItem("adsveroUser"));
+const current = document.getElementById("currentAvatar");
+
+if(user && current){
+  current.innerText = user.name.charAt(0).toUpperCase();
+}
 const avatars = document.querySelectorAll(".avatar-grid img");
 const current = document.getElementById("currentAvatar");
 
