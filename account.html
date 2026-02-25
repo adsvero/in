@@ -249,62 +249,18 @@ font-weight:700;
     </a>
   </div>
 </div>
-
+  
 <script>
-function loadMenuProfile(){
-
-const name = localStorage.getItem("userName") || "Himanshu";
-const email = localStorage.getItem("userEmail") || "himanshu@gmail.com";
-const dp = localStorage.getItem("profilePic");
-
-document.getElementById("menuName").innerText = name;
-document.getElementById("menuEmail").innerText = email;
-
-const avatar = document.getElementById("menuAvatar");
-
-if(dp){
-avatar.innerHTML = "";
-avatar.style.backgroundImage = `url(${dp})`;
-avatar.style.backgroundSize = "cover";
-avatar.style.backgroundPosition = "center";
-}else{
-avatar.innerText = name.charAt(0).toUpperCase();
-}
-
-}
-
-loadMenuProfile();
-</script>
-<script>
-
 const user = JSON.parse(localStorage.getItem("adsveroUser"));
 
 if(user){
-
   document.getElementById("accName").innerText = user.name;
-  document.getElementById("accEmail").innerText = user.email;
-
-}
-
-</script>
-<script>
-
-const user = JSON.parse(localStorage.getItem("adsveroUser"));
-
-if(user){
-
-  // name
-  document.getElementById("accName").innerText = user.name;
-
-  // email / phone
   document.getElementById("accEmail").innerText = user.phone;
-
-  // avatar letter
-  const letter = user.name.charAt(0).toUpperCase();
-  document.getElementById("profileAvatar").innerText = letter;
-
+  document.getElementById("profileAvatar").innerText =
+    user.name.charAt(0).toUpperCase();
 }
-
 </script>
+
+
 </body>
 </html>
