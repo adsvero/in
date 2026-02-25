@@ -251,34 +251,33 @@ font-weight:700;
 </div>
   
 <script>
-/* ===== LOAD USER DATA ===== */
-const user = JSON.parse(localStorage.getItem("adsveroUser"));
-const dp = localStorage.getItem("profilePic");
+document.addEventListener("DOMContentLoaded", function(){
 
-if(user){
+  const user = JSON.parse(localStorage.getItem("adsveroUser"));
+  const dp = localStorage.getItem("profilePic");
 
-  /* ===== NAME ===== */
-  document.getElementById("accName").innerText = user.name;
+  if(!user) return;
 
-  /* ===== PHONE / EMAIL ===== */
-  document.getElementById("accEmail").innerText = user.phone;
-
-  /* ===== AVATAR ===== */
+  const nameEl = document.getElementById("accName");
+  const emailEl = document.getElementById("accEmail");
   const avatar = document.getElementById("profileAvatar");
 
-  if(dp){
-    // show profile picture
-    avatar.innerHTML = "";
-    avatar.style.backgroundImage = `url(${dp})`;
-    avatar.style.backgroundSize = "cover";
-    avatar.style.backgroundPosition = "center";
-  }else{
-    // show first letter
-    avatar.innerText = user.name.charAt(0).toUpperCase();
-  }
-}
+  if(nameEl) nameEl.innerText = user.name;
+  if(emailEl) emailEl.innerText = user.phone;
 
-/* ===== LOGOUT ===== */
+  if(avatar){
+    if(dp){
+      avatar.innerHTML = "";
+      avatar.style.backgroundImage = `url(${dp})`;
+      avatar.style.backgroundSize = "cover";
+      avatar.style.backgroundPosition = "center";
+    }else{
+      avatar.innerText = user.name.charAt(0).toUpperCase();
+    }
+  }
+
+});
+
 function logout(){
   localStorage.removeItem("adsveroUser");
   window.location.href = "login.html";
