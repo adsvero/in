@@ -251,13 +251,42 @@ font-weight:700;
 </div>
   
 <script>
-const user = JSON.parse(localStorage.getItem("adsveroUser"));
+document.addEventListener("DOMContentLoaded", function(){
 
-if(user){
-  document.getElementById("accName").innerText = user.name;
-  document.getElementById("accEmail").innerText = user.phone;
-  document.getElementById("profileAvatar").innerText =
-    user.name.charAt(0).toUpperCase();
+  const user = JSON.parse(localStorage.getItem("adsveroUser"));
+  const dp = localStorage.getItem("profilePic");
+
+  if(!user){
+    console.log("User not found");
+    return;
+  }
+
+  const nameEl = document.getElementById("accName");
+  const phoneEl = document.getElementById("accEmail");
+  const avatar = document.getElementById("profileAvatar");
+
+  // name + phone show
+  if(nameEl) nameEl.innerText = user.name || "";
+  if(phoneEl) phoneEl.innerText = user.phone || "";
+
+  // avatar
+  if(avatar){
+    if(dp){
+      avatar.innerHTML = "";
+      avatar.style.backgroundImage = `url(${dp})`;
+      avatar.style.backgroundSize = "cover";
+      avatar.style.backgroundPosition = "center";
+    }else{
+      avatar.innerText = (user.name || "U").charAt(0).toUpperCase();
+    }
+  }
+
+});
+
+// logout
+function logout(){
+  localStorage.removeItem("adsveroUser");
+  window.location.href = "login.html";
 }
 </script>
 </body>
