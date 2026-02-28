@@ -251,36 +251,36 @@ font-weight:700;
 </div>
   
 <script>
-document.addEventListener("DOMContentLoaded", function(){
+const user = JSON.parse(localStorage.getItem("adsveroUser"));
+const current = document.getElementById("currentAvatar");
 
-  const user = JSON.parse(localStorage.getItem("adsveroUser"));
-  const dp = localStorage.getItem("profilePic");
+if(user && current){
+  current.innerText = user.name.charAt(0).toUpperCase();
+}
 
-  if(!user) return;
+const avatars = document.querySelectorAll(".avatar-grid img");
 
-  const nameEl = document.getElementById("accName");
-  const emailEl = document.getElementById("accEmail");
-  const avatar = document.getElementById("profileAvatar");
+let selectedDP = "";
 
-  if(nameEl) nameEl.innerText = user.name;
-  if(emailEl) emailEl.innerText = user.phone;
-
-  if(avatar){
-    if(dp){
-      avatar.innerHTML = "";
-      avatar.style.backgroundImage = `url(${dp})`;
-      avatar.style.backgroundSize = "cover";
-      avatar.style.backgroundPosition = "center";
-    }else{
-      avatar.innerText = user.name.charAt(0).toUpperCase();
-    }
+avatars.forEach(img=>{
+  img.onclick=()=>{
+    avatars.forEach(a=>a.classList.remove("selected"));
+    img.classList.add("selected");
+    current.innerHTML="";
+    current.style.background="none";
+    current.style.backgroundImage=`url(${img.src})`;
+    current.style.backgroundSize="cover";
+    selectedDP = img.src;
   }
-
 });
 
-function logout(){
-  localStorage.removeItem("adsveroUser");
-  window.location.href = "login.html";
+function saveProfile(){
+  if(selectedDP===""){
+    alert("Please select profile picture");
+    return;
+  }
+  localStorage.setItem("profilePic", selectedDP);
+  window.location.href="account.html";
 }
 </script>
 </body>
