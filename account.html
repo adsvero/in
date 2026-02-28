@@ -252,35 +252,12 @@ font-weight:700;
   
 <script>
 const user = JSON.parse(localStorage.getItem("adsveroUser"));
-const current = document.getElementById("currentAvatar");
 
-if(user && current){
-  current.innerText = user.name.charAt(0).toUpperCase();
-}
-
-const avatars = document.querySelectorAll(".avatar-grid img");
-
-let selectedDP = "";
-
-avatars.forEach(img=>{
-  img.onclick=()=>{
-    avatars.forEach(a=>a.classList.remove("selected"));
-    img.classList.add("selected");
-    current.innerHTML="";
-    current.style.background="none";
-    current.style.backgroundImage=`url(${img.src})`;
-    current.style.backgroundSize="cover";
-    selectedDP = img.src;
-  }
-});
-
-function saveProfile(){
-  if(selectedDP===""){
-    alert("Please select profile picture");
-    return;
-  }
-  localStorage.setItem("profilePic", selectedDP);
-  window.location.href="account.html";
+if(user){
+  document.getElementById("accName").innerText = user.name;
+  document.getElementById("accEmail").innerText = user.phone;
+  document.getElementById("profileAvatar").innerText =
+    user.name.charAt(0).toUpperCase();
 }
 </script>
 </body>
